@@ -1,5 +1,6 @@
 //Declare a module named "gr.unipi.MealAPI"
-module gr.unipi.MealAPI {
+module gr.unipi.MealAPI 
+{
 	
     //Export the "model" package so that other modules can use its public classes
     exports model;
