@@ -133,7 +133,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		 backBtn = new Button("Back");
 		
 		 //Initialize the TableView to display MealInfo objects
-		     MealTableView = new TableView<MealInfo>();
+		 MealTableView = new TableView<MealInfo>();
 		
 		  //Create a TableColumn for the "idMeal" property of MealInfo objects
 		 TableColumn<MealInfo, String> idMealColumn = new TableColumn<>("idMeal");
@@ -196,9 +196,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		 //Bind the column to the "strYoutube" property
 		 strYoutubeColumn.setCellValueFactory(new PropertyValueFactory<>("strYoutube"));
 		 //Add the column to the TableView
-		     MealTableView.getColumns().add(strYoutubeColumn);
+		 MealTableView.getColumns().add(strYoutubeColumn);
 		
-		  //Create a TableColumn for the first ingredient (strIngredient1) of MealInfo
+		//Create a TableColumn for the first ingredient (strIngredient1) of MealInfo
 		 TableColumn<MealInfo, String> strIngredient1Column = new TableColumn<>("strIngredient1");
 		
 		 //Bind the strIngredient1 property of MealInfo to this column
@@ -379,7 +379,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		     MealTableView.getColumns().add(strIngredient20Column);
 		
 				
-		  //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
+		 //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
 		 TableColumn<MealInfo, String> strMeasure1Column = new TableColumn<>("strMeasure1");
 		
 		 //Bind the strMeasure1 property of MealInfo to this column
@@ -647,13 +647,14 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		 mapper1.enable(SerializationFeature.INDENT_OUTPUT);
 		
 		 //Enable pretty-printing for JSON output in mapper2 (used for cooked meals)
-		     mapper2.enable(SerializationFeature.INDENT_OUTPUT);
+		 mapper2.enable(SerializationFeature.INDENT_OUTPUT);
 		
 		      
 		  //Check if the "cooked.json" file exists
 		 if (cooked.exists())
 		 {
-		     try {
+		     try 
+		     {
 		         //Obtain a TypeFactory instance from mapper2 for advanced type handling
 		         TypeFactory typeFactory = mapper2.getTypeFactory();
 		
@@ -667,7 +668,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		         //Print a message to indicate successful deserialization of cooked meals
 		         System.out.println("Cooked object deserialized from cooked.json:");
 		         
-		     } catch (IOException e) {
+		     } 
+			 catch (IOException e) 
+		     {
 		         //Print the exception stack trace if an I/O error occurs during deserialization
 		         e.printStackTrace();
 		     }
@@ -679,13 +682,15 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 	     //Check if the "favourite.json" file exists
 	     if (favourite.exists())
 	     {
-	         try {
+	         try 
+		     {
 	             //Obtain a TypeFactory instance from mapper1 for advanced type handling
 	             TypeFactory typeFactory = mapper1.getTypeFactory();
 	
 	             //Deserialize the JSON content of "favourite.json" into a List of MealInfo objects
 	             //and assign it to the application's favourite meals list (FavMealList)
-	             App.FavMealList = mapper1.readValue(
+	             App.FavMealList = mapper1.readValue
+				 (
 	                 new File("favourite.json"),
 	                 typeFactory.constructCollectionType(List.class, MealInfo.class)
 	             );
@@ -693,7 +698,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 	             //Print a message to indicate successful deserialization of favourite meals
 	             System.out.println("Favourite object deserialized from favourite.json:");
 	             
-	         } catch (IOException e) {
+	         } 
+			 catch (IOException e) 
+			 {
 	             //Print the exception stack trace if an I/O error occurs during deserialization
 	             e.printStackTrace();
 	         }
@@ -759,8 +766,10 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		         mapper2.writeValue(new File("cooked.json"), App.CoMealList);
 		
 		         //Loop through each MealInfo in the updated CoMealList
-		         for (MealInfo mi : App.CoMealList) {
-		             try {
+		         for (MealInfo mi : App.CoMealList) 
+				 {
+		             try 
+					 {
 		                 //Convert each MealInfo object to a JSON string for logging purposes
 		                 String cookedJsonString = mapper2.writeValueAsString(mi);
 		
@@ -770,7 +779,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		                 //Print the JSON string of the meal
 		                 System.out.println(cookedJsonString);
 		
-		             } catch (IOException e) {
+		             } 
+					 catch (IOException e) 
+					 {
 		                 //Print the stack trace if an I/O error occurs during serialization
 		                 e.printStackTrace();
 		             }
@@ -790,16 +801,19 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		         }
 		     }
 		     //Catch block for JSON generation errors
-		     catch (JsonGenerationException e1) {
+		     catch (JsonGenerationException e1) 
+			 {
 		         System.err.println("Failed to generate JSON output for cooked.json");
 		         e1.printStackTrace();
 		     } 
 		     //Catch block for JSON mapping errors
-		     catch (JsonMappingException e1) {
+		     catch (JsonMappingException e1) 
+			 {
 		         e1.printStackTrace();
 		     } 
 		     //Catch block for general I/O errors
-		     catch (IOException e1) {
+		     catch (IOException e1) 
+			 {
 		         e1.printStackTrace();
 		     }
 		 }
@@ -842,8 +856,10 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		      mapper1.writeValue(new File("favourite.json"), App.FavMealList);
 		
 		      //Loop through each MealInfo in the updated favourite list to log JSON
-		      for (MealInfo mi : App.FavMealList) {
-		          try {
+		      for (MealInfo mi : App.FavMealList) 
+			  {
+		          try 
+				  {
 		              //Convert each MealInfo object to a JSON string for logging purposes
 		              String favouriteJsonString = mapper1.writeValueAsString(mi);
 		
@@ -853,7 +869,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		              //Print the JSON string
 		              System.out.println(favouriteJsonString);
 		
-		          } catch (IOException e) {
+		          } 
+				  catch (IOException e) 
+				  {
 		              //Print stack trace if an I/O error occurs during serialization
 		              e.printStackTrace();
 		          }
@@ -863,8 +881,10 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		      mapper2.writeValue(new File("cooked.json"), App.CoMealList);
 		
 		      //Loop through each MealInfo in the updated cooked list to log JSON
-		      for (MealInfo mi : App.CoMealList) {
-		          try {
+		      for (MealInfo mi : App.CoMealList) 
+			  {
+		          try 
+				  {
 		              //Convert each MealInfo object to a JSON string for logging purposes
 		              String cookedJsonString = mapper2.writeValueAsString(mi);
 		
@@ -874,7 +894,9 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		              //Print the JSON string
 		              System.out.println(cookedJsonString);
 		
-		          } catch (IOException e) {
+		          } 
+				  catch (IOException e) 
+				  {
 		              //Print stack trace if an I/O error occurs during serialization
 		              e.printStackTrace();
 		          }
@@ -894,16 +916,19 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		      }
 		  }
 		  //Catch block for JSON generation errors
-		  catch (JsonGenerationException e1) {
+		  catch (JsonGenerationException e1) 
+		  {
 		      System.err.println("JSON generation failed while writing favourite.json or cooked.json from Meal lists");
 		      e1.printStackTrace();
 		  } 
 		  //Catch block for JSON mapping errors
-		  catch (JsonMappingException e1) {
+		  catch (JsonMappingException e1) 
+		  {
 		      e1.printStackTrace();
 		  } 
 		  //Catch block for general I/O errors
-		  catch (IOException e1) {
+		  catch (IOException e1) 
+		  {
 		      e1.printStackTrace();
 		  }
 		}
@@ -927,23 +952,23 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 				  if (selectedItems.contains(MI))
 				  {
 				      //Create a new GetDetailsSceneCreator for the selected meal
-				  GetDetailsSceneCreator getDetailsSceneCreator = new GetDetailsSceneCreator(MI);
-				
-				  //Create the scene containing the meal details
-				  Scene getDetailsScene = getDetailsSceneCreator.createScene();
-				
-				  //Create a new Stage (window) for displaying the details
-				  Stage getDetailsStage = new Stage();
-				
-				  //Set the title of the new Stage window
-				  getDetailsStage.setTitle("Get Details");
-				
-				  //Set the scene of the Stage to the details scene
-				  getDetailsStage.setScene(getDetailsScene);
-				
-				  //Show the Stage window to the user
-					      getDetailsStage.show();
-					  }
+					  GetDetailsSceneCreator getDetailsSceneCreator = new GetDetailsSceneCreator(MI);
+					
+					  //Create the scene containing the meal details
+					  Scene getDetailsScene = getDetailsSceneCreator.createScene();
+					
+					  //Create a new Stage (window) for displaying the details
+					  Stage getDetailsStage = new Stage();
+					
+					  //Set the title of the new Stage window
+					  getDetailsStage.setTitle("Get Details");
+					
+					  //Set the scene of the Stage to the details scene
+					  getDetailsStage.setScene(getDetailsScene);
+					
+					  //Show the Stage window to the user
+					  getDetailsStage.show();
+				 }
 			}
 		}
 		
@@ -955,4 +980,5 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		}
 	
 	}
+
 }
