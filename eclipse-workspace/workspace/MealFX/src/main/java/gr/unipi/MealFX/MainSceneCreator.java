@@ -45,9 +45,9 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
 	//Method to create and return a JavaFX Scene for this UI
     Scene createScene()
     {
-      //Create a new Scene using the rootGridPane as the root layout
-      //Set the width of the scene to 650 pixels and the height to 300 pixels
-      return new Scene(rootFlowPane, 650, 300);
+	    //Create a new Scene using the rootGridPane as the root layout
+	    //Set the width of the scene to 650 pixels and the height to 300 pixels
+	    return new Scene(rootFlowPane, 650, 300);
     }
 
 	//Override the handle method from EventHandler to respond to mouse events
@@ -91,4 +91,5 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
 	    }
 	}
 }
+
 
