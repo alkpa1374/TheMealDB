@@ -15,7 +15,7 @@ public class MealAPIException extends Exception
         //Call the parent Exception class constructor with the message
         super(message);
     }
-
+    
     //Constructor that takes a message string and a Throwable cause
     //Allows creating an exception that wraps another exception
     public MealAPIException(String message, Throwable cause) 
@@ -24,3 +24,4 @@ public class MealAPIException extends Exception
         super(message, cause);
     }
 }
+
