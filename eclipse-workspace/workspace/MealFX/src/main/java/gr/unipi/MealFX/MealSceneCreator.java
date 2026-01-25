@@ -98,29 +98,30 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 	 GridPane rootGridPane, inputFieldsPane;
 
 	 //Buttons for various actions in the meal scene
-	Button getMealByNameBtn, getSpecificMealBtn, getRandomMealBtn, addFavouriteBtn, addCookedBtn, getDetailsBtn, backBtn;
+	 Button getMealByNameBtn, getSpecificMealBtn, getRandomMealBtn, addFavouriteBtn, addCookedBtn, getDetailsBtn, backBtn;
 
-	//Label to display text or instructions in the meal scene
-    Label textLbl = new Label("Parameter");
+	 //Label to display text or instructions in the meal scene
+     Label textLbl = new Label("Parameter");
 
-    //TextField for user input or parameters in the meal scene
-    TextField paramField = new TextField();
+     //TextField for user input or parameters in the meal scene
+     TextField paramField = new TextField();
 
-    //TableView to display a list of MealInfo objects in a tabular form
-    TableView<MealInfo> MealTableView;
+     //TableView to display a list of MealInfo objects in a tabular form
+     TableView<MealInfo> MealTableView;
 
- //Create a new list to store the user's favourite meals
-    List<MealInfo> FavMealList = new ArrayList<>();
+     //Create a new list to store the user's favourite meals
+     List<MealInfo> FavMealList = new ArrayList<>();
 
-    //Create a new list to store the meals the user has cooked
-    List<MealInfo> CoMealList = new ArrayList<>();
+     //Create a new list to store the meals the user has cooked
+     List<MealInfo> CoMealList = new ArrayList<>();
     
-    //Jackson ObjectMapper instances for JSON serialization/deserialization
-    ObjectMapper mapper1 = new ObjectMapper();
-    ObjectMapper mapper2 = new ObjectMapper();
+     //Jackson ObjectMapper instances for JSON serialization/deserialization
+     ObjectMapper mapper1 = new ObjectMapper();
+     ObjectMapper mapper2 = new ObjectMapper();
 
-    //Constructor for the MealSceneCreator class
-	public MealSceneCreator() {
+     //Constructor for the MealSceneCreator class
+	 public MealSceneCreator() 
+	 {
 		//Initialize the root grid pane that contains the main layout
         rootGridPane = new GridPane();
 
@@ -148,7 +149,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 		//Initialize the TableView to display MealInfo objects
         MealTableView = new TableView<MealInfo>();
 
-     //Create a TableColumn for the "idMeal" property of MealInfo objects
+        //Create a TableColumn for the "idMeal" property of MealInfo objects
         TableColumn<MealInfo, String> idMealColumn = new TableColumn<>("idMeal");
         //Bind the column to the "idMeal" property of MealInfo using PropertyValueFactory
         idMealColumn.setCellValueFactory(new PropertyValueFactory<>("idMeal"));
@@ -392,7 +393,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
         MealTableView.getColumns().add(strIngredient20Column);
 
 		
-     //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
+        //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
         TableColumn<MealInfo, String> strMeasure1Column = new TableColumn<>("strMeasure1");
 
         //Bind the strMeasure1 property of MealInfo to this column
@@ -609,7 +610,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
         MealTableView.getColumns().add(dateModifiedColumn);
 		
         
-     //Add the "Get Meal By Name" button to the FlowPane
+        //Add the "Get Meal By Name" button to the FlowPane
         buttonFlowPane.getChildren().add(getMealByNameBtn);
 
         //Add the "Get Specific Meal" button to the FlowPane
@@ -634,7 +635,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
         buttonFlowPane.setAlignment(Pos.CENTER);
 		
         
-     //Add the label to the inputFieldsPane at column 0, row 0
+        //Add the label to the inputFieldsPane at column 0, row 0
         inputFieldsPane.add(textLbl, 0, 0);
 
         //Add the text field to the inputFieldsPane at column 1, row 0
@@ -705,12 +706,12 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 	//Method to create and return a JavaFX Scene for this UI
     Scene createScene()
     {
-      //Create a new Scene using the rootGridPane as the root layout
-      //Set the width of the scene to 650 pixels and the height to 300 pixels
-      return new Scene(rootGridPane, 650, 300);
+        //Create a new Scene using the rootGridPane as the root layout
+        //Set the width of the scene to 650 pixels and the height to 300 pixels
+        return new Scene(rootGridPane, 650, 300);
     }
 
-  //Override the handle method from EventHandler<MouseEvent> to handle mouse click events
+    //Override the handle method from EventHandler<MouseEvent> to handle mouse click events
     @Override
     public void handle(MouseEvent event) 
     {
@@ -957,27 +958,34 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	        mapper2.writeValue(new File("cooked.json"), CoMealList);
     	        
     	        //Optional: print each cooked meal as a JSON string to console for verification
-    	        for (MealInfo mi : CoMealList) {
-    	            try {
+    	        for (MealInfo mi : CoMealList) 
+				{
+    	            try 
+					{
     	                String cookedJsonString = mapper2.writeValueAsString(mi);
     	                System.out.println("Cooked object serialized to JSON string:");
     	                System.out.println(cookedJsonString);
-    	            } catch (IOException e) {
+    	            } 
+					catch (IOException e) 
+					{
     	                e.printStackTrace();
     	            }
     	        }
     	    }
     	    //Handle JSON generation exceptions
-    	    catch (JsonGenerationException e1) {
+    	    catch (JsonGenerationException e1) 
+			{
     	        System.err.println("JSON generation failed while writing cooked.json from Meal list");
     	        e1.printStackTrace();
     	    }
     	    //Handle JSON mapping exceptions
-    	    catch (JsonMappingException e1) {
+    	    catch (JsonMappingException e1) 
+			{
     	        e1.printStackTrace();
     	    }
     	    //Handle IOExceptions during file writing
-    	    catch (IOException e1) {
+    	    catch (IOException e1) 
+			{
     	        e1.printStackTrace();
     	    }
     	}
@@ -1021,15 +1029,16 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	          //Show the Stage window to the user
     	          getDetailsStage.show();
     	      }
-    	  }
+    	   }
     	}
 
     	//Check if the event source is the backBtn button
     	else if (event.getSource() == backBtn) 
     	{
-    	  //Set the application's primary stage back to the main scene
-    	  App.primaryStage.setScene(App.mainScene);
+    	   //Set the application's primary stage back to the main scene
+    	   App.primaryStage.setScene(App.mainScene);
     	}
 
-    	}
+    }
+
 }
