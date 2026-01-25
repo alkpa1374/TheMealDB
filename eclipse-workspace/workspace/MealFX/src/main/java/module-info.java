@@ -1,5 +1,6 @@
 //Declare a module named "gr.unipi.MealFX"
-module gr.unipi.MealFX {
+module gr.unipi.MealFX 
+{
 
     //Export the package "gr.unipi.MealFX" so that other modules can access its public classes
     exports gr.unipi.MealFX;
@@ -19,5 +20,6 @@ module gr.unipi.MealFX {
     //Require Jackson Databind library for JSON serialization/deserialization
     requires com.fasterxml.jackson.databind;
     
-//    requires junit;
+    //requires junit;
+
 }
