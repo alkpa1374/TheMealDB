@@ -1,0 +1,8 @@
+model\themoviedb\Movie.class
+module-info.class
+model\themoviedb\MovieResult.class
+service\MovieAPIService.class
+service\test.class
+model\MovieInfo.class
+exception\MovieAPIException.class
+model\themoviedb\ErrorResponse.class

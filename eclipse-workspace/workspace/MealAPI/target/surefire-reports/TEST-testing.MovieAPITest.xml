@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="testing.MovieAPITest" time="0.915" tests="2" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI\target\test-classes;C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI\target\classes;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.12.1\jackson-databind-2.12.1.jar;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.12.1\jackson-annotations-2.12.1.jar;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.12.1\jackson-core-2.12.1.jar;C:\Users\vkouf\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\vkouf\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\vkouf\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\vkouf\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\vkouf\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\vkouf\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="user.timezone" value="Europe/Athens"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Users\vkouf\Desktop\eclipse-java-2024-06-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\vkouf\AppData\Local\Temp\surefire1653656370783845251\surefirebooter-20250126020936216_3.jar C:\Users\vkouf\AppData\Local\Temp\surefire1653656370783845251 2025-01-26T02-09-36_107-jvmRun1 surefire-20250126020936216_1tmp surefire_0-20250126020936216_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI\target\test-classes;C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI\target\classes;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.12.1\jackson-databind-2.12.1.jar;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.12.1\jackson-annotations-2.12.1.jar;C:\Users\vkouf\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.12.1\jackson-core-2.12.1.jar;C:\Users\vkouf\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\vkouf\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\vkouf\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\vkouf\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\vkouf\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\vkouf\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\vkouf"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.home" value="C:\Users\vkouf\Desktop\eclipse-java-2024-06-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\vkouf\AppData\Local\Temp\surefire1653656370783845251\surefirebooter-20250126020936216_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.5+11-LTS"/>
+    <property name="user.name" value="vkouf"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Temurin-21.0.5+11"/>
+    <property name="localRepository" value="C:\Users\vkouf\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\vkouf\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.5"/>
+    <property name="user.dir" value="C:\Users\vkouf\eclipse-workspace-pms-Feb-2025\MovieAPI"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\vkouf\Desktop\eclipse-java-2024-06-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/vkouf/Desktop/eclipse-java-2024-06-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin/server;C:/Users/vkouf/Desktop/eclipse-java-2024-06-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin;C:/Users/vkouf/Desktop/eclipse-java-2024-06-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530/jre/bin/server;C:/Users/vkouf/Desktop/eclipse-java-2024-06-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530/jre/bin;C:\Python312\Scripts\;C:\Python312\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\PDFtk\bin\;C:\ProgramData\chocolatey\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-19\bin;C:\Users\vkouf\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\vkouf\AppData\Local\Programs\Python\Python38\;C:\Users\vkouf\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Program Files (x86)\Brackets\;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.3.2\bin;;C:\Users\vkouf\AppData\Roaming\npm;C:\Users\vkouf\Desktop\eclipse-java-2024-06-R-win32-x86_64\eclipse;;C:\Users\vkouf\Desktop\eclipse-java-2024-06-R-win32-x86_64\eclipse;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vm.version" value="21.0.5+11-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testDiscoverAPI" classname="testing.MovieAPITest" time="0.749">
+    <system-out><![CDATA[Title: Sonic the Hedgehog 3
+Description: Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched in every way, Team Sonic must seek out an unlikely alliance in hopes of stopping Shadow and protecting the planet.
+Rating: 7.831
+Release Date: 2024-12-19
+Title: Kraven the Hunter
+Description: Kraven Kravinoff's complex relationship with his ruthless gangster father, Nikolai, starts him down a path of vengeance with brutal consequences, motivating him to become not only the greatest hunter in the world, but also one of its most feared.
+Rating: 6.6
+Release Date: 2024-12-11
+Title: Back in Action
+Description: Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.
+Rating: 6.717
+Release Date: 2025-01-15
+Title: Nosferatu
+Description: A gothic tale of obsession between a haunted young woman and the terrifying vampire infatuated with her, causing untold horror in its wake.
+Rating: 6.7
+Release Date: 2024-12-25
+Title: Mufasa: The Lion King
+Description: Mufasa, a cub lost and alone, meets a sympathetic lion named Taka, the heir to a royal bloodline. The chance meeting sets in motion an expansive journey of a group of misfits searching for their destiny.
+Rating: 7.438
+Release Date: 2024-12-18
+Title: Moana 2
+Description: After receiving an unexpected call from her wayfinding ancestors, Moana journeys alongside Maui and a new crew to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.
+Rating: 7.007
+Release Date: 2024-11-21
+Title: Devara: Part 1
+Description: Devara, a fearless man from a coastal region, embarks on a perilous journey into the treacherous world of the sea to safeguard the lives of his people. Unbeknownst to him, his brother Bhaira is plotting a conspiracy against him. As events unfold, Devara passes on his legacy to his mild-mannered and timid son, Varada.
+Rating: 7.1
+Release Date: 2024-09-26
+Title: Venom: The Last Dance
+Description: Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.
+Rating: 6.8
+Release Date: 2024-10-22
+Title: Gladiator II
+Description: Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum after his home is conquered by the tyrannical Emperors who now lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past to find strength and honor to return the glory of Rome to its people.
+Rating: 6.756
+Release Date: 2024-11-05
+Title: The Gardener
+Description: Every year the Prime Minister has a list of all kinds of troublemakers eliminated in the name of the famous Reason of State. Serge Shuster, Special Adviser to the President of the Republic, finds himself on this list, better known as the Matignon List.  Condemned to certain death and at the heart of an implacable plot and a state secret that also put his family in danger, Serge, his wife and children have only one hope left - their gardener, Léo, who hates it when « slugs » invade his garden... Especially those that want to kill innocent families.
+Rating: 5.0
+Release Date: 2025-01-10
+Title: Wicked
+Description: In the land of Oz, ostracized and misunderstood green-skinned Elphaba is forced to share a room with the popular aristocrat Glinda at Shiz University, and the two's unlikely friendship is tested as they begin to fulfill their respective destinies as Glinda the Good and the Wicked Witch of the West.
+Rating: 6.922
+Release Date: 2024-11-20
+Title: Kingdom IV: Return of the Great General
+Description: Depicts a continuation of the "Battle of Mayang", an all-out war against the neighboring country Zhao that Shin and Wang Ki fought in in the previous work "Flame of Fate".
+Rating: 7.1
+Release Date: 2024-07-12
+Title: The Substance
+Description: A fading celebrity decides to use a black market drug, a cell-replicating substance that temporarily creates a younger, better version of herself.
+Rating: 7.1
+Release Date: 2024-09-07
+Title: Alarum
+Description: Two married spies caught in the crosshairs of an international intelligence network will stop at nothing to obtain a critical asset. Joe and Lara are agents living off the grid whose quiet retreat at a winter resort is blown to shreds when members of the old guard suspect the two may have joined an elite team of rogue spies, known as Alarum.
+Rating: 6.068
+Release Date: 2025-01-16
+Title: River of Blood
+Description: Four kayakers take the wrong river into a jungle inhabited by a tribe of merciless cannibals.
+Rating: 6.5
+Release Date: 2024-08-29
+Title: Your Fault
+Description: The love between Noah and Nick seems unwavering despite their parents' attempts to separate them. But his job and her entry into college open up their lives to new relationships that will shake the foundations of both their relationship and the Leister family itself.
+Rating: 7.168
+Release Date: 2024-12-26
+Title: Werewolves
+Description: A year after a supermoon’s light activated a dormant gene, transforming humans into bloodthirsty werewolves and causing nearly a billion deaths, the nightmare resurfaces as the supermoon rises again. Two scientists attempt to stop the mutation but fail and must now struggle to reach one of their family homes.
+Rating: 6.338
+Release Date: 2024-12-04
+Title: Aftermath
+Description: A returning war veteran, stricken with PTSD, gets trapped with his teenage sister on Boston's Tobin Memorial Bridge when a heavily armed group of ex-military revolutionaries take everyone hostage.
+Rating: 6.3
+Release Date: 2024-09-27
+Title: Red One
+Description: After Santa Claus (codename: Red One) is kidnapped, the North Pole's Head of Security must team up with the world's most infamous tracker in a globe-trotting, action-packed mission to save Christmas.
+Rating: 7.117
+Release Date: 2024-10-31
+Title: The Lord of the Rings: The War of the Rohirrim
+Description: A sudden attack by Wulf, a clever and traitorous lord of Rohan seeking vengeance for the death of his father, forces Helm Hammerhand, the King of Rohan, and his people to make a daring last stand in the ancient stronghold of the Hornburg.
+Rating: 6.586
+Release Date: 2024-12-05
+Title: Sonic the Hedgehog 3
+Description: Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched in every way, Team Sonic must seek out an unlikely alliance in hopes of stopping Shadow and protecting the planet.
+Rating: 7.831
+Release Date: 2024-12-19
+Title: Kraven the Hunter
+Description: Kraven Kravinoff's complex relationship with his ruthless gangster father, Nikolai, starts him down a path of vengeance with brutal consequences, motivating him to become not only the greatest hunter in the world, but also one of its most feared.
+Rating: 6.6
+Release Date: 2024-12-11
+Title: Back in Action
+Description: Fifteen years after vanishing from the CIA to start a family, elite spies Matt and Emily jump back into the world of espionage when their cover is blown.
+Rating: 6.717
+Release Date: 2025-01-15
+Title: Nosferatu
+Description: A gothic tale of obsession between a haunted young woman and the terrifying vampire infatuated with her, causing untold horror in its wake.
+Rating: 6.7
+Release Date: 2024-12-25
+Title: Mufasa: The Lion King
+Description: Mufasa, a cub lost and alone, meets a sympathetic lion named Taka, the heir to a royal bloodline. The chance meeting sets in motion an expansive journey of a group of misfits searching for their destiny.
+Rating: 7.438
+Release Date: 2024-12-18
+Title: Moana 2
+Description: After receiving an unexpected call from her wayfinding ancestors, Moana journeys alongside Maui and a new crew to the far seas of Oceania and into dangerous, long-lost waters for an adventure unlike anything she's ever faced.
+Rating: 7.007
+Release Date: 2024-11-21
+Title: Devara: Part 1
+Description: Devara, a fearless man from a coastal region, embarks on a perilous journey into the treacherous world of the sea to safeguard the lives of his people. Unbeknownst to him, his brother Bhaira is plotting a conspiracy against him. As events unfold, Devara passes on his legacy to his mild-mannered and timid son, Varada.
+Rating: 7.1
+Release Date: 2024-09-26
+Title: Venom: The Last Dance
+Description: Eddie and Venom are on the run. Hunted by both of their worlds and with the net closing in, the duo are forced into a devastating decision that will bring the curtains down on Venom and Eddie's last dance.
+Rating: 6.8
+Release Date: 2024-10-22
+Title: Gladiator II
+Description: Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum after his home is conquered by the tyrannical Emperors who now lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past to find strength and honor to return the glory of Rome to its people.
+Rating: 6.756
+Release Date: 2024-11-05
+Title: The Gardener
+Description: Every year the Prime Minister has a list of all kinds of troublemakers eliminated in the name of the famous Reason of State. Serge Shuster, Special Adviser to the President of the Republic, finds himself on this list, better known as the Matignon List.  Condemned to certain death and at the heart of an implacable plot and a state secret that also put his family in danger, Serge, his wife and children have only one hope left - their gardener, Léo, who hates it when « slugs » invade his garden... Especially those that want to kill innocent families.
+Rating: 5.0
+Release Date: 2025-01-10
+Title: Wicked
+Description: In the land of Oz, ostracized and misunderstood green-skinned Elphaba is forced to share a room with the popular aristocrat Glinda at Shiz University, and the two's unlikely friendship is tested as they begin to fulfill their respective destinies as Glinda the Good and the Wicked Witch of the West.
+Rating: 6.922
+Release Date: 2024-11-20
+Title: Kingdom IV: Return of the Great General
+Description: Depicts a continuation of the "Battle of Mayang", an all-out war against the neighboring country Zhao that Shin and Wang Ki fought in in the previous work "Flame of Fate".
+Rating: 7.1
+Release Date: 2024-07-12
+Title: The Substance
+Description: A fading celebrity decides to use a black market drug, a cell-replicating substance that temporarily creates a younger, better version of herself.
+Rating: 7.1
+Release Date: 2024-09-07
+Title: Alarum
+Description: Two married spies caught in the crosshairs of an international intelligence network will stop at nothing to obtain a critical asset. Joe and Lara are agents living off the grid whose quiet retreat at a winter resort is blown to shreds when members of the old guard suspect the two may have joined an elite team of rogue spies, known as Alarum.
+Rating: 6.068
+Release Date: 2025-01-16
+Title: River of Blood
+Description: Four kayakers take the wrong river into a jungle inhabited by a tribe of merciless cannibals.
+Rating: 6.5
+Release Date: 2024-08-29
+Title: Your Fault
+Description: The love between Noah and Nick seems unwavering despite their parents' attempts to separate them. But his job and her entry into college open up their lives to new relationships that will shake the foundations of both their relationship and the Leister family itself.
+Rating: 7.168
+Release Date: 2024-12-26
+Title: Werewolves
+Description: A year after a supermoon’s light activated a dormant gene, transforming humans into bloodthirsty werewolves and causing nearly a billion deaths, the nightmare resurfaces as the supermoon rises again. Two scientists attempt to stop the mutation but fail and must now struggle to reach one of their family homes.
+Rating: 6.338
+Release Date: 2024-12-04
+Title: Aftermath
+Description: A returning war veteran, stricken with PTSD, gets trapped with his teenage sister on Boston's Tobin Memorial Bridge when a heavily armed group of ex-military revolutionaries take everyone hostage.
+Rating: 6.3
+Release Date: 2024-09-27
+Title: Red One
+Description: After Santa Claus (codename: Red One) is kidnapped, the North Pole's Head of Security must team up with the world's most infamous tracker in a globe-trotting, action-packed mission to save Christmas.
+Rating: 7.117
+Release Date: 2024-10-31
+Title: The Lord of the Rings: The War of the Rohirrim
+Description: A sudden attack by Wulf, a clever and traitorous lord of Rohan seeking vengeance for the death of his father, forces Helm Hammerhand, the King of Rohan, and his people to make a daring last stand in the ancient stronghold of the Hornburg.
+Rating: 6.586
+Release Date: 2024-12-05
+]]></system-out>
+  </testcase>
+  <testcase name="testDiscoverAPIWithYear" classname="testing.MovieAPITest" time="0.118">
+    <system-out><![CDATA[Title: Sonic the Hedgehog
+Description: Powered with incredible speed, Sonic The Hedgehog embraces his new home on Earth. That is, until Sonic sparks the attention of super-uncool evil genius Dr. Robotnik. Now it’s super-villain vs. super-sonic in an all-out race across the globe to stop Robotnik from using Sonic’s unique power for world domination.
+Rating: 7.3
+Release Date: 2020-02-12
+Title: Bosomy Mom
+Description: Da-hee gets married to Min-soo who is older than her. Thanks to him, he also gets a son who is not too old, Jae-hyuk, who she tries to get acquainted with, albeit awkwardly. After staying with Na-yeon, she suddenly has to meet Jae-hyuk, and Na-yeon has a date with Jae-hyuk. Min-soo is surprised to find three people coming back home from a date. It made him angry to see his son with two women. Right away, Min-soo seeks Da-hee and asks about Na-yeon. Na-yeon met Min-soo secretly. However, Da-hee who is aware of Min-soo and Da-hee's relationship, shares this fact to Jae-hyun.
+Rating: 5.9
+Release Date: 2020-05-06
+Title: Stepmom's Desire
+Description: Sang-jin, who was envious of her neighbor after getting a beautiful wife, Ask your wife's friend Gian to take over the son's extracurricular teacher, Sang-jin, who left work early, accidentally sees Gian's shower. A man who wants to have sex with his son's tutor, And a son who wants to have a good time with a young stepmom, Ji-an and Jin-hee, who want money, are disappointed with her husband, and Bin-jin gives her body to a young son.
+Rating: 6.5
+Release Date: 2020-05-29
+Title: To All the Boys: P.S. I Still Love You
+Description: Lara Jean and Peter have just taken their romance from pretend to officially real when another recipient of one of her love letters enters the picture.
+Rating: 6.836
+Release Date: 2020-02-03
+Title: After We Collided
+Description: Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.
+Rating: 7.2
+Release Date: 2020-09-02
+Title: Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train
+Description: Tanjiro Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyojuro Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!
+Rating: 8.214
+Release Date: 2020-10-16
+Title: 후배부부와 교환섹스 2
+Description: 
+Rating: 0.0
+Release Date: 2020-02-07
+Title: Extraction
+Description: A hardened gun-for-hire's latest mission becomes a soul-searching race to survive when he's sent into Bangladesh to rescue a drug lord's kidnapped son.
+Rating: 7.319
+Release Date: 2020-04-23
+Title: Soul
+Description: Joe Gardner is a middle school teacher with a love for jazz music. After a successful audition at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.
+Rating: 8.118
+Release Date: 2020-12-25
+Title: Bad Boys for Life
+Description: Marcus and Mike are forced to confront new threats, career changes, and midlife crises as they join the newly created elite team AMMO of the Miami police department to take down the ruthless Armando Armas, the vicious leader of a Miami drug cartel.
+Rating: 7.1
+Release Date: 2020-01-15
+Title: Tenet
+Description: Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.
+Rating: 7.184
+Release Date: 2020-08-22
+Title: Bosomy Mom 2
+Description: Min-soo and Jae-hyeok is in a good father-and-son relationship. But one day, Min-soo brings Jae-hyeok's young stepmother, Da-hee. Jae-hyeok leaves home to wander around, ran into Da-hee's friend, Na-yeon, and had a little talk. Na-yeon calls Da-hee... Da-hee goes home with Jae-hyeok, and Min-soo doesn't care much. Jae-hyeok tells Da-hee how he feels. Meanwhile, Min-soo who disapproves Da-hee and Jae-hyeok's relationship, calls Na-yeon to kill some time. And Na-yeon who is worried about Da-hee and Min-soo crafts a new plan...
+Rating: 5.2
+Release Date: 2020-05-27
+Title: The Croods: A New Age
+Description: Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.
+Rating: 7.471
+Release Date: 2020-11-25
+Title: Sniper: Assassin's End
+Description: Special Ops sniper Brandon Beckett is set up as the primary suspect for the murder of a foreign dignitary on the eve of signing a high-profile trade agreement with the United States. Narrowly escaping death, Beckett realizes that there may be a dark operative working within the government, and partners with the only person whom he can trust: his father, legendary sniper Sgt. Thomas Beckett. Both Becketts are on the run from the CIA, Russian mercenaries, and a yakuza-trained assassin with sniper skills that rival both legendary sharpshooters.
+Rating: 6.2
+Release Date: 2020-06-15
+Title: Greenland
+Description: John Garrity, his estranged wife and their young son embark on a perilous journey to find sanctuary as a planet-killing comet hurtles toward Earth. Amid terrifying accounts of cities getting levelled, the Garritys experience the best and worst in humanity. As the countdown to the global apocalypse approaches zero, their incredible trek culminates in a desperate and last-minute flight to a possible safe haven.
+Rating: 7.1
+Release Date: 2020-07-29
+Title: Pizza Dare 1
+Description: Seok, who wants to try perverted sex, pesters Hyun-jin every day, but Hyun-jin rejects it saying she only like normal things.  And then one day while delivering chicken, he found So-ra and Hyun-soo, a couple who enjoys delivery exposures.  Frustrated as he is with Hyun-jin, he starts neglecting her and became more and more hooked with the So-ra couple.  To recover their relationship, Hyun-jin goes on a date with Seok. But then a call came for him. The couple invites him for sex.  Will he be having a date with his wife, or will he accept the invitation he may only get once in a lifetime?  What would be his choice?
+Rating: 7.2
+Release Date: 2020-04-10
+Title: Extinction
+Description: A chief mechanic at a factory, haunted by apocalyptic nightmares, becomes a hero when Earth is invaded by a mysterious army bent on destruction.
+Rating: 6.4
+Release Date: 2020-08-01
+Title: Roald Dahl's The Witches
+Description: In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.
+Rating: 6.372
+Release Date: 2020-10-26
+Title: Mulan
+Description: When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.
+Rating: 6.868
+Release Date: 2020-09-04
+Title: American Pie Presents: Girls' Rules
+Description: It's Senior year at East Great Falls. Annie, Kayla, Michelle, and Stephanie decide to harness their girl power and band together to get what they want their last year of high school.
+Rating: 6.2
+Release Date: 2020-10-06
+Title: Sonic the Hedgehog
+Description: Powered with incredible speed, Sonic The Hedgehog embraces his new home on Earth. That is, until Sonic sparks the attention of super-uncool evil genius Dr. Robotnik. Now it’s super-villain vs. super-sonic in an all-out race across the globe to stop Robotnik from using Sonic’s unique power for world domination.
+Rating: 7.3
+Release Date: 2020-02-12
+Title: Bosomy Mom
+Description: Da-hee gets married to Min-soo who is older than her. Thanks to him, he also gets a son who is not too old, Jae-hyuk, who she tries to get acquainted with, albeit awkwardly. After staying with Na-yeon, she suddenly has to meet Jae-hyuk, and Na-yeon has a date with Jae-hyuk. Min-soo is surprised to find three people coming back home from a date. It made him angry to see his son with two women. Right away, Min-soo seeks Da-hee and asks about Na-yeon. Na-yeon met Min-soo secretly. However, Da-hee who is aware of Min-soo and Da-hee's relationship, shares this fact to Jae-hyun.
+Rating: 5.9
+Release Date: 2020-05-06
+Title: Stepmom's Desire
+Description: Sang-jin, who was envious of her neighbor after getting a beautiful wife, Ask your wife's friend Gian to take over the son's extracurricular teacher, Sang-jin, who left work early, accidentally sees Gian's shower. A man who wants to have sex with his son's tutor, And a son who wants to have a good time with a young stepmom, Ji-an and Jin-hee, who want money, are disappointed with her husband, and Bin-jin gives her body to a young son.
+Rating: 6.5
+Release Date: 2020-05-29
+Title: To All the Boys: P.S. I Still Love You
+Description: Lara Jean and Peter have just taken their romance from pretend to officially real when another recipient of one of her love letters enters the picture.
+Rating: 6.836
+Release Date: 2020-02-03
+Title: After We Collided
+Description: Tessa finds herself struggling with her complicated relationship with Hardin; she faces a dilemma that could change their lives forever.
+Rating: 7.2
+Release Date: 2020-09-02
+Title: Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train
+Description: Tanjiro Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyojuro Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!
+Rating: 8.214
+Release Date: 2020-10-16
+Title: 후배부부와 교환섹스 2
+Description: 
+Rating: 0.0
+Release Date: 2020-02-07
+Title: Extraction
+Description: A hardened gun-for-hire's latest mission becomes a soul-searching race to survive when he's sent into Bangladesh to rescue a drug lord's kidnapped son.
+Rating: 7.319
+Release Date: 2020-04-23
+Title: Soul
+Description: Joe Gardner is a middle school teacher with a love for jazz music. After a successful audition at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.
+Rating: 8.118
+Release Date: 2020-12-25
+Title: Bad Boys for Life
+Description: Marcus and Mike are forced to confront new threats, career changes, and midlife crises as they join the newly created elite team AMMO of the Miami police department to take down the ruthless Armando Armas, the vicious leader of a Miami drug cartel.
+Rating: 7.1
+Release Date: 2020-01-15
+Title: Tenet
+Description: Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.
+Rating: 7.184
+Release Date: 2020-08-22
+Title: Bosomy Mom 2
+Description: Min-soo and Jae-hyeok is in a good father-and-son relationship. But one day, Min-soo brings Jae-hyeok's young stepmother, Da-hee. Jae-hyeok leaves home to wander around, ran into Da-hee's friend, Na-yeon, and had a little talk. Na-yeon calls Da-hee... Da-hee goes home with Jae-hyeok, and Min-soo doesn't care much. Jae-hyeok tells Da-hee how he feels. Meanwhile, Min-soo who disapproves Da-hee and Jae-hyeok's relationship, calls Na-yeon to kill some time. And Na-yeon who is worried about Da-hee and Min-soo crafts a new plan...
+Rating: 5.2
+Release Date: 2020-05-27
+Title: The Croods: A New Age
+Description: Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.
+Rating: 7.471
+Release Date: 2020-11-25
+Title: Sniper: Assassin's End
+Description: Special Ops sniper Brandon Beckett is set up as the primary suspect for the murder of a foreign dignitary on the eve of signing a high-profile trade agreement with the United States. Narrowly escaping death, Beckett realizes that there may be a dark operative working within the government, and partners with the only person whom he can trust: his father, legendary sniper Sgt. Thomas Beckett. Both Becketts are on the run from the CIA, Russian mercenaries, and a yakuza-trained assassin with sniper skills that rival both legendary sharpshooters.
+Rating: 6.2
+Release Date: 2020-06-15
+Title: Greenland
+Description: John Garrity, his estranged wife and their young son embark on a perilous journey to find sanctuary as a planet-killing comet hurtles toward Earth. Amid terrifying accounts of cities getting levelled, the Garritys experience the best and worst in humanity. As the countdown to the global apocalypse approaches zero, their incredible trek culminates in a desperate and last-minute flight to a possible safe haven.
+Rating: 7.1
+Release Date: 2020-07-29
+Title: Pizza Dare 1
+Description: Seok, who wants to try perverted sex, pesters Hyun-jin every day, but Hyun-jin rejects it saying she only like normal things.  And then one day while delivering chicken, he found So-ra and Hyun-soo, a couple who enjoys delivery exposures.  Frustrated as he is with Hyun-jin, he starts neglecting her and became more and more hooked with the So-ra couple.  To recover their relationship, Hyun-jin goes on a date with Seok. But then a call came for him. The couple invites him for sex.  Will he be having a date with his wife, or will he accept the invitation he may only get once in a lifetime?  What would be his choice?
+Rating: 7.2
+Release Date: 2020-04-10
+Title: Extinction
+Description: A chief mechanic at a factory, haunted by apocalyptic nightmares, becomes a hero when Earth is invaded by a mysterious army bent on destruction.
+Rating: 6.4
+Release Date: 2020-08-01
+Title: Roald Dahl's The Witches
+Description: In late 1967, a young orphaned boy goes to live with his loving grandma in the rural Alabama town of Demopolis. As the boy and his grandmother encounter some deceptively glamorous but thoroughly diabolical witches, she wisely whisks him away to a seaside resort. Regrettably, they arrive at precisely the same time that the world's Grand High Witch has gathered.
+Rating: 6.372
+Release Date: 2020-10-26
+Title: Mulan
+Description: When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.
+Rating: 6.868
+Release Date: 2020-09-04
+Title: American Pie Presents: Girls' Rules
+Description: It's Senior year at East Great Falls. Annie, Kayla, Michelle, and Stephanie decide to harness their girl power and band together to get what they want their last year of high school.
+Rating: 6.2
+Release Date: 2020-10-06
+]]></system-out>
+  </testcase>
+</testsuite>
