@@ -721,42 +721,42 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	//Check if the event source is the "Get Specific Meal" button
     	else if (event.getSource() == getSpecificMealBtn) 
     	{
-    	    //Create a new instance of MealAPIService with the API base URL
+    	    //Creation of a new instance of the MealAPIService with the base URL of the REST API
     	    MealAPIService mas = new MealAPIService("https://www.themealdb.com");
     	    
     	    try 
     	    {
-    	        //Get the meal ID entered by the user in the input field
+    	        //Get the text entered by the user in the input field
     	        String ID = paramField.getText();
     	        
-    	        //Call the API service to get the specific meal by its ID
+    	        //Calling of the API service to get a list of meals by ID
     	        List<MealInfo> MealList = mas.getSpecificMeal(ID);
     	        
     	        //Get the current items in the TableView
     	        List<MealInfo> items = MealTableView.getItems();
     	        
-    	        //Clear the TableView before adding new results
+    	        //Clearance of the TableView before adding new results
     	        items.clear();
     	        
-    	        //Add all meals returned by the API to the TableView
+    	        //Adding of all meals returned by the REST API to the TableView
     	        for (MealInfo Meal : MealList) 
     	        {
     	            items.add(Meal);
     	        }
     	    }
-    	    //Handle exceptions thrown by the MealAPIService (e.g., network issues)
+    	    //Handling of exceptions thrown by the MealAPIService
     	    catch (MealAPIException e)
     	    {
-    	        //Show an error alert with the exception message
+    	        //Presentation of an error alert dialog with the exception message
     	        Alert a = new Alert(AlertType.ERROR);
     	        a.setTitle("Error calling Meal API");
     	        a.setContentText(e.getMessage());
     	        a.show();                
     	    }
-    	    //Handle the case where no meal is returned (null pointer)
+    	    //Handling of the case where the API returns no results (null pointer)
     	    catch (NullPointerException e) 
     	    {
-    	        //Show a custom pop-up notifying the user that the meal ID was invalid
+    	        //Presentation of a custom pop-up notifying the user no meal was found
     	        MealPopUp mealPopUp = new MealPopUp(
     	            "There is no a meal with that ID. Please, enter the ID of a meal again."
     	        );
@@ -767,33 +767,33 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	//Check if the event source is the "Get Random Meal" button
     	else if (event.getSource() == getRandomMealBtn) 
     	{
-    	    //Create a new instance of MealAPIService with the API base URL
+    	    //Creation of a new instance of the MealAPIService with the base URL of the REST API
     	    MealAPIService mas = new MealAPIService("https://www.themealdb.com");
     	    
     	    try 
     	    {
-    	        //(Optional) Retrieve text from the input field; not used for random meal
+    	        //Get the text entered by the user in the input field
     	        String ID = paramField.getText();
     	        
-    	        //Call the API service to get a random meal
+    	        //Calling of the API service to get a random meal
     	        List<MealInfo> MealList = mas.getRandomMeal();
     	        
-    	        //Get the current items in the TableView
+    	        //Get the TableView's current items
     	        List<MealInfo> items = MealTableView.getItems();
     	        
-    	        //Clear the TableView before adding the new random meal
+    	        //Clearance of the TableView before adding new results
     	        items.clear();
     	        
-    	        //Add the random meal(s) returned by the API to the TableView
+    	        //Adding of all meals returned by the REST API to the TableView
     	        for (MealInfo Meal : MealList) 
     	        {
     	            items.add(Meal);
     	        }
     	    }
-    	    //Handle exceptions thrown by the MealAPIService
-    	    catch (MealAPIException e) 
+    	    //Handling of exceptions thrown by the MealAPIService
+    	    catch (MealAPIException e)
     	    {
-    	        //Show an error alert with the exception message
+    	        //Presentation of an error alert dialog with the exception message
     	        Alert a = new Alert(AlertType.ERROR);
     	        a.setTitle("Error calling Meal API");
     	        a.setContentText(e.getMessage());
@@ -998,6 +998,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
 
 
