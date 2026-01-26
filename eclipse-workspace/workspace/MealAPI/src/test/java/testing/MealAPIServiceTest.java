@@ -25,10 +25,8 @@ import service.MealAPIService;
 //Class «MealAPIServiceTest» for testing
 public class MealAPIServiceTest 
 {
-
-    //Annotation indicating that this is a test method
-    @Test
     //Test method for searching a meal by name
+    @Test
     public void testSearchMealByName() throws MealAPIException 
     {
         //Create a new instance of MealAPIService with the base API URL
@@ -48,19 +46,21 @@ public class MealAPIServiceTest
         }
     }
 
-    //Test method for searching meals by an ingredient
+    //Test method for searching meals by main ingredient
     @Test
     public void testSearchMealByIngredient() throws MealAPIException 
     {
-        //Initialize the MealAPIService instance
+        //Create a new instance of MealAPIService with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Search for meals that contain the ingredient "pasta"
+        //Call the REST API to search meals by the main ingredient "pasta" and store the results
         final List<MealInfo> results = mealSearchService.getMealByNameOrIngredient("pasta");
-        //Ensure that at least one meal was returned
+        //Assert that the results list is not empty
         Assert.assertFalse(results.isEmpty());
-        //Print each meal's details
+        //Iterate through all meals in the results
         for (MealInfo meal : results) {
-            System.out.println(
+            //Print meal ID, name and image to the console
+            System.out.println
+            (
                 "MealInfo{idMeal='" + meal.getIdMeal() + "'\n, strMeal='" + meal.getStrMeal() + "'\n, strMealThumb='" + meal.getStrMealThumb() + "'\n}"
             );
         }
