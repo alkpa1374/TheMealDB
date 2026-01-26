@@ -1012,6 +1012,7 @@ public class MealInfo
     
                //Closes the MealInfo object representation
                "'\n}";
-        }
+    }
 }
+
 
