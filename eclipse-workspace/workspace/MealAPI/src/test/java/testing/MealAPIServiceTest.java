@@ -70,13 +70,13 @@ public class MealAPIServiceTest
     @Test
     public void testSearchMealByInvalidNameOrIngredient() throws MealAPIException 
     {
-        //Initialize the service
+        //Create a new instance of MealAPIService with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Attempt to search with a name unlikely to exist
+        //Call the REST API to search meals by the main ingredient "watermelon" and not store the results
         final List<MealInfo> results = mealSearchService.getMealByNameOrIngredient("watermelon");
         //Print user-friendly message
         System.out.println("There is neither a meal with that name nor that specific ingredient. Please, enter the name of a meal or the name of a specific ingredient in a meal again.");
-        //Assert that no meals were returned
+        //Assert that the result list is not empty
         Assert.assertTrue(results.isEmpty());
     }
 
