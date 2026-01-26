@@ -153,79 +153,76 @@ public class MealAPIService
 	  return mealInfoList;
 	}
 	
-	//Retrieves a specific meal from the API using its unique ID
+	//Search for a meal by ID from the REST API of THEMEALDB
 	public List<MealInfo> getSpecificMeal(String ID) throws MealAPIException 
 	{
 	
-	  //Create a list that will store the final MealInfo objects
+	  //Creation of a list for storing the resulting MealInfo objects
 	  List<MealInfo> mealInfoList = new ArrayList<>();
 	
 	  try 
 	  {
-	      //Build the API URL and set the endpoint path "lookup.php"
-	      //This endpoint returns a meal based on its ID
+	      //Building of the API URL for the "lookup.php" endpoint
+	      //Add query parameter "i" with the search term (ID)
 	      URIBuilder uriBuilder = new URIBuilder(API_URL)
 	              .setPathSegments("api", "json", "v1", "1", "lookup.php")
-	
-	              //Add the query parameter "i" with the meal ID
 	              .addParameter("i", ID);
 	
-	      //Convert the constructed URL into a URI object
+	      //Convertion of the URL into a URI object
 	      URI uri = uriBuilder.build();
 	
-	      //Create an HTTP GET request using the constructed URI
+	      //Creation of an HTTP GET request using the URI
 	      HttpGet getRequest = new HttpGet(uri);
 	
-	      //Create an HTTP client that will send the request
+	      //Creation of a Closeable HTTP client
 	      CloseableHttpClient httpclient = HttpClients.createDefault();
 	
-	      //Execute the HTTP request and receive the server response
+	      //Execution of the HTTP GET request and obtaining of the response
 	      CloseableHttpResponse response = httpclient.execute(getRequest);
 	
-	      //Extract the response body (JSON) from the HTTP response
+	      //Extraction of the response body (JSON)
 	      HttpEntity entity = response.getEntity();
 	
-	      //Create a Jackson ObjectMapper for converting JSON to Java objects
+	      //Creation of a Jackson ObjectMapper for converting JSON to Java objects
 	      ObjectMapper mapper = new ObjectMapper();
 	
-	      //Check if the HTTP response status is not 200 (OK)
+	     //Check if the HTTP status is not 200 OK
 	      if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) 
 		  {
-	
-	          //Convert the error JSON response into an ErrorResponse object
+	          //Mapping of the error response to ErrorResponse object
 	          ErrorResponse errorResponse = mapper.readValue(entity.getContent(), ErrorResponse.class);
-	
+	          
 	          //If the API returned an error code, throw a custom exception
 	          if (errorResponse.getStatusCode() != null) 
 			  {
-	              throw new MealAPIException("Error occurred on API call " + errorResponse.getStatusMessage());
+	              throw new MealAPIException("Error occurred on API call: " + errorResponse.getStatusMessage());
 	          }
 	      }
 	
-	      //Read the JSON response as a tree structure
+	      //Parsing of the JSON response as a tree
 	      JsonNode root = mapper.readTree(entity.getContent());
 	
-	      //Extract the "meals" array from the JSON
+	      //Extraction of the "meals" array from the JSON
 	      JsonNode mealsNode = root.get("meals");
 	
-	      //If no meals were returned (invalid ID), return an empty list
+	      //If no meals were found, return an empty list
 	      if (mealsNode == null || mealsNode.isNull() || !mealsNode.isArray()) 
 		  {
 	          return mealInfoList;
 	      }
 	
-	      //Convert the JSON "meals" array into a List of Meal objects
+	      //Convertion of the "meals" JSON array to a List<Meal>
 	      List<Meal> mResults = mapper.convertValue
 		  (
 	              mealsNode,
 	              new TypeReference<List<Meal>>() {}
 	      );
 	
-	      //Convert each Meal object into a MealInfo object
+	      //Convertion of each Meal object into a MealInfo object
 	      for (Meal m : mResults) 
 		  {
 	
-	          //Create a MealInfo object using the full meal data
+	          //Creation of a MealInfo object using all relevant fields
 	          MealInfo mi = new MealInfo
 			  (
 	                  m.getIdMeal(), m.getStrMeal(), m.getStrMealAlternate(),
@@ -249,30 +246,30 @@ public class MealAPIService
 	                  m.getStrCreativeCommonsConfirmed(), m.getDateModified()
 	          );
 	
-	          //Add the converted object to the result list
+	          //Adding of the converted MealInfo object to the result list
 	          mealInfoList.add(mi);
 	      }
 	
 	  } 
+	   //Thrown if the API URL is malformed
 	  catch (URISyntaxException e) 
 	  {
-	      //Thrown if the API URL is malformed
 	      throw new MealAPIException("Problem with URI", e);
 	
 	  } 
+	  //Thrown if there is an HTTP communication error
 	  catch (ClientProtocolException e) 
 	  {
-	      //Thrown if there is an HTTP communication error
 	      throw new MealAPIException("Problem with Client Protocol", e);
 	
-	  } 
+	  }
+	  //Thrown if there is an error reading the API response
 	  catch (IOException e) 
 	  {
-	      //Thrown if there is an error reading the API response
 	      throw new MealAPIException("Error requesting data from Meal API", e);
 	  }
 	
-	  //Return the final list containing the requested meal
+	  ///Return the final list of meals matching the lookup term
 	  return mealInfoList;
 	}
 
@@ -395,5 +392,6 @@ public class MealAPIService
 		 return mealInfoList;
 	}
 }
+
 
 
