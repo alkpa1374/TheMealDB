@@ -1,7 +1,7 @@
-//Defines the package where this class belongs
+//Class «MealInfo» belongs package «model»
 package model;
 
-//Declares the MealInfo class, a simplified representation of a meal
+//POJOs Class «MealInfo» for saving data from the REST API of THEMEALDB
 public class MealInfo 
 {
     //Unique identifier of the meal
@@ -1014,5 +1014,6 @@ public class MealInfo
                "'\n}";
     }
 }
+
 
 
