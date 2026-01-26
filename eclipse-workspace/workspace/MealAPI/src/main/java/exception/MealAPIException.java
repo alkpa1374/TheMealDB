@@ -1,7 +1,7 @@
 //Class «MealAPIException» belongs package «exception»
 package exception;
 
-//Class «MealAPIException» for handling exception during data reception from the REST API
+//Class «MealAPIException» for handling exception during data reception from the REST API of THEMEALDB
 public class MealAPIException extends Exception
 {
     //Definition of a unique serialVersionUID for serialization compatibility, which this ensures that the class can be serialized and deserialized consistently across JVMs
@@ -19,6 +19,7 @@ public class MealAPIException extends Exception
        super(message, cause);
     }
 }
+
 
 
 
