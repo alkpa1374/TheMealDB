@@ -1,48 +1,52 @@
-//Declare the package for this class
+//Class «MainSceneCreator» belongs package «gr.unipi.MealFX»
 package gr.unipi.MealFX;
 
-//Import JavaFX classes for handling events
-import javafx.event.EventHandler; //Interface for handling input events
+//Import of JavaFX classes for handling events
+import javafx.event.EventHandler;
 
-//Import JavaFX classes for UI layout and positioning
+//Import of JavaFX classes for UI layout and positioning
 import javafx.geometry.Pos;       //Enum for positioning/alignment of nodes
-import javafx.scene.Scene;        //Represents a scene to be displayed in a Stage
+import javafx.scene.Scene;        //Representation of a scene to be displayed in a Stage
 import javafx.scene.control.Button; //JavaFX Button control
 import javafx.scene.input.MouseEvent; //Event class for mouse events
 import javafx.scene.layout.FlowPane;  //Layout pane that arranges nodes in a flow (horizontal/vertical)
 
+//Class «MainSceneCreator» for main scene implementation
 public class MainSceneCreator implements EventHandler<MouseEvent> 
 {
-	//Flow Pane (root node)
+	//Flow Pane
 	FlowPane rootFlowPane;
 	//Main scene buttons
 	Button mealBtn, favouriteBtn, cookedBtn;
 
+	//Constructor for main scene creation
 	public MainSceneCreator() 
 	{
-    	rootFlowPane = new FlowPane();
+    	//Creation of flow pane and buttons
+		rootFlowPane = new FlowPane();
     	mealBtn = new Button("Meal");
     	favouriteBtn = new Button("Favourite");
     	cookedBtn = new Button("Cooked");
     	
-    	//Attach handle event to mealBtn
+    	//Attach handle event to buttons
     	mealBtn.setOnMouseClicked(this);
     	favouriteBtn.setOnMouseClicked(this);
     	cookedBtn.setOnMouseClicked(this);
-    	//Set up flow pane
+    	
+		//Buttons layout inside the flow pane
     	rootFlowPane.setAlignment(Pos.CENTER);
     	rootFlowPane.setHgap(10);
     	mealBtn.setMinSize(120,30);
     	favouriteBtn.setMinSize(120,30);
       	cookedBtn.setMinSize(120,30);
     	
-      	//add buttons to rootflowpane
+      	//Adding of buttons to Flowpane
     	rootFlowPane.getChildren().add(mealBtn);
     	rootFlowPane.getChildren().add(favouriteBtn);
     	rootFlowPane.getChildren().add(cookedBtn);
 	}
 	
-	//Method to create and return a JavaFX Scene for this UI
+	//Method for a JavaFX Scene for this UI creation and return
     Scene createScene()
     {
 	    //Create a new Scene using the rootGridPane as the root layout
@@ -54,13 +58,13 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
 	@Override
 	public void handle(MouseEvent event) 
 	{
-	    //Check if the event source (clicked node) is the "mealBtn" button
+	    //Check if the event source is the "mealBtn" button
 	    if (event.getSource() == mealBtn) 
 	    {
 	        //Set the title of the primary stage to indicate the MealFX window
 	        App.primaryStage.setTitle("MealFX Window");
 
-	        //Switch the scene of the primary stage to the pre-created mealScene
+	        //Switch the main scene to meal scene
 	        App.primaryStage.setScene(App.mealScene);
 	    }
 	    //Check if the event source is the "favouriteBtn" button
@@ -69,27 +73,28 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
 	        //Set the title of the primary stage to indicate the FavouriteFX window
 	        App.primaryStage.setTitle("FavouriteFX Window");
 
-	        //Create a new FavouriteScene using the FavouriteSceneCreator class
+	        //Creation of a new FavouriteScene
 	        FavouriteSceneCreator favouriteSceneCreator = new FavouriteSceneCreator();
 	        Scene favouriteScene = favouriteSceneCreator.createScene();
 
-	        //Switch the primary stage scene to the newly created Favourite scene
+	        //Switch the main scene to favourite scene
 	        App.primaryStage.setScene(favouriteScene);
 	    }
-	    //If the event source is neither mealBtn nor favouriteBtn, assume it's the cookedBtn
+	    //Check if the event source is the "cookedBtn" button
 	    else
 	    {
 	        //Set the title of the primary stage to indicate the CookedFX window
 	        App.primaryStage.setTitle("CookedFX Window");
 
-	        //Create a new CookedScene using the CookedSceneCreator class
+	        //Creation of a new CookedScene
 	        CookedSceneCreator cookedSceneCreator = new CookedSceneCreator();
 	        Scene cookedScene = cookedSceneCreator.createScene();
 
-	        //Switch the primary stage scene to the newly created Cooked scene
+	        //Switch the main scene to cooked scene
 	        App.primaryStage.setScene(cookedScene);
 	    }
 	}
 }
+
 
 
