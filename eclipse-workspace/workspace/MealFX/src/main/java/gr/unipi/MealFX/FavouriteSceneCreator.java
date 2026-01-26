@@ -91,31 +91,31 @@ import javafx.scene.control.TableColumn;
 //Declare a public class named FavouriteSceneCreator that handles mouse events
 public class FavouriteSceneCreator implements EventHandler<MouseEvent>
 {
-	//FlowPane to organize buttons in a flow layout
+	 //FlowPane to organize buttons in a flow layout
 	 FlowPane buttonFlowPane;
 
 	 //GridPanes for arranging UI elements in a grid layout
 	 GridPane rootGridPane, inputFieldsPane;
 
 	 //Buttons for various actions in the meal scene
-    Button deleteFavouriteBtn, moveMealBtn, getDetailsBtn, backBtn;
+     Button deleteFavouriteBtn, moveMealBtn, getDetailsBtn, backBtn;
 
-    //Label to display text or instructions in the meal scene
-    Label textLbl;
+     //Label to display text or instructions in the meal scene
+     Label textLbl;
 
-    //TextField for user input or parameters in the meal scene
-    TextField paramField;
+     //TextField for user input or parameters in the meal scene
+     TextField paramField;
 
-    //TableView to display a list of MealInfo objects in a tabular form
-    TableView<MealInfo> MealTableView;
+     //TableView to display a list of MealInfo objects in a tabular form
+     TableView<MealInfo> MealTableView;
 
-    //Jackson ObjectMapper instances for JSON serialization/deserialization
-    ObjectMapper mapper1 = new ObjectMapper();
-    ObjectMapper mapper2 = new ObjectMapper();
+     //Jackson ObjectMapper instances for JSON serialization/deserialization
+     ObjectMapper mapper1 = new ObjectMapper();
+     ObjectMapper mapper2 = new ObjectMapper();
 
-    //Constructor for the FavouriteSceneCreator class
-    public FavouriteSceneCreator() 
-    {
+     //Constructor for the FavouriteSceneCreator class
+     public FavouriteSceneCreator() 
+     {
     	//Initialize the root grid pane that contains the main layout
         rootGridPane = new GridPane();
 
@@ -135,7 +135,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         //Initialize the TableView to display MealInfo objects
         MealTableView = new TableView<MealInfo>();
 
-     //Create a TableColumn for the "idMeal" property of MealInfo objects
+        //Create a TableColumn for the "idMeal" property of MealInfo objects
         TableColumn<MealInfo, String> idMealColumn = new TableColumn<>("idMeal");
         //Bind the column to the "idMeal" property of MealInfo using PropertyValueFactory
         idMealColumn.setCellValueFactory(new PropertyValueFactory<>("idMeal"));
@@ -198,7 +198,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         //Add the column to the TableView
         MealTableView.getColumns().add(strYoutubeColumn);
 
-     //Create a TableColumn for the first ingredient (strIngredient1) of MealInfo
+        //Create a TableColumn for the first ingredient (strIngredient1) of MealInfo
         TableColumn<MealInfo, String> strIngredient1Column = new TableColumn<>("strIngredient1");
 
         //Bind the strIngredient1 property of MealInfo to this column
@@ -379,7 +379,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         MealTableView.getColumns().add(strIngredient20Column);
 
 		
-     //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
+        //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
         TableColumn<MealInfo, String> strMeasure1Column = new TableColumn<>("strMeasure1");
 
         //Bind the strMeasure1 property of MealInfo to this column
@@ -559,7 +559,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         //Add this column to the MealTableView
         MealTableView.getColumns().add(strMeasure20Column);
 
-      //Create a TableColumn for the 'strSource' property of MealInfo
+        //Create a TableColumn for the 'strSource' property of MealInfo
         TableColumn<MealInfo, String> strSourceColumn = new TableColumn<>("strSource");
 
         //Bind the strSource property of MealInfo to this column
@@ -596,7 +596,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         MealTableView.getColumns().add(dateModifiedColumn);
 
 
-     //Add the deleteFavouriteBtn button to the horizontal button flow pane
+        //Add the deleteFavouriteBtn button to the horizontal button flow pane
         buttonFlowPane.getChildren().add(deleteFavouriteBtn);
 
         //Add the moveMealBtn button to the horizontal button flow pane
@@ -654,7 +654,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         mapper2.enable(SerializationFeature.INDENT_OUTPUT);
 
 
-      //Check if the "favourite.json" file exists
+        //Check if the "favourite.json" file exists
         if (favourite.exists())
         {
             try {
@@ -680,16 +680,18 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         //Print a message indicating that the favourite object has been serialized (or loaded)
         System.out.println("Favourite object serialized to favourite.json");
         
-      //Check if the "cooked.json" file exists
+        //Check if the "cooked.json" file exists
         if (cooked.exists())
         {
-            try {
+            try 
+			{
                 //Obtain a TypeFactory instance from mapper2 for advanced type handling
                 TypeFactory typeFactory = mapper2.getTypeFactory();
 
                 //Deserialize the JSON content of "cooked.json" into a List of MealInfo objects
                 //and assign it to the application's cooked meals list (CoMealList)
-                App.CoMealList = mapper2.readValue(
+                App.CoMealList = mapper2.readValue
+				(
                     new File("cooked.json"),
                     typeFactory.constructCollectionType(List.class, MealInfo.class)
                 );
@@ -697,7 +699,9 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
                 //Print a message to indicate successful deserialization of cooked meals
                 System.out.println("Cooked object deserialized from cooked.json:");
                 
-            } catch (IOException e) {
+            } 
+			catch (IOException e) 
+			{
                 //Print the exception stack trace if an I/O error occurs during deserialization
                 e.printStackTrace();
             }
@@ -717,22 +721,23 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
         
         
      //Loop through each MealInfo object in the application's favourite meals list (FavMealList)
-        for (MealInfo Meal : App.FavMealList) {
+        for (MealInfo Meal : App.FavMealList) 
+		{
             //Add each MealInfo object to the TableView items so they are displayed in the UI
             items.add(Meal);
         }
 
     }
 
-  //Method to create and return a JavaFX Scene for this UI
+    //Method to create and return a JavaFX Scene for this UI
     Scene createScene()
     {
-      //Create a new Scene using the rootGridPane as the root layout
-      //Set the width of the scene to 650 pixels and the height to 300 pixels
-      return new Scene(rootGridPane, 650, 300);
+        //Create a new Scene using the rootGridPane as the root layout
+        //Set the width of the scene to 650 pixels and the height to 300 pixels
+        return new Scene(rootGridPane, 650, 300);
     }
 
-  //Override the handle method from EventHandler<MouseEvent> to handle mouse click events
+    //Override the handle method from EventHandler<MouseEvent> to handle mouse click events
     @Override
     public void handle(MouseEvent event) 
     {
@@ -766,8 +771,10 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        mapper1.writeValue(new File("favourite.json"), App.FavMealList);
 
     	        //Loop through each MealInfo in the updated favourite list to log JSON
-    	        for (MealInfo mi : App.FavMealList) {
-    	            try {
+    	        for (MealInfo mi : App.FavMealList) 
+				{
+    	            try 
+					{
     	                //Convert each MealInfo object to a JSON string for logging purposes
     	                String favouriteJsonString = mapper1.writeValueAsString(mi);
 
@@ -777,7 +784,9 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	                //Print the JSON string
     	                System.out.println(favouriteJsonString);
 
-    	            } catch (IOException e) {
+    	            } 
+					catch (IOException e) 
+					{
     	                //Print the stack trace if an I/O error occurs during serialization
     	                e.printStackTrace();
     	            }
@@ -797,16 +806,19 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        }
     	    }
     	    //Catch block for JSON generation errors
-    	    catch (JsonGenerationException e1) {
+    	    catch (JsonGenerationException e1) 
+			{
     	        System.err.println("JSON generation failed while writing favourite.json from Meal list");
     	        e1.printStackTrace();
     	    } 
     	    //Catch block for JSON mapping errors
-    	    catch (JsonMappingException e1) {
+    	    catch (JsonMappingException e1) 
+			{
     	        e1.printStackTrace();
     	    } 
     	    //Catch block for general I/O errors
-    	    catch (IOException e1) {
+    	    catch (IOException e1) 
+			{
     	        e1.printStackTrace();
     	    }
     	}
@@ -838,7 +850,8 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	                    App.CoMealList.add(MI);
 
     	                    //Show a pop-up confirming successful move
-    	                    MealPopUp mealPopUp = new MealPopUp(
+    	                    MealPopUp mealPopUp = new MealPopUp
+							(
     	                        "This meals has been successfully moved from the list of favourite meals to the list of cooked meals."
     	                    );
     	                    mealPopUp.show();
@@ -856,8 +869,10 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        mapper1.writeValue(new File("favourite.json"), App.FavMealList);
 
     	        //Loop through each MealInfo in the updated favourite list to log JSON
-    	        for (MealInfo mi : App.FavMealList) {
-    	            try {
+    	        for (MealInfo mi : App.FavMealList) 
+				{
+    	            try 
+					{
     	                //Convert each MealInfo object to a JSON string
     	                String favouriteJsonString = mapper1.writeValueAsString(mi);
 
@@ -867,7 +882,9 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	                //Print the JSON string
     	                System.out.println(favouriteJsonString);
 
-    	            } catch (IOException e) {
+    	            } 
+					catch (IOException e) 
+					{
     	                //Print stack trace if an I/O error occurs during serialization
     	                e.printStackTrace();
     	            }
@@ -877,8 +894,10 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        mapper2.writeValue(new File("cooked.json"), App.CoMealList);
 
     	        //Loop through each MealInfo in the updated cooked list to log JSON
-    	        for (MealInfo mi : App.CoMealList) {
-    	            try {
+    	        for (MealInfo mi : App.CoMealList) 
+				{
+    	            try 
+					{
     	                //Convert each MealInfo object to a JSON string
     	                String cookedJsonString = mapper2.writeValueAsString(mi);
 
@@ -888,7 +907,9 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	                //Print the JSON string
     	                System.out.println(cookedJsonString);
 
-    	            } catch (IOException e) {
+    	            } 
+					catch (IOException e) 
+					{
     	                //Print stack trace if an I/O error occurs during serialization
     	                e.printStackTrace();
     	            }
@@ -908,16 +929,19 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        }
     	    }
     	    //Catch block for JSON generation errors
-    	    catch (JsonGenerationException e1) {
+    	    catch (JsonGenerationException e1) 
+			{
     	        System.err.println("JSON generation failed while writing favourite.json or cooked.json from Meal lists");
     	        e1.printStackTrace();
     	    } 
     	    //Catch block for JSON mapping errors
-    	    catch (JsonMappingException e1) {
+    	    catch (JsonMappingException e1) 
+			{
     	        e1.printStackTrace();
     	    } 
     	    //Catch block for general I/O errors
-    	    catch (IOException e1) {
+    	    catch (IOException e1) 
+			{
     	        e1.printStackTrace();
     	    }
     	}
@@ -957,7 +981,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	          //Show the Stage window to the user
     	          getDetailsStage.show();
     	      }
-    	  }
+    	   }
     	}
 
     	//Check if the event source is the backBtn button
@@ -967,5 +991,6 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	  App.primaryStage.setScene(App.mainScene);
     	}
 
-    	}
+    }
+
 }
