@@ -1,34 +1,34 @@
-//Declare that this class belongs to the "model.themealdb" package
+//Class «ErrorResponse» belongs package «model.themealdb»
 package model.themealdb;
 
-//Import LinkedHashMap, a Map implementation that maintains insertion order
+//Import of LinkedHashMapan to implementation for maintaining insertion order
 import java.util.LinkedHashMap;
 
-//Import the generic Map interface
+//Import of the generic Map interface
 import java.util.Map;
 
-//Import annotation to indicate a getter method should be used for dynamic JSON properties
+//Import of annotation to indicate a getter method should be used for dynamic JSON properties
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
-//Import annotation to indicate a setter method should be used for dynamic JSON properties
+//Import of annotation to indicate a setter method should be used for dynamic JSON properties
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 
-//Import annotation to ignore a field during JSON serialization/deserialization
+//Import of annotation to ignore a field during JSON serialization/deserialization
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//Import annotation to include non-null fields only during JSON serialization
+//Import of annotation to include non-null fields only during JSON serialization
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-//Import annotation to map a Java field to a JSON property name
+//Import of annotation to map a Java field to a JSON property name
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//Import annotation to specify the order of JSON properties when serialized
+//Import of annotation to specify the order of JSON properties during serialization
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-//Include only non-null fields during JSON serialization to avoid sending empty fields
+//Including of only non-null fields during JSON serialization to avoid sending empty fields
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-//Specify the order of properties when serializing to JSON
+//Specification of the order of properties during serialization to JSON
 @JsonPropertyOrder
 (
     {
@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     }
 )
 
-//Define the ErrorResponse class to represent an error response returned by the API
+//Class «ErrorResponse» for handling errors during data reception from the REST API
 public class ErrorResponse 
 {
 
@@ -54,65 +54,73 @@ public class ErrorResponse
     @JsonProperty("success")
     private Boolean success;
     
-    //Ignore this field in JSON serialization/deserialization
-    //Stores any extra JSON properties not explicitly defined above
+    //Ignoration of this field in JSON serialization/deserialization
+    //Storage of any extra JSON properties not explicitly defined above
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    //Annotate the getter for "status_code" so Jackson uses this when serializing to JSON
+    //Annotation of the getter for "status_code" so Jackson uses this during serialization to JSON
     @JsonProperty("status_code")
+    //Return the current value of statusCode
     public Integer getStatusCode() 
     {
-        return statusCode; //Return the current value of statusCode
+        return statusCode;
     }
     
-    //Annotate the setter for "status_code" so Jackson uses this when deserializing from JSON
+    //Annotation of the setter for "status_code" so Jackson uses this during deserialization from JSON
     @JsonProperty("status_code")
+     //Set the value of statusCode from JSON
     public void setStatusCode(Integer statusCode) 
     {
-        this.statusCode = statusCode; //Set the value of statusCode from JSON
+        this.statusCode = statusCode;
     }
     
-    //Annotate the getter for "status_message" so Jackson uses this when serializing to JSON
+    //Annotation of the getter for "status_message" so Jackson uses this during serialization to JSON
     @JsonProperty("status_message")
+    //Return the current value of statusMessage
     public String getStatusMessage() 
     {
-        return statusMessage; //Return the current value of statusMessage
+        return statusMessage;
     }
     
-    //Annotate the setter for "status_message" so Jackson uses this when deserializing from JSON
+    //Annotation of the setter for "status_message" so Jackson uses this during deserialization from JSON
     @JsonProperty("status_message")
+    //Set the value of statusMessage from JSON
     public void setStatusMessage(String statusMessage) 
     {
-        this.statusMessage = statusMessage; //Set the value of statusMessage from JSON
+        this.statusMessage = statusMessage;
     }
     
-    //Annotate the getter for "success" so Jackson uses this when serializing to JSON
+    //Annotation of the getter for "success" so Jackson uses this during serialization to JSON
     @JsonProperty("success")
+    //Return the current value of success
     public Boolean getSuccess() 
     {
-        return success; //Return the current value of success
+        return success;
     }
     
-    //Annotate the setter for "success" so Jackson uses this when deserializing from JSON
+    //Annotation of the setter for "success" so Jackson uses this during deserialization from JSON
     @JsonProperty("success")
+    //Set the value of success from JSON
     public void setSuccess(Boolean success) 
     {
-        this.success = success; //Set the value of success from JSON
+        this.success = success;
     }
     
-    //Annotate this method to allow Jackson to include any additional properties not explicitly defined
+    //Annotation of this method to allow Jackson to include any additional properties not explicitly defined
     @JsonAnyGetter
+    //Return the map of extra dynamic properties
     public Map<String, Object> getAdditionalProperties() 
     {
-        return this.additionalProperties; //Return the map of extra dynamic properties
+        return this.additionalProperties;
     }
     
-    //Annotate this method to allow Jackson to store any extra JSON properties in the map during deserialization
+    //Annotation of this method to allow Jackson to store any extra JSON properties in the map during deserialization
     @JsonAnySetter
+    //Addition of the extra property to the map
     public void setAdditionalProperty(String name, Object value) 
     {
-        this.additionalProperties.put(name, value); //Add the extra property to the map
+        this.additionalProperties.put(name, value);
     }
 
 }
