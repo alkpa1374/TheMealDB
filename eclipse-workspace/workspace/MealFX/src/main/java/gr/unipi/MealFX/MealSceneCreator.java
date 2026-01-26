@@ -674,7 +674,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	//Check if the event source is the "Get Meal By Name" button
     	if (event.getSource() == getMealByNameBtn) 
     	{
-    	    //Create a new instance of the MealAPIService with the base URL of the API
+    	    //Creation of a new instance of the MealAPIService with the base URL of the REST API
     	    MealAPIService mas = new MealAPIService("https://www.themealdb.com");
     	    
     	    try 
@@ -682,16 +682,16 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	        //Get the text entered by the user in the input field
     	        String name = paramField.getText();
     	        
-    	        //Call the API service to get a list of meals by name or ingredient
+    	        //Calling of the API service to get a list of meals by name or main ingredient
     	        List<MealInfo> MealList = mas.getMealByNameOrIngredient(name);
     	        
     	        //Get the TableView's current items
     	        List<MealInfo> items = MealTableView.getItems();
     	        
-    	        //Clear the TableView before adding new results
+    	        //Clearance of the TableView before adding new results
     	        items.clear();
     	        
-    	        //Add all meals returned by the API to the TableView
+    	        //Adding of all meals returned by the REST API to the TableView
     	        for (MealInfo Meal : MealList) 
     	        {
     	            items.add(Meal);
@@ -998,5 +998,6 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
 
