@@ -1,106 +1,106 @@
-//Declare the package this class belongs to, organizing it under gr.unipi.MealFX
+//Class «MealSceneCreator» belongs package «gr.unipi.MealFX»
 package gr.unipi.MealFX;
 
-//Import File class for representing files in the file system
+//Import of File class for representing files in the file system
 import java.io.File;
 
-//Import IOException for handling input/output exceptions when working with files
+//Import of IOException for handling input/output exceptions when working with files
 import java.io.IOException;
 
-//Import ArrayList for dynamically-sized lists of objects
+//Import of ArrayList for dynamically-sized lists of objects
 import java.util.ArrayList;
 
-//Import List interface for using lists as a collection type
+//Import of List interface for using lists as a collection type
 import java.util.List;
 
-//Import exception class for JSON generation errors from Jackson library
+//Import of exception class for JSON generation errors from Jackson library
 import com.fasterxml.jackson.core.JsonGenerationException;
 
-//Import exception class for JSON mapping errors from Jackson library
+//Import of exception class for JSON mapping errors from Jackson library
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-//Import ObjectMapper from Jackson library to read and write JSON data
+//Import of ObjectMapper from Jackson library to read and write JSON data
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//Import SerializationFeature to configure formatting options for JSON output
+//Import of SerializationFeature to configure formatting options for JSON output
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-//Import TypeFactory from Jackson library to construct complex collection types for JSON deserialization
+//Import of TypeFactory from Jackson library to construct complex collection types for JSON deserialization
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
-//Import custom exception class for handling Meal API related errors
+//Import of custom exception class for handling Meal API related errors
 import exception.MealAPIException;
 
-//Import ObservableList, a JavaFX collection that allows automatic updates in UI controls like TableView
+//Import of ObservableList, a JavaFX collection that allows automatic updates in UI controls like TableView
 import javafx.collections.ObservableList;
 
-//Import EventHandler interface to handle events such as mouse clicks
+//Import of EventHandler interface to handle events such as mouse clicks
 import javafx.event.EventHandler;
 
-//Import Pos enum to set alignment (e.g., CENTER) in JavaFX layout panes
+//Import of Pos enum to set alignment (e.g., CENTER) in JavaFX layout panes
 import javafx.geometry.Pos;
 
-//Import Scene class to represent a container for all content in a JavaFX window
+//Import of Scene class to represent a container for all content in a JavaFX window
 import javafx.scene.Scene;
 
-//Import Alert dialog class for showing pop-up messages to the user
+//Import of Alert dialog class for showing pop-up messages to the user
 import javafx.scene.control.Alert;
 
-//Import AlertType enum to specify the type of alert (e.g., INFORMATION, ERROR)
+//Import of AlertType enum to specify the type of alert (e.g., INFORMATION, ERROR)
 import javafx.scene.control.Alert.AlertType;
 
-//Import Button control to allow user interactions
+//Import of Button control to allow user interactions
 import javafx.scene.control.Button;
 
-//Import Label control to display text in the UI
+//Import of Label control to display text in the UI
 import javafx.scene.control.Label;
 
-//Import TableView control to display tabular data
+//Import of TableView control to display tabular data
 import javafx.scene.control.TableView;
 
-//Import TableViewSelectionModel to handle selection operations within a TableView
+//Import of TableViewSelectionModel to handle selection operations within a TableView
 import javafx.scene.control.TableView.TableViewSelectionModel;
 
-//Import TextField control for user input of single-line text
+//Import of TextField control for user input of single-line text
 import javafx.scene.control.TextField;
 
-//Import PropertyValueFactory to map table columns to object properties for TableView
+//Import of PropertyValueFactory to map table columns to object properties for TableView
 import javafx.scene.control.cell.PropertyValueFactory;
 
-//Import FlowPane layout for arranging UI elements horizontally or vertically
+//Import of FlowPane layout for arranging UI elements horizontally or vertically
 import javafx.scene.layout.FlowPane;
 
-//Import GridPane layout for arranging UI elements in a flexible grid of rows and columns
+//Import of GridPane layout for arranging UI elements in a flexible grid of rows and columns
 import javafx.scene.layout.GridPane;
 
-//Import Stage class to represent a top-level JavaFX window
+//Import of Stage class to represent a top-level JavaFX window
 import javafx.stage.Stage;
 
-//Import the MealInfo model representing a meal entity
+//Import of the MealInfo model representing a meal entity
 import model.MealInfo;
 
-//Import service class for interacting with the Meal API
+//Import of service class for interacting with the Meal API
 import service.MealAPIService;
 
-//Import MouseEvent class to handle mouse input events like clicks
+//Import of MouseEvent class to handle mouse input events like clicks
 import javafx.scene.input.MouseEvent;
 
-//Import TableColumn class to define columns in a TableView
+//Import of TableColumn class to define columns in a TableView
 import javafx.scene.control.TableColumn;
 
-//Declare a public class named CookedSceneCreator that handles mouse events
+//Class «MealSceneCreator» for meal scene implementation
 public class MealSceneCreator implements EventHandler<MouseEvent>
 {
-	 ///FlowPane to organize buttons in a flow layout
+	 //Flow Pane
 	 FlowPane buttonFlowPane;
 
-	 //GridPanes for arranging UI elements in a grid layout
+	 //Grid Panes
 	 GridPane rootGridPane, inputFieldsPane;
 
-	 //Buttons for various actions in the meal scene
+	 //Meal scene buttons
 	 Button getMealByNameBtn, getSpecificMealBtn, getRandomMealBtn, addFavouriteBtn, addCookedBtn, getDetailsBtn, backBtn;
 
-	 //Label to display text or instructions in the meal scene
+	 //Label to display text in the meal scene
      Label textLbl = new Label("Parameter");
 
      //TextField for user input or parameters in the meal scene
@@ -109,29 +109,29 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
      //TableView to display a list of MealInfo objects in a tabular form
      TableView<MealInfo> MealTableView;
 
-     //Create a new list to store the user's favourite meals
+     //Creation of a new list to store the favourite meals
      List<MealInfo> FavMealList = new ArrayList<>();
 
-     //Create a new list to store the meals the user has cooked
+     //Creation of a new list to store the cooked meals
      List<MealInfo> CoMealList = new ArrayList<>();
     
      //Jackson ObjectMapper instances for JSON serialization/deserialization
      ObjectMapper mapper1 = new ObjectMapper();
      ObjectMapper mapper2 = new ObjectMapper();
 
-     //Constructor for the MealSceneCreator class
+     //Constructor for meal scene creation
 	 public MealSceneCreator() 
 	 {
-		//Initialize the root grid pane that contains the main layout
+		//Creation of the root grid pane
         rootGridPane = new GridPane();
 
-        //Initialize the grid pane that holds input fields
+        //Creation of the input fields pane
         inputFieldsPane = new GridPane();
 
-        //Initialize the flow pane that holds buttons in a horizontal flow
+        //Creation of the button flow pane
         buttonFlowPane = new FlowPane();
 
-        //Initialize buttons with their labels
+        //Creation of buttons
 		getMealByNameBtn=new Button("Search a Meal By Name or Main Ingredient");
 		getSpecificMealBtn=new Button("Search a Meal By ID");
 		getRandomMealBtn=new Button("Get a Random Meal");
@@ -140,477 +140,477 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 		getDetailsBtn=new Button("Get Details");
 		backBtn=new Button("Back");
 
-		//Create a new list to store the user's favourite meals
+		//Creation of a new list to store the favourite meals
 		List<MealInfo> FavMealList = new ArrayList<>();
 
-		//Create a new list to store the meals the user has cooked
+		//Creation of a new list to store the cooked meals
 		List<MealInfo> CoMealList = new ArrayList<>();
 		
-		//Initialize the TableView to display MealInfo objects
+		//Creation of a TableView
         MealTableView = new TableView<MealInfo>();
 
-        //Create a TableColumn for the "idMeal" property of MealInfo objects
+        //Creation of a TableColumn for the «idMeal» property
         TableColumn<MealInfo, String> idMealColumn = new TableColumn<>("idMeal");
-        //Bind the column to the "idMeal" property of MealInfo using PropertyValueFactory
+        //Binding of the column to the «idMeal» property
         idMealColumn.setCellValueFactory(new PropertyValueFactory<>("idMeal"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(idMealColumn);
 
-        //Create a TableColumn for the "strMeal" property of MealInfo objects
+        //Creation of a TableColumn for the «strMeal» property
         TableColumn<MealInfo, String> strMealColumn = new TableColumn<>("strMeal");
-        //Bind the column to the "strMeal" property
+        //Binding of the column to the «strMeal» property
         strMealColumn.setCellValueFactory(new PropertyValueFactory<>("strMeal"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strMealColumn);
 
-        //Create a TableColumn for the "strMealAlternate" property
+        //Creation of a TableColumn for the «strMealAlternate» property
         TableColumn<MealInfo, String> strMealAlternateColumn = new TableColumn<>("strMealAlternate");
-        //Bind the column to the "strMealAlternate" property
+        //Binding of the column to the «strMealAlternate» property
         strMealAlternateColumn.setCellValueFactory(new PropertyValueFactory<>("strMealAlternate"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strMealAlternateColumn);
 
-        //Create a TableColumn for the "strCategory" property
+        //Creation of a TableColumn for the «strCategory» property
         TableColumn<MealInfo, String> strCategoryColumn = new TableColumn<>("strCategory");
-        //Bind the column to the "strCategory" property
+        //Binding of the column to the «strCategory» property
         strCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("strCategory"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strCategoryColumn);
 
-        //Create a TableColumn for the "strArea" property
+        //Creation of a TableColumn for the «strArea» property
         TableColumn<MealInfo, String> strAreaColumn = new TableColumn<>("strArea");
-        //Bind the column to the "strArea" property
+        //Binding of the column to the «strArea» property
         strAreaColumn.setCellValueFactory(new PropertyValueFactory<>("strArea"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strAreaColumn);
 
-        //Create a TableColumn for the "strInstructions" property
+        //Creation of a TableColumn for the «strInstructions» property
         TableColumn<MealInfo, String> strInstructionsColumn = new TableColumn<>("strInstructions");
-        //Bind the column to the "strInstructions" property
+        //Binding of the column to the «strInstructions» property
         strInstructionsColumn.setCellValueFactory(new PropertyValueFactory<>("strInstructions"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strInstructionsColumn);
 
-        //Create a TableColumn for the "strMealThumb" property (image URL)
+        //Creation of a TableColumn for the «strMealThumb» property (image URL)
         TableColumn<MealInfo, String> strMealThumbColumn = new TableColumn<>("strMealThumb");
-        //Bind the column to the "strMealThumb" property
+        //Binding of the column to the «strMealThumb» property
         strMealThumbColumn.setCellValueFactory(new PropertyValueFactory<>("strMealThumb"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strMealThumbColumn);
 
-        //Create a TableColumn for the "strTags" property
+        //Creation of a TableColumn for the «strTags» property
         TableColumn<MealInfo, String> strTagsColumn = new TableColumn<>("strTags");
-        //Bind the column to the "strTags" property
+        //Binding of the column to the «strTags» property
         strTagsColumn.setCellValueFactory(new PropertyValueFactory<>("strTags"));
-        //Add the column to the TableView
+        //Adding of the column to the TableView
         MealTableView.getColumns().add(strTagsColumn);
 
-        //Create a TableColumn for the "strYoutube" property (YouTube link)
+        //Creation of a TableColumn for the «strYoutube» property (YouTube link)
         TableColumn<MealInfo, String> strYoutubeColumn = new TableColumn<>("strYoutube");
-        //Bind the column to the "strYoutube" property
+        //Binding of the column to the «strYoutube» property
         strYoutubeColumn.setCellValueFactory(new PropertyValueFactory<>("strYoutube"));
         //Add the column to the TableView
         MealTableView.getColumns().add(strYoutubeColumn);
 
-     //Create a TableColumn for the first ingredient (strIngredient1) of MealInfo
-        TableColumn<MealInfo, String> strIngredient1Column = new TableColumn<>("strIngredient1");
+        //Creation of a TableColumn for the «strIngredient1» of MealInfo
+		TableColumn<MealInfo, String> strIngredient1Column = new TableColumn<>("strIngredient1");
 
-        //Bind the strIngredient1 property of MealInfo to this column
-        strIngredient1Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient1"));
+		//Binding of the column to the «strIngredient1» property
+		strIngredient1Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient1"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient1Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient1Column);
 
-        //Create a TableColumn for the second ingredient (strIngredient2) of MealInfo
-        TableColumn<MealInfo, String> strIngredient2Column = new TableColumn<>("strIngredient2");
+		//Creation of a TableColumn for the «strIngredient2» of MealInfo
+		TableColumn<MealInfo, String> strIngredient2Column = new TableColumn<>("strIngredient2");
 
-        //Bind the strIngredient2 property of MealInfo to this column
-        strIngredient2Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient2"));
+		//Binding of the column to the «strIngredient2» property
+		strIngredient2Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient2"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient2Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient2Column);
 
-        //Create a TableColumn for the third ingredient (strIngredient3) of MealInfo
-        TableColumn<MealInfo, String> strIngredient3Column = new TableColumn<>("strIngredient3");
+		//Creation of a TableColumn for the «strIngredient3» of MealInfo
+		TableColumn<MealInfo, String> strIngredient3Column = new TableColumn<>("strIngredient3");
 
-        //Bind the strIngredient3 property of MealInfo to this column
-        strIngredient3Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient3"));
+		//Binding of the column to the «strIngredient3» property
+		strIngredient3Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient3"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient3Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient3Column);
 
-        //Create a TableColumn for the fourth ingredient (strIngredient4) of MealInfo
-        TableColumn<MealInfo, String> strIngredient4Column = new TableColumn<>("strIngredient4");
+		//Creation of a TableColumn for the «strIngredient4» of MealInfo
+		TableColumn<MealInfo, String> strIngredient4Column = new TableColumn<>("strIngredient4");
 
-        //Bind the strIngredient4 property of MealInfo to this column
-        strIngredient4Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient4"));
+		//Binding of the column to the «strIngredient4» property
+		strIngredient4Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient4"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient4Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient4Column);
 
-        //Create a TableColumn for the fifth ingredient (strIngredient5) of MealInfo
-        TableColumn<MealInfo, String> strIngredient5Column = new TableColumn<>("strIngredient5");
+		//Creation of a TableColumn for the «strIngredient5» of MealInfo
+		TableColumn<MealInfo, String> strIngredient5Column = new TableColumn<>("strIngredient5");
 
-        //Bind the strIngredient5 property of MealInfo to this column
-        strIngredient5Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient5"));
+		//Binding of the column to the «strIngredient5» property
+		strIngredient5Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient5"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient5Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient5Column);
 
-        //Create a TableColumn for the sixth ingredient (strIngredient6) of MealInfo
-        TableColumn<MealInfo, String> strIngredient6Column = new TableColumn<>("strIngredient6");
+		//Creation of a TableColumn for the «strIngredient6» of MealInfo
+		TableColumn<MealInfo, String> strIngredient6Column = new TableColumn<>("strIngredient6");
 
-        //Bind the strIngredient6 property of MealInfo to this column
-        strIngredient6Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient6"));
+		//Binding of the column to the «strIngredient6» property
+		strIngredient6Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient6"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient6Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient6Column);
 
-        //Create a TableColumn for the seventh ingredient (strIngredient7) of MealInfo
-        TableColumn<MealInfo, String> strIngredient7Column = new TableColumn<>("strIngredient7");
+		//Creation of a TableColumn for the «strIngredient7» of MealInfo
+		TableColumn<MealInfo, String> strIngredient7Column = new TableColumn<>("strIngredient7");
 
-        //Bind the strIngredient7 property of MealInfo to this column
-        strIngredient7Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient7"));
+		//Binding of the column to the «strIngredient7» property
+		strIngredient7Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient7"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient7Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient7Column);
 
-        //Create a TableColumn for the eighth ingredient (strIngredient8) of MealInfo
-        TableColumn<MealInfo, String> strIngredient8Column = new TableColumn<>("strIngredient8");
+		//Creation of a TableColumn for the «strIngredient8» of MealInfo
+		TableColumn<MealInfo, String> strIngredient8Column = new TableColumn<>("strIngredient8");
 
-        //Bind the strIngredient8 property of MealInfo to this column
-        strIngredient8Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient8"));
+		//Binding of the column to the «strIngredient8» property
+		strIngredient8Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient8"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient8Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient8Column);
 
-        //Create a TableColumn for the ninth ingredient (strIngredient9) of MealInfo
-        TableColumn<MealInfo, String> strIngredient9Column = new TableColumn<>("strIngredient9");
+		//Creation of a TableColumn for the «strIngredient9» of MealInfo
+		TableColumn<MealInfo, String> strIngredient9Column = new TableColumn<>("strIngredient9");
 
-        //Bind the strIngredient9 property of MealInfo to this column
-        strIngredient9Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient9"));
+		//Binding of the column to the «strIngredient9» property
+		strIngredient9Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient9"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient9Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient9Column);
 
-        //Create a TableColumn for the tenth ingredient (strIngredient10) of MealInfo
-        TableColumn<MealInfo, String> strIngredient10Column = new TableColumn<>("strIngredient10");
+		//Creation of a TableColumn for the «strIngredient10» of MealInfo
+		TableColumn<MealInfo, String> strIngredient10Column = new TableColumn<>("strIngredient10");
 
-        //Bind the strIngredient10 property of MealInfo to this column
-        strIngredient10Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient10"));
+		//Binding of the column to the «strIngredient10» property
+		strIngredient10Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient10"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient10Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient10Column);
 
-        //Create a TableColumn for the eleventh ingredient (strIngredient11) of MealInfo
-        TableColumn<MealInfo, String> strIngredient11Column = new TableColumn<>("strIngredient11");
+		//Creation of a TableColumn for the «strIngredient11» of MealInfo
+		TableColumn<MealInfo, String> strIngredient11Column = new TableColumn<>("strIngredient11");
 
-        //Bind the strIngredient11 property of MealInfo to this column
-        strIngredient11Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient11"));
+		//Binding of the column to the «strIngredient11» property
+		strIngredient11Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient11"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient11Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient11Column);
 
-        //Create a TableColumn for the twelfth ingredient (strIngredient12) of MealInfo
-        TableColumn<MealInfo, String> strIngredient12Column = new TableColumn<>("strIngredient12");
+		//Creation of a TableColumn for the «strIngredient12» of MealInfo
+		TableColumn<MealInfo, String> strIngredient12Column = new TableColumn<>("strIngredient12");
 
-        //Bind the strIngredient12 property of MealInfo to this column
-        strIngredient12Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient12"));
+		//Binding of the column to the «strIngredient12» property
+		strIngredient12Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient12"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient12Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient12Column);
 
-        //Create a TableColumn for the thirteenth ingredient (strIngredient13) of MealInfo
-        TableColumn<MealInfo, String> strIngredient13Column = new TableColumn<>("strIngredient13");
+		//Creation of a TableColumn for the «strIngredient13» of MealInfo
+		TableColumn<MealInfo, String> strIngredient13Column = new TableColumn<>("strIngredient13");
 
-        //Bind the strIngredient13 property of MealInfo to this column
-        strIngredient13Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient13"));
+		//Binding of the column to the «strIngredient13» property
+		strIngredient13Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient13"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient13Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient13Column);
 
-        //Create a TableColumn for the fourteenth ingredient (strIngredient14) of MealInfo
-        TableColumn<MealInfo, String> strIngredient14Column = new TableColumn<>("strIngredient14");
+		//Creation of a TableColumn for the «strIngredient14» of MealInfo
+		TableColumn<MealInfo, String> strIngredient14Column = new TableColumn<>("strIngredient14");
 
-        //Bind the strIngredient14 property of MealInfo to this column
-        strIngredient14Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient14"));
+		//Binding of the column to the «strIngredient14» property
+		strIngredient14Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient14"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient14Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient14Column);
 
-        //Create a TableColumn for the fifteenth ingredient (strIngredient15) of MealInfo
-        TableColumn<MealInfo, String> strIngredient15Column = new TableColumn<>("strIngredient15");
+		//Creation of a TableColumn for the «strIngredient15» of MealInfo
+		TableColumn<MealInfo, String> strIngredient15Column = new TableColumn<>("strIngredient15");
 
-        //Bind the strIngredient15 property of MealInfo to this column
-        strIngredient15Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient15"));
+		//Binding of the column to the «strIngredient15» property
+		strIngredient15Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient15"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient15Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient15Column);
 
-        //Create a TableColumn for the sixteenth ingredient (strIngredient16) of MealInfo
-        TableColumn<MealInfo, String> strIngredient16Column = new TableColumn<>("strIngredient16");
+		//Creation of a TableColumn for the «strIngredient16» of MealInfo
+		TableColumn<MealInfo, String> strIngredient16Column = new TableColumn<>("strIngredient16");
 
-        //Bind the strIngredient16 property of MealInfo to this column
-        strIngredient16Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient16"));
+		//Binding of the column to the «strIngredient16» property
+		strIngredient16Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient16"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient16Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient16Column);
 
-        //Create a TableColumn for the seventeenth ingredient (strIngredient17) of MealInfo
-        TableColumn<MealInfo, String> strIngredient17Column = new TableColumn<>("strIngredient17");
+		//Creation of a TableColumn for the «strIngredient17» of MealInfo
+		TableColumn<MealInfo, String> strIngredient17Column = new TableColumn<>("strIngredient17");
 
-        //Bind the strIngredient17 property of MealInfo to this column
-        strIngredient17Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient17"));
+		//Binding of the column to the «strIngredient17» property
+		strIngredient17Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient17"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient17Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient17Column);
 
-        //Create a TableColumn for the eighteenth ingredient (strIngredient18) of MealInfo
-        TableColumn<MealInfo, String> strIngredient18Column = new TableColumn<>("strIngredient18");
+		//Creation of a TableColumn for the «strIngredient18» of MealInfo
+		TableColumn<MealInfo, String> strIngredient18Column = new TableColumn<>("strIngredient18");
 
-        //Bind the strIngredient18 property of MealInfo to this column
-        strIngredient18Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient18"));
+		//Binding of the column to the «strIngredient18» property
+		strIngredient18Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient18"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient18Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient18Column);
 
-        //Create a TableColumn for the nineteenth ingredient (strIngredient19) of MealInfo
-        TableColumn<MealInfo, String> strIngredient19Column = new TableColumn<>("strIngredient19");
+		//Creation of a TableColumn for the «strIngredient19» of MealInfo
+		TableColumn<MealInfo, String> strIngredient19Column = new TableColumn<>("strIngredient19");
 
-        //Bind the strIngredient19 property of MealInfo to this column
-        strIngredient19Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient19"));
+		//Binding of the column to the «strIngredient19» property
+		strIngredient19Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient19"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient19Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient19Column);
 
-        //Create a TableColumn for the twentieth ingredient (strIngredient20) of MealInfo
-        TableColumn<MealInfo, String> strIngredient20Column = new TableColumn<>("strIngredient20");
+		//Creation of a TableColumn for the «strIngredient20» of MealInfo
+		TableColumn<MealInfo, String> strIngredient20Column = new TableColumn<>("strIngredient20");
 
-        //Bind the strIngredient20 property of MealInfo to this column
-        strIngredient20Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient20"));
+		//Binding of the column to the «strIngredient20» property
+		strIngredient20Column.setCellValueFactory(new PropertyValueFactory<>("strIngredient20"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strIngredient20Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strIngredient20Column);
 
-		
-        //Create a TableColumn for the first measurement (strMeasure1) of MealInfo
-        TableColumn<MealInfo, String> strMeasure1Column = new TableColumn<>("strMeasure1");
+			
+	    //Creation of a TableColumn for the «strMeasure1» of MealInfo
+		TableColumn<MealInfo, String> strMeasure1Column = new TableColumn<>("strMeasure1");
 
-        //Bind the strMeasure1 property of MealInfo to this column
-        strMeasure1Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure1"));
+		//Binding of the column to the «strMeasure1» property
+		strMeasure1Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure1"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure1Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure1Column);
 
-        //Create a TableColumn for the second measurement (strMeasure2) of MealInfo
-        TableColumn<MealInfo, String> strMeasure2Column = new TableColumn<>("strMeasure2");
+		//Creation of a TableColumn for the «strMeasure2» of MealInfo
+		TableColumn<MealInfo, String> strMeasure2Column = new TableColumn<>("strMeasure2");
 
-        //Bind the strMeasure2 property of MealInfo to this column
-        strMeasure2Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure2"));
+		//Binding of the column to the «strMeasure2» property
+		strMeasure2Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure2"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure2Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure2Column);
 
-        //Create a TableColumn for the third measurement (strMeasure3) of MealInfo
-        TableColumn<MealInfo, String> strMeasure3Column = new TableColumn<>("strMeasure3");
+		//Creation of a TableColumn for the «strMeasure3» of MealInfo
+		TableColumn<MealInfo, String> strMeasure3Column = new TableColumn<>("strMeasure3");
 
-        //Bind the strMeasure3 property of MealInfo to this column
-        strMeasure3Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure3"));
+		//Binding of the column to the «strMeasure3» property
+		strMeasure3Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure3"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure3Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure3Column);
 
-        //Create a TableColumn for the fourth measurement (strMeasure4) of MealInfo
-        TableColumn<MealInfo, String> strMeasure4Column = new TableColumn<>("strMeasure4");
+		//Creation of a TableColumn for the «strMeasure4» of MealInfo
+		TableColumn<MealInfo, String> strMeasure4Column = new TableColumn<>("strMeasure4");
 
-        //Bind the strMeasure4 property of MealInfo to this column
-        strMeasure4Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure4"));
+		//Binding of the column to the «strMeasure4» property
+		strMeasure4Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure4"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure4Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure4Column);
 
-        //Create a TableColumn for the fifth measurement (strMeasure5) of MealInfo
-        TableColumn<MealInfo, String> strMeasure5Column = new TableColumn<>("strMeasure5");
+		//Creation of a TableColumn for the «strMeasure5» of MealInfo
+		TableColumn<MealInfo, String> strMeasure5Column = new TableColumn<>("strMeasure5");
 
-        //Bind the strMeasure5 property of MealInfo to this column
-        strMeasure5Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure5"));
+		//Binding of the column to the «strMeasure5» property
+		strMeasure5Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure5"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure5Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure5Column);
 
-        //Create a TableColumn for the sixth measurement (strMeasure6) of MealInfo
-        TableColumn<MealInfo, String> strMeasure6Column = new TableColumn<>("strMeasure6");
+		//Creation of a TableColumn for the «strMeasure6» of MealInfo
+		TableColumn<MealInfo, String> strMeasure6Column = new TableColumn<>("strMeasure6");
 
-        //Bind the strMeasure6 property of MealInfo to this column
-        strMeasure6Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure6"));
+		//Binding of the column to the «strMeasure6» property
+		strMeasure6Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure6"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure6Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure6Column);
 
-        //Create a TableColumn for the seventh measurement (strMeasure7) of MealInfo
-        TableColumn<MealInfo, String> strMeasure7Column = new TableColumn<>("strMeasure7");
+		//Creation of a TableColumn for the «strMeasure7» of MealInfo
+		TableColumn<MealInfo, String> strMeasure7Column = new TableColumn<>("strMeasure7");
 
-        //Bind the strMeasure7 property of MealInfo to this column
-        strMeasure7Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure7"));
+		//Binding of the column to the «strMeasure7» property
+		strMeasure7Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure7"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure7Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure7Column);
 
-        //Create a TableColumn for the eighth measurement (strMeasure8) of MealInfo
-        TableColumn<MealInfo, String> strMeasure8Column = new TableColumn<>("strMeasure8");
+		//Creation of a TableColumn for the «strMeasure8» of MealInfo
+		TableColumn<MealInfo, String> strMeasure8Column = new TableColumn<>("strMeasure8");
 
-        //Bind the strMeasure8 property of MealInfo to this column
-        strMeasure8Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure8"));
+		//Binding of the column to the «strMeasure8» property
+		strMeasure8Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure8"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure8Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure8Column);
 
-        //Create a TableColumn for the ninth measurement (strMeasure9) of MealInfo
-        TableColumn<MealInfo, String> strMeasure9Column = new TableColumn<>("strMeasure9");
+		//Creation of a TableColumn for the «strMeasure9» of MealInfo
+		TableColumn<MealInfo, String> strMeasure9Column = new TableColumn<>("strMeasure9");
 
-        //Bind the strMeasure9 property of MealInfo to this column
-        strMeasure9Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure9"));
+		//Binding of the column to the «strMeasure9» property
+		strMeasure9Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure9"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure9Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure9Column);
 
-        //Create a TableColumn for the tenth measurement (strMeasure10) of MealInfo
-        TableColumn<MealInfo, String> strMeasure10Column = new TableColumn<>("strMeasure10");
+		//Creation of a TableColumn for the «strMeasure10» of MealInfo
+		TableColumn<MealInfo, String> strMeasure10Column = new TableColumn<>("strMeasure10");
 
-        //Bind the strMeasure10 property of MealInfo to this column
-        strMeasure10Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure10"));
+		//Binding of the column to the «strMeasure10» property
+		strMeasure10Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure10"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure10Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure10Column);
 
-        //Create a TableColumn for the eleventh measurement (strMeasure11) of MealInfo
-        TableColumn<MealInfo, String> strMeasure11Column = new TableColumn<>("strMeasure11");
+		//Creation of a TableColumn for the «strMeasure11» of MealInfo
+		TableColumn<MealInfo, String> strMeasure11Column = new TableColumn<>("strMeasure11");
 
-        //Bind the strMeasure11 property of MealInfo to this column
-        strMeasure11Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure11"));
+		//Binding of the column to the «strMeasure11» property
+		strMeasure11Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure11"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure11Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure11Column);
 
-        //Create a TableColumn for the twelfth measurement (strMeasure12) of MealInfo
-        TableColumn<MealInfo, String> strMeasure12Column = new TableColumn<>("strMeasure12");
+		//Creation of a TableColumn for the «strMeasure12» of MealInfo
+		TableColumn<MealInfo, String> strMeasure12Column = new TableColumn<>("strMeasure12");
 
-        //Bind the strMeasure12 property of MealInfo to this column
-        strMeasure12Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure12"));
+		//Binding of the column to the «strMeasure12» property
+		strMeasure12Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure12"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure12Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure12Column);
 
-        //Create a TableColumn for the thirteenth measurement (strMeasure13) of MealInfo
-        TableColumn<MealInfo, String> strMeasure13Column = new TableColumn<>("strMeasure13");
+		//Creation of a TableColumn for the «strMeasure13» of MealInfo
+		TableColumn<MealInfo, String> strMeasure13Column = new TableColumn<>("strMeasure13");
 
-        //Bind the strMeasure13 property of MealInfo to this column
-        strMeasure13Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure13"));
+		//Binding of the column to the «strMeasure13» property
+		strMeasure13Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure13"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure13Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure13Column);
 
-        //Create a TableColumn for the fourteenth measurement (strMeasure14) of MealInfo
-        TableColumn<MealInfo, String> strMeasure14Column = new TableColumn<>("strMeasure14");
+		//Creation of a TableColumn for the «strMeasure14» of MealInfo
+		TableColumn<MealInfo, String> strMeasure14Column = new TableColumn<>("strMeasure14");
 
-        //Bind the strMeasure14 property of MealInfo to this column
-        strMeasure14Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure14"));
+		//Binding of the column to the «strMeasure14» property
+		strMeasure14Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure14"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure14Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure14Column);
 
-        //Create a TableColumn for the fifteenth measurement (strMeasure15) of MealInfo
-        TableColumn<MealInfo, String> strMeasure15Column = new TableColumn<>("strMeasure15");
+		//Creation of a TableColumn for the «strMeasure15» of MealInfo
+		TableColumn<MealInfo, String> strMeasure15Column = new TableColumn<>("strMeasure15");
 
-        //Bind the strMeasure15 property of MealInfo to this column
-        strMeasure15Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure15"));
+		//Binding of the column to the «strMeasure15» property
+		strMeasure15Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure15"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure15Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure15Column);
 
-        //Create a TableColumn for the sixteenth measurement (strMeasure16) of MealInfo
-        TableColumn<MealInfo, String> strMeasure16Column = new TableColumn<>("strMeasure16");
+		//Creation of a TableColumn for the «strMeasure16» of MealInfo
+		TableColumn<MealInfo, String> strMeasure16Column = new TableColumn<>("strMeasure16");
 
-        //Bind the strMeasure16 property of MealInfo to this column
-        strMeasure16Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure16"));
+		//Binding of the column to the «strMeasure16» property
+		strMeasure16Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure16"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure16Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure16Column);
 
-        //Create a TableColumn for the seventeenth measurement (strMeasure17) of MealInfo
-        TableColumn<MealInfo, String> strMeasure17Column = new TableColumn<>("strMeasure17");
+		//Creation of a TableColumn for the «strMeasure17» of MealInfo
+		TableColumn<MealInfo, String> strMeasure17Column = new TableColumn<>("strMeasure17");
 
-        //Bind the strMeasure17 property of MealInfo to this column
-        strMeasure17Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure17"));
+		//Binding of the column to the «strMeasure17» property
+		strMeasure17Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure17"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure17Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure17Column);
 
-        //Create a TableColumn for the eighteenth measurement (strMeasure18) of MealInfo
-        TableColumn<MealInfo, String> strMeasure18Column = new TableColumn<>("strMeasure18");
+		//Creation of a TableColumn for the «strMeasure18» of MealInfo
+		TableColumn<MealInfo, String> strMeasure18Column = new TableColumn<>("strMeasure18");
 
-        //Bind the strMeasure18 property of MealInfo to this column
-        strMeasure18Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure18"));
+		//Binding of the column to the «strMeasure18» property
+		strMeasure18Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure18"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure18Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure18Column);
 
-        //Create a TableColumn for the nineteenth measurement (strMeasure19) of MealInfo
-        TableColumn<MealInfo, String> strMeasure19Column = new TableColumn<>("strMeasure19");
+		//Creation of a TableColumn for the «strMeasure19» of MealInfo
+		TableColumn<MealInfo, String> strMeasure19Column = new TableColumn<>("strMeasure19");
 
-        //Bind the strMeasure19 property of MealInfo to this column
-        strMeasure19Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure19"));
+		//Binding of the column to the «strMeasure19» property
+		strMeasure19Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure19"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure19Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure19Column);
 
-        //Create a TableColumn for the twentieth measurement (strMeasure20) of MealInfo
-        TableColumn<MealInfo, String> strMeasure20Column = new TableColumn<>("strMeasure20");
+		//Creation of a TableColumn for the «strMeasure20» of MealInfo
+		TableColumn<MealInfo, String> strMeasure20Column = new TableColumn<>("strMeasure20");
 
-        //Bind the strMeasure20 property of MealInfo to this column
-        strMeasure20Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure20"));
+		//Binding of the column to the «strMeasure20» property
+		strMeasure20Column.setCellValueFactory(new PropertyValueFactory<>("strMeasure20"));
 
-        //Add this column to the MealTableView
-        MealTableView.getColumns().add(strMeasure20Column);
+		//Adding of this column to the MealTableView
+		MealTableView.getColumns().add(strMeasure20Column);
 
-      //Create a TableColumn for the 'strSource' property of MealInfo
+        //Creation of a TableColumn for the «strSource» property
         TableColumn<MealInfo, String> strSourceColumn = new TableColumn<>("strSource");
 
-        //Bind the strSource property of MealInfo to this column
+        //Binding of the column to the «strSource» property
         strSourceColumn.setCellValueFactory(new PropertyValueFactory<>("strSource"));
 
-        //Add this column to the MealTableView
+        //Adding of this column to the MealTableView
         MealTableView.getColumns().add(strSourceColumn);
 
-        //Create a TableColumn for the 'strImageSource' property of MealInfo
+        //Creation of a TableColumn for the «strImageSource» property of MealInfo
         TableColumn<MealInfo, String> strImageSourceColumn = new TableColumn<>("strImageSource");
 
-        //Bind the strImageSource property of MealInfo to this column
+        //Binding of the column to the «strImageSource» property
         strImageSourceColumn.setCellValueFactory(new PropertyValueFactory<>("strImageSource"));
 
-        //Add this column to the MealTableView
+        //Adding of this column to the MealTableView
         MealTableView.getColumns().add(strImageSourceColumn);
 
-        //Create a TableColumn for the 'strCreativeCommonsConfirmed' property of MealInfo
+        //Creation of a TableColumn for the «strCreativeCommonsConfirmed» property of MealInfo
         TableColumn<MealInfo, String> strCreativeCommonsConfirmedColumn = new TableColumn<>("strCreativeCommonsConfirmed");
 
-        //Bind the strCreativeCommonsConfirmed property of MealInfo to this column
+        //Binding of the column to the «strCreativeCommonsConfirmed» property
         strCreativeCommonsConfirmedColumn.setCellValueFactory(new PropertyValueFactory<>("strCreativeCommonsConfirmed"));
 
-        //Add this column to the MealTableView
+        //Adding of this column to the MealTableView
         MealTableView.getColumns().add(strCreativeCommonsConfirmedColumn);
 
-        //Create a TableColumn for the 'dateModified' property of MealInfo
+        //Creation a TableColumn for the «dateModified» property of MealInfo
         TableColumn<MealInfo, String> dateModifiedColumn = new TableColumn<>("dateModified");
 
-        //Bind the dateModified property of MealInfo to this column
+        //Binding of the column to the «dateModified» property
         dateModifiedColumn.setCellValueFactory(new PropertyValueFactory<>("dateModified"));
 
-        //Add this column to the MealTableView
+        //Adding of this column to the MealTableView
         MealTableView.getColumns().add(dateModifiedColumn);
 		
         
-        //Add the "Get Meal By Name" button to the FlowPane
+        //Add the «Get Meal By Name" button to the FlowPane
         buttonFlowPane.getChildren().add(getMealByNameBtn);
 
         //Add the "Get Specific Meal" button to the FlowPane
@@ -1042,3 +1042,4 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
