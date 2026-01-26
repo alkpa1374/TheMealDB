@@ -91,41 +91,41 @@ import javafx.scene.control.TableColumn;
 //Class «CookedSceneCreator» for meal scene implementation
 public class CookedSceneCreator implements EventHandler<MouseEvent>
 {
-	//FlowPane to organize buttons in a flow layout
-	FlowPane buttonFlowPane;
-	
-	//GridPanes for arranging UI elements in a grid layout
-	GridPane rootGridPane, inputFieldsPane;
-	
-	//Buttons for various actions in the meal scene
+	 //Flow Pane
+	 FlowPane buttonFlowPane;
+
+	 //Grid Panes
+	 GridPane rootGridPane, inputFieldsPane;
+
+	 //Meal scene buttons
 	Button deleteCookedBtn, moveMealBtn, getDetailsBtn, backBtn;
 	
-	//Label to display text or instructions in the meal scene
-	Label textLbl;
-	
-	//TextField for user input or parameters in the meal scene
-	TextField paramField;
-	
-	//TableView to display a list of MealInfo objects in a tabular form
-	TableView<MealInfo> MealTableView;
+	//Label to display text in the meal scene
+     Label textLbl = new Label("Parameter");
+
+     //TextField for user input or parameters in the meal scene
+     TextField paramField = new TextField();
+
+     //TableView to display a list of MealInfo objects in a tabular form
+     TableView<MealInfo> MealTableView;
 	
 	//Jackson ObjectMapper instances for JSON serialization/deserialization
-	ObjectMapper mapper1 = new ObjectMapper();
-	ObjectMapper mapper2 = new ObjectMapper();
+     ObjectMapper mapper1 = new ObjectMapper();
+     ObjectMapper mapper2 = new ObjectMapper();
 
-	//Constructor for the CookedSceneCreator class
+	//Constructor for cooked scene creator
 	public CookedSceneCreator() 
 	{
-		 //Initialize the root grid pane that contains the main layout
-		 rootGridPane = new GridPane();
-		
-		 //Initialize the grid pane that holds input fields
-		 inputFieldsPane = new GridPane();
-		
-		 //Initialize the flow pane that holds buttons in a horizontal flow
-		 buttonFlowPane = new FlowPane();
-		
-		 //Initialize buttons with their labels
+		 //Creation of the root grid pane
+        rootGridPane = new GridPane();
+
+        //Creation of the input fields pane
+        inputFieldsPane = new GridPane();
+
+        //Creation of the button flow pane
+        buttonFlowPane = new FlowPane();
+
+        //Creation of buttons
 		 deleteCookedBtn = new Button("Delete Cooked");
 		 moveMealBtn = new Button("Move Meal");
 		 getDetailsBtn = new Button("Get Details");
@@ -981,5 +981,6 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 	}
 
 }
+
 
 
