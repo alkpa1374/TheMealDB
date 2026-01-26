@@ -1,37 +1,37 @@
-//Class «MealInfo» belongs package «model»
+//Class «MealInfo» belongs to package «model»
 package model;
 
 //POJOs Class «MealInfo» for saving data from the REST API of THEMEALDB
 public class MealInfo 
 {
-    //Unique identifier of the meal
+    //Meal ID declaration
     private String idMeal;
     
-    //Name of the meal
+    //Meal name declaration
     private String strMeal;
     
-    //Alternate name of the meal (if available)
+    //Alternate name declaration
     private String strMealAlternate;
     
-    //Category of the meal (e.g., "Dessert", "Seafood")
+    //Meal category declaration
     private String strCategory;
     
-    //Region or area of cuisine (e.g., "Italian", "American")
+    //Meal origin country declaration
     private String strArea;
     
-    //Instructions for preparing the meal
+    //Meal instructions declaration
     private String strInstructions;
     
-    //URL for the meal's thumbnail image
+    //Meal image linh declaration
     private String strMealThumb;
     
-    //Tags associated with the meal (comma-separated)
+    //Ingredients categories per meal declaration
     private String strTags;
     
-    //YouTube link showing meal preparation
+    //YouTube link declaration
     private String strYoutube;
     
-    //Ingredients of the meal (up to 20)
+    //Meal ingredients declaration
     private String strIngredient1;
     private String strIngredient2;
     private String strIngredient3;
@@ -53,7 +53,7 @@ public class MealInfo
     private String strIngredient19;
     private String strIngredient20;
     
-    //Measures corresponding to each ingredient (up to 20)
+    //Meal ingredients measurements declaration
     private String strMeasure1;
     private String strMeasure2;
     private String strMeasure3;
@@ -75,33 +75,33 @@ public class MealInfo
     private String strMeasure19;
     private String strMeasure20;
     
-    //Original source URL of the recipe (if provided)
+    //Meal source declaration
     private String strSource;
     
-    //URL for the image source (if different from strMealThumb)
+    //Meal image source declaration
     private String strImageSource;
     
-    //Indicates if Creative Commons license is confirmed for the recipe
+    //Meal or meal image availability with license Creative Commons declaration
     private String strCreativeCommonsConfirmed;
     
-    //Date of last modification of the meal information
+    //Date of last modification of meal declaration
     private String dateModified;
     
-    //Default no-argument constructor
+    //No-argument constructor for creating a meal
     public MealInfo() 
     {
-        super(); //Calls the superclass constructor (Object)
+        super();
     }
     
-    //Constructor initializing only the essential fields
+    //Constructor for creating a meal with ID, name and image link
     public MealInfo(String idMeal, String strMeal, String strMealThumb) 
     {
-        this.idMeal = idMeal;       //Set meal ID
-        this.strMeal = strMeal;     //Set meal name
-        this.strMealThumb = strMealThumb; //Set meal thumbnail
+        this.idMeal = idMeal;
+        this.strMeal = strMeal;
+        this.strMealThumb = strMealThumb;
     }
     
-    //Constructor that initializes all possible fields of a MealInfo object
+    //Constructor for creating a meal with ID, name, alternatate meal, category, origin country, instructions, image link, ingredients category, Youtube link, ingredients, ingredients measurements, source, image source, availability with lisence Creative Commons and date of last modification 
     public MealInfo(String idMeal, String strMeal, String strMealAlternate, String strCategory, String strArea,
                 String strInstructions, String strMealThumb, String strTags, String strYoutube,
                 String strIngredient1, String strIngredient2, String strIngredient3, String strIngredient4,
@@ -116,34 +116,34 @@ public class MealInfo
                 String strSource, String strImageSource, String strCreativeCommonsConfirmed, String dateModified) 
     {
     
-        //Sets the unique identifier for the meal
+        //Set meal ID
         this.idMeal = idMeal;
         
-        //Sets the name of the meal
+        //Set name of the meal
         this.strMeal = strMeal;
         
-        //Sets the alternate name of the meal
+        //Set alternate meal
         this.strMealAlternate = strMealAlternate;
         
-        //Sets the meal category (e.g., Dessert, Seafood)
+        //Set meal category
         this.strCategory = strCategory;
         
-        //Sets the meal's regional cuisine or origin
+        //Set meal origin country
         this.strArea = strArea;
         
-        //Sets the preparation instructions for the meal
+        //Set meal instructions
         this.strInstructions = strInstructions;
         
-        //Sets the URL for the meal's thumbnail image
+        //Set meal image link
         this.strMealThumb = strMealThumb;
         
-        //Sets tags for the meal (comma-separated keywords)
+        //Set ingredients category per meal
         this.strTags = strTags;
         
-        //Sets the YouTube link for the meal's preparation video
+        //Set YouTube link
         this.strYoutube = strYoutube;
         
-        //Sets all 20 ingredients of the meal individually
+        //Set 20 ingredients of meal individually
         this.strIngredient1 = strIngredient1;
         this.strIngredient2 = strIngredient2;
         this.strIngredient3 = strIngredient3;
@@ -165,7 +165,7 @@ public class MealInfo
         this.strIngredient19 = strIngredient19;
         this.strIngredient20 = strIngredient20;
         
-        //Sets all 20 corresponding measurements for the ingredients
+        //Set 20 ingredients measurements of meal
         this.strMeasure1 = strMeasure1;
         this.strMeasure2 = strMeasure2;
         this.strMeasure3 = strMeasure3;
@@ -187,656 +187,656 @@ public class MealInfo
         this.strMeasure19 = strMeasure19;
         this.strMeasure20 = strMeasure20;
         
-        //Sets the original source URL for the meal (if provided)
+        //Set meal source
         this.strSource = strSource;
         
-        //Sets the image source URL (if different from strMealThumb)
+        //Set meal image source
         this.strImageSource = strImageSource;
         
-        //Sets the Creative Commons confirmation status for the recipe
+        //Set meal or meal source with license Creative Commons
         this.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed;
         
-        //Sets the last modification date of the meal record
+        //Set date of last modification of meal declaration
         this.dateModified = dateModified;
     }
 
 
-    //Returns the unique ID of the meal
+    //Return meal ID
     public String getIdMeal()
     {
         return idMeal;
     }
     
-    //Sets the unique ID of the meal
+    //Set meal ID
     public void setIdMeal(String idMeal)
     {
         this.idMeal = idMeal;
     }
     
-    //Returns the main name of the meal
+    //Return meal name
     public String getStrMeal()
     {
         return strMeal;
     }
     
-    //Sets the main name of the meal
+    //Set meal name
     public void setStrMeal(String strMeal)
     {
         this.strMeal = strMeal;
     }
     
-    //Returns the alternative name of the meal
+    //Return alternative meal
     public String getStrMealAlternate()
     {
         return strMealAlternate;
     }
     
-    //Sets the alternative name of the meal
+    //Set alternative meal
     public void setStrMealAlternate(String strMealAlternate)
     {
         this.strMealAlternate = strMealAlternate;
     }
     
-    //Returns the category of the meal (e.g., Beef, Dessert)
+    //Return meal category
     public String getStrCategory()
     {
         return strCategory;
     }
     
-    //Sets the category of the meal
+    //Set meal category
     public void setStrCategory(String strCategory)
     {
         this.strCategory = strCategory;
     }
     
-    //Returns the area (country or cuisine) of the meal
+    //Return meal origin country
     public String getStrArea()
     {
         return strArea;
     }
     
-    //Sets the area (country or cuisine) of the meal
+    //Set meal origin country
     public void setStrArea(String strArea)
     {
         this.strArea = strArea;
     }
     
-    //Returns the cooking instructions for the meal
+    //Return meal instructions
     public String getStrInstructions()
     {
         return strInstructions;
     }
     
-    //Sets the cooking instructions for the meal
+    //Set meal instructions
     public void setStrInstructions(String strInstructions)
     {
         this.strInstructions = strInstructions;
     }
     
-    //Returns the URL of the meal's thumbnail image
+    //Return meal image link
     public String getStrMealThumb()
     {
         return strMealThumb;
     }
     
-    //Sets the URL of the meal's thumbnail image
+    //Set meal image link
     public void setStrMealThumb(String strMealThumb)
     {
         this.strMealThumb = strMealThumb;
     }
     
-    //Returns the tags associated with the meal
+    //Return ingredients category per meal
     public String getStrTags()
     {
         return strTags;
     }
     
-    //Sets the tags associated with the meal
+    //Set ingredients category per meal
     public void setStrTags(String strTags)
     {
         this.strTags = strTags;
     }
     
-    //Returns the YouTube video URL of the recipe
+    //Return YouTube link
     public String getStrYoutube()
     {
         return strYoutube;
     }
     
-    //Sets the YouTube video URL of the recipe
+    //Set YouTube link
     public void setStrYoutube(String strYoutube)
     {
         this.strYoutube = strYoutube;
     }
     
-    //Returns ingredient 1
+    //Return first ingredient of meal
     public String getStrIngredient1()
     {
         return strIngredient1;
     }
     
-    //Sets ingredient 1
+    //Set first ingredient of meal
     public void setStrIngredient1(String strIngredient1)
     {
         this.strIngredient1 = strIngredient1;
     }
     
-    //Returns ingredient 2
+    //Return second ingredient of meal 
     public String getStrIngredient2()
     {
         return strIngredient2;
     }
     
-    //Sets ingredient 2
+    //Set second ingredient of meal
     public void setStrIngredient2(String strIngredient2)
     {
         this.strIngredient2 = strIngredient2;
     }
     
-    //Returns ingredient 3
+    //Return third ingredient of meal
     public String getStrIngredient3()
     {
         return strIngredient3;
     }
     
-    //Sets ingredient 3
+    //Set third ingredient of meal
     public void setStrIngredient3(String strIngredient3)
     {
         this.strIngredient3 = strIngredient3;
     }
     
-    //Returns ingredient 4
+    //Return fourth ingredient of meal
     public String getStrIngredient4()
     {
         return strIngredient4;
     }
     
-    //Sets ingredient 4
+    //Set fourth ingredient of meal
     public void setStrIngredient4(String strIngredient4)
     {
         this.strIngredient4 = strIngredient4;
     }
     
-    //Returns ingredient 5
+    //Return fifth ingredient of meal
     public String getStrIngredient5()
     {
         return strIngredient5;
     }
     
-    //Sets ingredient 5
+    //Set fifth ingredient of meal
     public void setStrIngredient5(String strIngredient5)
     {
         this.strIngredient5 = strIngredient5;
     }
     
-    //Returns ingredient 6
+    //Return sixth ingredient of meal
     public String getStrIngredient6()
     {
         return strIngredient6;
     }
     
-    //Sets ingredient 6
+    //Set sixth ingredient of meal
     public void setStrIngredient6(String strIngredient6)
     {
         this.strIngredient6 = strIngredient6;
     }
     
-    //Returns ingredient 7
+    //Return seventh ingredient of meal
     public String getStrIngredient7()
     {
         return strIngredient7;
     }
     
-    //Sets ingredient 7
+    //Set seventh ingredient of meal
     public void setStrIngredient7(String strIngredient7)
     {
         this.strIngredient7 = strIngredient7;
     }
     
-    //Returns ingredient 8
+    //Return eighth ingredient of meal
     public String getStrIngredient8()
     {
         return strIngredient8;
     }
     
-    //Sets ingredient 8
+    //Set eighth ingredient of meal
     public void setStrIngredient8(String strIngredient8)
     {
         this.strIngredient8 = strIngredient8;
     }
     
-    //Returns ingredient 9
+    //Return ninth ingredient of meal
     public String getStrIngredient9()
     {
         return strIngredient9;
     }
     
-    //Sets ingredient 9
+    //Set ninth ingredient of meal
     public void setStrIngredient9(String strIngredient9)
     {
         this.strIngredient9 = strIngredient9;
     }
     
-    //Returns ingredient 10
+    //Return tenth ingredient of meal
     public String getStrIngredient10()
     {
         return strIngredient10;
     }
     
-    //Sets ingredient 10
+    //Set tenth ingredient of meal
     public void setStrIngredient10(String strIngredient10)
     {
         this.strIngredient10 = strIngredient10;
     }
     
-    //Returns ingredient 11
+    //Return eleventh ingredient of meal
     public String getStrIngredient11()
     {
         return strIngredient11;
     }
     
-    //Sets ingredient 11
+    //Set eleventh ingredient of meal
     public void setStrIngredient11(String strIngredient11)
     {
         this.strIngredient11 = strIngredient11;
     }
     
-    //Returns ingredient 12
+    //Return twelfth ingredient of meal
     public String getStrIngredient12()
     {
         return strIngredient12;
     }
     
-    //Sets ingredient 12
+    //Set twelfth ingredient of meal
     public void setStrIngredient12(String strIngredient12)
     {
         this.strIngredient12 = strIngredient12;
     }
     
-    //Returns ingredient 13
+    //Return thirteenth ingredient of meal
     public String getStrIngredient13()
     {
         return strIngredient13;
     }
     
-    //Sets ingredient 13
+    //Set thirteenth ingredient of meal
     public void setStrIngredient13(String strIngredient13)
     {
         this.strIngredient13 = strIngredient13;
     }
     
-    //Returns ingredient 14
+    //Return fourteenth ingredient of meal
     public String getStrIngredient14()
     {
         return strIngredient14;
     }
     
-    //Sets ingredient 14
+    //Set fourteenth ingredient of meal
     public void setStrIngredient14(String strIngredient14)
     {
         this.strIngredient14 = strIngredient14;
     }
     
-    //Returns ingredient 15
+    //Return fifteenth ingredient of meal
     public String getStrIngredient15()
     {
         return strIngredient15;
     }
     
-    //Sets ingredient 15
+    //Set fifteenth ingredient of meal
     public void setStrIngredient15(String strIngredient15)
     {
         this.strIngredient15 = strIngredient15;
     }
     
-    //Returns ingredient 16
+    //Return sixteenth ingredient of meal
     public String getStrIngredient16()
     {
         return strIngredient16;
     }
     
-    //Sets ingredient 16
+    //Set sixteenth ingredient of meal
     public void setStrIngredient16(String strIngredient16)
     {
         this.strIngredient16 = strIngredient16;
     }
     
-    //Returns ingredient 17
+    //Return seventeenth ingredient of meal
     public String getStrIngredient17()
     {
         return strIngredient17;
     }
     
-    //Sets ingredient 17
+    //Set seventeenth ingredient of meal
     public void setStrIngredient17(String strIngredient17)
     {
         this.strIngredient17 = strIngredient17;
     }
     
-    //Returns ingredient 18
+    //Return eighteenth ingredient of meal
     public String getStrIngredient18()
     {
         return strIngredient18;
     }
     
-    //Sets ingredient 18
+    //Set eighteenth ingredient of meal
     public void setStrIngredient18(String strIngredient18)
     {
         this.strIngredient18 = strIngredient18;
     }
     
-    //Returns ingredient 19
+    //Return nineteenth ingredient of meal
     public String getStrIngredient19()
     {
         return strIngredient19;
     }
     
-    //Sets ingredient 19
+    //Set nineteenth ingredient of meal
     public void setStrIngredient19(String strIngredient19)
     {
         this.strIngredient19 = strIngredient19;
     }
     
-    //Returns ingredient 20
+    //Return twentieth ingredient of meal
     public String getStrIngredient20()
     {
         return strIngredient20;
     }
     
-    //Sets ingredient 20
+    //Set twentieth ingredient of meal
     public void setStrIngredient20(String strIngredient20)
     {
         this.strIngredient20 = strIngredient20;
     }
     
-    //Returns the first ingredient measurement
+    //Return first ingredient measurement of meal
     public String getStrMeasure1()
     {
         return strMeasure1;
     }
     
-    //Sets the first ingredient measurement
+    //Set the first ingredient measurement of meal
     public void setStrMeasure1(String strMeasure1)
     {
         this.strMeasure1 = strMeasure1;
     }
     
-    //Returns the second ingredient measurement
+    //Return second ingredient measurement of meal
     public String getStrMeasure2() 
     {
         return strMeasure2;
     }
     
-    //Sets the second ingredient measurement
+    //Set the second ingredient measurement of meal
     public void setStrMeasure2(String strMeasure2) 
     {
         this.strMeasure2 = strMeasure2;
     }
     
-    //Returns the third ingredient measurement
+    //Return third ingredient measurement of meal
     public String getStrMeasure3() 
     {
         return strMeasure3;
     }
     
-    //Sets the third ingredient measurement
+    //Set the third ingredient measurement of meal
     public void setStrMeasure3(String strMeasure3) 
     {
         this.strMeasure3 = strMeasure3;
     }
     
-    //Returns the fourth ingredient measurement
+    //Return fourth ingredient measurement of meal
     public String getStrMeasure4() 
     {
         return strMeasure4;
     }
     
-    //Sets the fourth ingredient measurement
+    //Set the fourth ingredient measurement of meal
     public void setStrMeasure4(String strMeasure4) 
     {
         this.strMeasure4 = strMeasure4;
     }
     
-    //Returns the fifth ingredient measurement
+    //Return fifth ingredient measurement of meal
     public String getStrMeasure5() 
     {
         return strMeasure5;
     }
     
-    //Sets the fifth ingredient measurement
+    //Set the fifth ingredient measurement of meal
     public void setStrMeasure5(String strMeasure5) 
     {
         this.strMeasure5 = strMeasure5;
     }
     
-    //Returns the sixth ingredient measurement
+    //Return sixth ingredient measurement of meal
     public String getStrMeasure6() 
     {
         return strMeasure6;
     }
     
-    //Sets the sixth ingredient measurement
+    //Set the sixth ingredient measurement of meal
     public void setStrMeasure6(String strMeasure6) 
     {
         this.strMeasure6 = strMeasure6;
     }
     
-    //Returns the seventh ingredient measurement
+    //Return seventh ingredient measurement of meal
     public String getStrMeasure7() 
     {
         return strMeasure7;
     }
     
-    //Sets the seventh ingredient measurement
+    //Set the seventh ingredient measurement of meal
     public void setStrMeasure7(String strMeasure7) 
     {
         this.strMeasure7 = strMeasure7;
     }
     
-    //Returns the eighth ingredient measurement
+    //Return eighth ingredient measurement of meal
     public String getStrMeasure8() 
     {
         return strMeasure8;
     }
     
-    //Sets the eighth ingredient measurement
+    //Set the eighth ingredient measurement of meal
     public void setStrMeasure8(String strMeasure8) 
     {
         this.strMeasure8 = strMeasure8;
     }
     
-    //Returns the ninth ingredient measurement
+    //Return ninth ingredient measurement of meal
     public String getStrMeasure9() {
         return strMeasure9;
     }
     
-    //Sets the ninth ingredient measurement
+    //Set the ninth ingredient measurement of meal
     public void setStrMeasure9(String strMeasure9) 
     {
         this.strMeasure9 = strMeasure9;
     }
     
-    //Returns the tenth ingredient measurement
+    //Return tenth ingredient measurement of meal
     public String getStrMeasure10() 
     {
         return strMeasure10;
     }
     
-    //Sets the tenth ingredient measurement
+    //Set the tenth ingredient measurement of meal
     public void setStrMeasure10(String strMeasure10) 
     {
         this.strMeasure10 = strMeasure10;
     }
     
-    //Returns the eleventh ingredient measurement
+    //Return eleventh ingredient measurement of meal
     public String getStrMeasure11() {
         return strMeasure11;
     }
     
-    //Sets the eleventh ingredient measurement
+    //Set the eleventh ingredient measurement of meal
     public void setStrMeasure11(String strMeasure11) 
     {
         this.strMeasure11 = strMeasure11;
     }
     
-    //Returns the twelfth ingredient measurement
+    //Return twelfth ingredient measurement of meal
     public String getStrMeasure12() 
     {
         return strMeasure12;
     }
     
-    //Sets the twelfth ingredient measurement
+    //Set the twelfth ingredient measurement of meal
     public void setStrMeasure12(String strMeasure12) 
     {
         this.strMeasure12 = strMeasure12;
     }
     
-    //Returns the thirteenth ingredient measurement
+    //Return thirteenth ingredient measurement of meal
     public String getStrMeasure13() 
     {
         return strMeasure13;
     }
     
-    //Sets the thirteenth ingredient measurement
+    //Set the thirteenth ingredient measurement of meal
     public void setStrMeasure13(String strMeasure13) 
     {
         this.strMeasure13 = strMeasure13;
     }
     
-    //Returns the fourteenth ingredient measurement
+    //Return fourteenth ingredient measurement of meal
     public String getStrMeasure14() 
     {
         return strMeasure14;
     }
     
-    //Sets the fourteenth ingredient measurement
+    //Set the fourteenth ingredient measurement of meal
     public void setStrMeasure14(String strMeasure14) 
     {
         this.strMeasure14 = strMeasure14;
     }
     
-    //Returns the fifteenth ingredient measurement
+    //Return fifteenth ingredient measurement of meal
     public String getStrMeasure15() 
     {
         return strMeasure15;
     }
     
-    //Sets the fifteenth ingredient measurement
+    //Set the fifteenth ingredient measurement of meal
     public void setStrMeasure15(String strMeasure15) 
     {
         this.strMeasure15 = strMeasure15;
     }
     
-    //Returns the sixteenth ingredient measurement
+    //Return sixteenth ingredient measurement of meal
     public String getStrMeasure16() 
     {
         return strMeasure16;
     }
     
-    //Sets the sixteenth ingredient measurement
+    //Set the sixteenth ingredient measurement of meal
     public void setStrMeasure16(String strMeasure16) 
     {
         this.strMeasure16 = strMeasure16;
     }
     
-    //Returns the seventeenth ingredient measurement
+    //Return seventeenth ingredient measurement of meal
     public String getStrMeasure17() 
     {
         return strMeasure17;
     }
     
-    //Sets the seventeenth ingredient measurement
+    //Set the seventeenth ingredient measurement of meal
     public void setStrMeasure17(String strMeasure17) 
     {
         this.strMeasure17 = strMeasure17;
     }
     
-    //Returns the eighteenth ingredient measurement
+    //Return eighteenth ingredient measurement of meal
     public String getStrMeasure18() 
     {
         return strMeasure18;
     }
     
-    //Sets the eighteenth ingredient measurement
+    //Set the eighteenth ingredient measurement of meal
     public void setStrMeasure18(String strMeasure18) 
     {
         this.strMeasure18 = strMeasure18;
     }
     
-    //Returns the nineteenth ingredient measurement
+    //Return nineteenth ingredient measurement of meal
     public String getStrMeasure19() 
     {
         return strMeasure19;
     }
     
-    //Sets the nineteenth ingredient measurement
+    //Set the nineteenth ingredient measurement of meal
     public void setStrMeasure19(String strMeasure19) 
     {
         this.strMeasure19 = strMeasure19;
     }
     
-    //Returns the twentieth ingredient measurement
+    //Return twentieth ingredient measurement of meal
     public String getStrMeasure20()
     {
         return strMeasure20;
     }
     
-    //Sets the twentieth ingredient measurement
+    //Set the twentieth ingredient measurement of meal
     public void setStrMeasure20(String strMeasure20)
     {
         this.strMeasure20 = strMeasure20;
     }
     
-    //Returns the original recipe source (e.g., website URL)
+    //Return meal source
     public String getStrSource()
     {
         return strSource;
     }
     
-    //Sets the recipe source
+    //Set meal source
     public void setStrSource(String strSource)
     {
         this.strSource = strSource;
     }
     
-    //Returns the image source URL
+    //Return meal image source
     public String getStrImageSource()
     {
         return strImageSource;
     }
     
-    //Sets the image source URL
+    //Set meal image source
     public void setStrImageSource(String strImageSource)
     {
         this.strImageSource = strImageSource;
     }
     
-    //Returns whether the recipe is Creative Commons confirmed
+    //Return meal or meal source availability with license Creative Commons
     public String getStrCreativeCommonsConfirmed()
     {
         return strCreativeCommonsConfirmed;
     }
     
-    //Sets the Creative Commons confirmation flag
+    //Set meal or meal source availability with license Creative Commons
     public void setStrCreativeCommonsConfirmed(String strCreativeCommonsConfirmed)
     {
         this.strCreativeCommonsConfirmed = strCreativeCommonsConfirmed;
     }
     
-    //Returns the last modification date of the meal
+    //Return date of last modification of meal
     public String getDateModified()
     {
         return dateModified;
     }
     
-    //Sets the last modification date of the meal
+    //Set date of last modification of meal
     public void setDateModified(String dateModified)
     {
         this.dateModified = dateModified;
     }
     
     
-    //Overrides equals to compare MealInfo objects based on their meal ID
+    //Comparing two meals by their ID
     @Override
     public boolean equals(Object obj) 
     {
@@ -844,176 +844,63 @@ public class MealInfo
     }
     
     
-    //Overrides the default toString() method to provide a detailed textual representation of the MealInfo object
+    //Formatting the display of meal information
     @Override
     public String toString() 
     {
-    
-        //Builds and returns a formatted string that contains all fields of the MealInfo object
-        return 
-                //Adds the unique meal ID
-               "MealInfo{idMeal='" + getIdMeal() + 
-    
-               //Adds the main meal name
-               "'\n, strMeal='" + getStrMeal() + 
-    
-               //Adds the alternative meal name
-               "'\n, strMealAlternate='" + getStrMealAlternate() + 
-    
-               //Adds the meal category (e.g., Beef, Dessert)
-               "'\n, strCategory='" + getStrCategory() + 
-    
-               //Adds the cuisine or country of origin
-               "'\n, strArea='" + getStrArea() + 
-    
-               //Adds the cooking instructions
-               "'\n, strInstructions='" + getStrInstructions() + 
-    
-               //Adds the URL of the meal image
-               "'\n, strMealThumb='" + getStrMealThumb() + 
-    
-               //Adds any tags associated with the meal
-               "'\n, strTags='" + getStrTags() + 
-    
-               //Adds the YouTube video link of the recipe
-               "'\n, strYoutube='" + getStrYoutube() + 
-    
-               //Adds ingredient 1
-               "'\n, strIngredient1='" + getStrIngredient1() + 
-    
-               //Adds ingredient 2
-               "'\n, strIngredient2='" + getStrIngredient2() + 
-    
-               //Adds ingredient 3
-               "'\n, strIngredient3='" + getStrIngredient3() + 
-    
-               //Adds ingredient 4
-               "'\n, strIngredient4='" + getStrIngredient4() + 
-    
-               //Adds ingredient 5
-               "'\n, strIngredient5='" + getStrIngredient5() + 
-    
-               //Adds ingredient 6
-               "'\n, strIngredient6='" + getStrIngredient6() + 
-    
-               //Adds ingredient 7
-               "'\n, strIngredient7='" + getStrIngredient7() + 
-    
-               //Adds ingredient 8
-               "'\n, strIngredient8='" + getStrIngredient8() + 
-    
-               //Adds ingredient 9
-               "'\n, strIngredient9='" + getStrIngredient9() + 
-    
-               //Adds ingredient 10
-               "'\n, strIngredient10='" + getStrIngredient10() + 
-    
-               //Adds ingredient 11
-               "'\n, strIngredient11='" + getStrIngredient11() + 
-    
-               //Adds ingredient 12
-               "'\n, strIngredient12='" + getStrIngredient12() + 
-    
-               //Adds ingredient 13
-               "'\n, strIngredient13='" + getStrIngredient13() + 
-    
-               //Adds ingredient 14
-               "'\n, strIngredient14='" + getStrIngredient14() + 
-    
-               //Adds ingredient 15
-               "'\n, strIngredient15='" + getStrIngredient15() + 
-    
-               //Adds ingredient 16
-               "'\n, strIngredient16='" + getStrIngredient16() + 
-    
-               //Adds ingredient 17
-               "'\n, strIngredient17='" + getStrIngredient17() + 
-    
-               //Adds ingredient 18
-               "'\n, strIngredient18='" + getStrIngredient18() + 
-    
-               //Adds ingredient 19
-               "'\n, strIngredient19='" + getStrIngredient19() + 
-    
-               //Adds ingredient 20
-               "'\n, strIngredient20='" + getStrIngredient20() + 
-    
-               //Adds measurement 1
-               "'\n, strMeasure1='" + getStrMeasure1() + 
-    
-               //Adds measurement 2
-               "'\n, strMeasure2='" + getStrMeasure2() + 
-    
-               //Adds measurement 3
-               "'\n, strMeasure3='" + getStrMeasure3() + 
-    
-               //Adds measurement 4
-               "'\n, strMeasure4='" + getStrMeasure4() + 
-    
-               //Adds measurement 5
-               "'\n, strMeasure5='" + getStrMeasure5() + 
-    
-               //Adds measurement 6
-               "'\n, strMeasure6='" + getStrMeasure6() + 
-    
-               //Adds measurement 7
-               "'\n, strMeasure7='" + getStrMeasure7() + 
-    
-               //Adds measurement 8
-               "'\n, strMeasure8='" + getStrMeasure8() + 
-    
-               //Adds measurement 9
-               "'\n, strMeasure9='" + getStrMeasure9() + 
-    
-               //Adds measurement 10
-               "'\n, strMeasure10='" + getStrMeasure10() + 
-    
-               //Adds measurement 11
-               "'\n, strMeasure11='" + getStrMeasure11() + 
-    
-               //Adds measurement 12
-               "'\n, strMeasure12='" + getStrMeasure12() + 
-    
-               //Adds measurement 13
-               "'\n, strMeasure13='" + getStrMeasure13() + 
-    
-               //Adds measurement 14
-               "'\n, strMeasure14='" + getStrMeasure14() + 
-    
-               //Adds measurement 15
-               "'\n, strMeasure15='" + getStrMeasure15() + 
-    
-               //Adds measurement 16
-               "'\n, strMeasure16='" + getStrMeasure16() + 
-    
-               //Adds measurement 17
-               "'\n, strMeasure17='" + getStrMeasure17() + 
-    
-               //Adds measurement 18
-               "'\n, strMeasure18='" + getStrMeasure18() + 
-    
-               //Adds measurement 19
-               "'\n, strMeasure19='" + getStrMeasure19() + 
-    
-               //Adds measurement 20
-               "'\n, strMeasure20='" + getStrMeasure20() + 
-    
-               //Adds the original source of the recipe
-               "'\n, strSource='" + getStrSource() + 
-    
-               //Adds the image source URL
-               "'\n, strImageSource='" + getStrImageSource() + 
-    
-               //Adds Creative Commons confirmation flag
-               "'\n, strCreativeCommonsConfirmed='" + getStrCreativeCommonsConfirmed() + 
-    
-               //Adds the last modification date
-               "'\n, dateModified='" + getDateModified() + 
-    
-               //Closes the MealInfo object representation
-               "'\n}";
+        return "MealInfo{idMeal='" + getIdMeal() + 
+                "'\n, strMeal='" + getStrMeal() + 
+                "'\n, strMealAlternate='" + getStrMealAlternate() + 
+                "'\n, strCategory='" + getStrCategory() + 
+                "'\n, strArea='" + getStrArea() + 
+                "'\n, strInstructions='" + getStrInstructions() + 
+                "'\n, strMealThumb='" + getStrMealThumb() + 
+                "'\n, strTags='" + getStrTags() + 
+                "'\n, strYoutube='" + getStrYoutube() + 
+                "'\n, strIngredient1='" + getStrIngredient1() 
+                + "'\n, strIngredient2='" + getStrIngredient2() 
+                + "'\n, strIngredient3='" + getStrIngredient3() 
+                + "'\n, strIngredient4='" + getStrIngredient4() 
+                + "'\n, strIngredient5='" + getStrIngredient5() 
+                + "'\n, strIngredient6='" + getStrIngredient6() 
+                + "'\n, strIngredient7='" + getStrIngredient7() 
+                + "'\n, strIngredient8='" + getStrIngredient8() 
+                + "'\n, strIngredient9='" + getStrIngredient9() 
+                + "'\n, strIngredient10='" + getStrIngredient10() 
+                + "'\n, strIngredient11='" + getStrIngredient11() 
+                + "'\n, strIngredient12='" + getStrIngredient12() 
+                + "'\n, strIngredient13='" + getStrIngredient13() 
+                + "'\n, strIngredient14='" + getStrIngredient14() 
+                + "'\n, strIngredient15='" + getStrIngredient15() 
+                + "'\n, strIngredient16='" + getStrIngredient16() 
+                + "'\n, strIngredient17='" + getStrIngredient17() 
+                + "'\n, strIngredient18='" + getStrIngredient18() 
+                + "'\n, strIngredient19='" + getStrIngredient19() 
+                + "'\n, strIngredient20='" + getStrIngredient20() 
+                + "'\n, strMeasure1='" + getStrMeasure1() 
+                + "'\n, strMeasure2='" + getStrMeasure2() 
+                + "'\n, strMeasure3='" + getStrMeasure3() 
+                + "'\n, strMeasure4='" + getStrMeasure4() 
+                + "'\n, strMeasure5='" + getStrMeasure5() 
+                + "'\n, strMeasure6='" + getStrMeasure6() 
+                + "'\n, strMeasure7='" + getStrMeasure7() 
+                + "'\n, strMeasure8='" + getStrMeasure8() 
+                + "'\n, strMeasure9='" + getStrMeasure9() 
+                + "'\n, strMeasure10='" + getStrMeasure10() 
+                + "'\n, strMeasure11='" + getStrMeasure11() 
+                + "'\n, strMeasure12='" + getStrMeasure12() 
+                + "'\n, strMeasure13='" + getStrMeasure13() 
+                + "'\n, strMeasure14='" + getStrMeasure14() 
+                + "'\n, strMeasure15='" + getStrMeasure15() 
+                + "'\n, strMeasure16='" + getStrMeasure16() 
+                + "'\n, strMeasure17='" + getStrMeasure17() 
+                + "'\n, strMeasure18='" + getStrMeasure18() 
+                + "'\n, strMeasure19='" + getStrMeasure19() 
+                + "'\n, strMeasure20='" + getStrMeasure20() 
+                + "'\n, strSource='" + getStrSource() 
+                + "'\n, strImageSource='" + getStrImageSource() 
+                +  "'\n, strCreativeCommonsConfirmed='" + getStrCreativeCommonsConfirmed() 
+                + "'\n, dateModified='" + getDateModified() 
+                + "'\n}";
     }
 }
-
-
-
