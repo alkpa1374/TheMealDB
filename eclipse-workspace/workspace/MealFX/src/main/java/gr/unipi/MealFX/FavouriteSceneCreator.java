@@ -91,48 +91,54 @@ import javafx.scene.control.TableColumn;
 //Class «FavouriteSceneCreator» for meal scene implementation
 public class FavouriteSceneCreator implements EventHandler<MouseEvent>
 {
-	 //FlowPane to organize buttons in a flow layout
+	 //Flow Pane
 	 FlowPane buttonFlowPane;
 
-	 //GridPanes for arranging UI elements in a grid layout
+	 //Grid Panes
 	 GridPane rootGridPane, inputFieldsPane;
 
-	 //Buttons for various actions in the meal scene
+	 //Meal scene buttons
      Button deleteFavouriteBtn, moveMealBtn, getDetailsBtn, backBtn;
 
-     //Label to display text or instructions in the meal scene
-     Label textLbl;
+     //Label to display text in the meal scene
+     Label textLbl = new Label("Parameter");
 
      //TextField for user input or parameters in the meal scene
-     TextField paramField;
+     TextField paramField = new TextField();
 
      //TableView to display a list of MealInfo objects in a tabular form
      TableView<MealInfo> MealTableView;
 
+     //Creation of a new list to store the favourite meals
+     List<MealInfo> FavMealList = new ArrayList<>();
+
+     //Creation of a new list to store the cooked meals
+     List<MealInfo> CoMealList = new ArrayList<>();
+    
      //Jackson ObjectMapper instances for JSON serialization/deserialization
      ObjectMapper mapper1 = new ObjectMapper();
      ObjectMapper mapper2 = new ObjectMapper();
 
-     //Constructor for the FavouriteSceneCreator class
+     //Constructor for favourite scene creation
      public FavouriteSceneCreator() 
      {
-    	//Initialize the root grid pane that contains the main layout
+    	//Creation of the root grid pane
         rootGridPane = new GridPane();
 
-        //Initialize the grid pane that holds input fields
+        //Creation of the input fields pane
         inputFieldsPane = new GridPane();
 
-        //Initialize the flow pane that holds buttons in a horizontal flow
+        //Creation of the button flow pane
         buttonFlowPane = new FlowPane();
 
-        //Initialize buttons with their labels
+        //Creation of buttons
         deleteFavouriteBtn = new Button("Delete Favourite");
         moveMealBtn = new Button("Move Meal");
         getDetailsBtn = new Button("Get Details");
         backBtn = new Button("Back");
 
 
-        //Initialize the TableView to display MealInfo objects
+        //Creation of a TableView
         MealTableView = new TableView<MealInfo>();
 
         //Creation of a TableColumn for the «idMeal» property
@@ -991,6 +997,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
 
 
