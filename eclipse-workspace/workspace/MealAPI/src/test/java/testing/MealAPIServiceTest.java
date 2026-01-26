@@ -1,46 +1,46 @@
-//Define the package for the test class
+//Class «MealAPISrviceTest» belongs package «testing»
 package testing;
 
-//Import all static assertion methods from JUnit
+//Import of all static assertion methods from JUnit
 import static org.junit.Assert.*;
 
-//Import the List interface
+//Import of the List interface
 import java.util.List;
 
-//Import JUnit assertion utilities
+//Import of JUnit assertion utilities
 import org.junit.Assert;
 
-//Import the @Test annotation for marking test methods
+//Import of the @Test annotation for marking test methods
 import org.junit.Test;
 
-//Import the custom exception thrown by MealAPIService
+//Import of the custom exception thrown by MealAPIService
 import exception.MealAPIException;
 
-//Import the model class representing meal data
+//Import of the model class representing meal data
 import model.MealInfo;
 
-//Import the service class under test
+//Import of the service class under test
 import service.MealAPIService;
 
-//Declare the test class for MealAPIService
+//Class «MealAPIServiceTest» for testing
 public class MealAPIServiceTest 
 {
 
     //Annotation indicating that this is a test method
     @Test
-    //Test method for searching a meal by exact name
+    //Test method for searching a meal by name
     public void testSearchMealByName() throws MealAPIException 
     {
         //Create a new instance of MealAPIService with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Call the API to search meals by the name "Arrabiata" and store the results
+        //Call the REST API to search meals by the name "Arrabiata" and store the results
         final List<MealInfo> results = mealSearchService.getMealByNameOrIngredient("Arrabiata");
         //Assert that the results list is not empty
         Assert.assertFalse(results.isEmpty());
         //Iterate through all meals in the results
         for (MealInfo meal : results) 
         {
-            //Print meal details (id, name, thumbnail) to the console
+            //Print meal ID, name and image to the console
             System.out.println
             (
                 "MealInfo{idMeal='" + meal.getIdMeal() + "'\n, strMeal='" + meal.getStrMeal() + "'\n, strMealThumb='" + meal.getStrMealThumb() + "'\n}"
