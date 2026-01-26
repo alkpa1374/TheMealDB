@@ -1,94 +1,94 @@
-//Define the package name for this Java class, organizing it within the project structure
+//Class «FavouriteSceneCreator» belongs package «gr.unipi.MealFX»
 package gr.unipi.MealFX;
 
-//Import the File class for file operations such as reading and writing files
+//Import of File class for representing files in the file system
 import java.io.File;
 
-//Import the IOException class to handle input/output exceptions
+//Import of IOException for handling input/output exceptions when working with files
 import java.io.IOException;
 
-//Import the ArrayList class to use dynamic arrays
+//Import of ArrayList for dynamically-sized lists of objects
 import java.util.ArrayList;
 
-//Import the List interface for working with lists in a generic way
+//Import of List interface for using lists as a collection type
 import java.util.List;
 
-//Import exceptions related to JSON generation using Jackson library
+//Import of exception class for JSON generation errors from Jackson library
 import com.fasterxml.jackson.core.JsonGenerationException;
 
-//Import exceptions related to mapping JSON to Java objects using Jackson
+//Import of exception class for JSON mapping errors from Jackson library
 import com.fasterxml.jackson.databind.JsonMappingException;
 
-//Import ObjectMapper to read and write JSON data to/from Java objects
+//Import of ObjectMapper from Jackson library to read and write JSON data
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-//Import SerializationFeature to configure JSON serialization settings
+//Import of SerializationFeature to configure formatting options for JSON output
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-//Import TypeFactory for advanced type handling during JSON serialization/deserialization
+//Import of TypeFactory from Jackson library to construct complex collection types for JSON deserialization
 import com.fasterxml.jackson.databind.type.TypeFactory;
 
-//Import custom exception class for handling errors in Meal API operations
+//Import of custom exception class for handling Meal API related errors
 import exception.MealAPIException;
 
-//Import ObservableList from JavaFX for lists that can update the UI automatically
+//Import of ObservableList, a JavaFX collection that allows automatic updates in UI controls like TableView
 import javafx.collections.ObservableList;
 
-//Import EventHandler to handle UI events such as clicks
+//Import of EventHandler interface to handle events such as mouse clicks
 import javafx.event.EventHandler;
 
-//Import Pos to define alignment of UI components in JavaFX layouts
+//Import of Pos enum to set alignment (e.g., CENTER) in JavaFX layout panes
 import javafx.geometry.Pos;
 
-//Import Scene class from JavaFX to hold all content for a stage (window)
+//Import of Scene class to represent a container for all content in a JavaFX window
 import javafx.scene.Scene;
 
-//Import Alert class to display alert dialogs to the user
+//Import of Alert dialog class for showing pop-up messages to the user
 import javafx.scene.control.Alert;
 
-//Import AlertType enum to specify the type of alert (information, warning, error)
+//Import of AlertType enum to specify the type of alert (e.g., INFORMATION, ERROR)
 import javafx.scene.control.Alert.AlertType;
 
-//Import TableViewSelectionModel to control selection behavior in TableView
-import javafx.scene.control.TableView.TableViewSelectionModel;
-
-//Import Button class to create clickable buttons in the UI
+//Import of Button control to allow user interactions
 import javafx.scene.control.Button;
 
-//Import Label class to display text in the UI
+//Import of Label control to display text in the UI
 import javafx.scene.control.Label;
 
-//Import TableView class to display tabular data
+//Import of TableView control to display tabular data
 import javafx.scene.control.TableView;
 
-//Import TextField class to allow user text input
+//Import of TableViewSelectionModel to handle selection operations within a TableView
+import javafx.scene.control.TableView.TableViewSelectionModel;
+
+//Import of TextField control for user input of single-line text
 import javafx.scene.control.TextField;
 
-//Import PropertyValueFactory to bind table columns to properties of data objects
+//Import of PropertyValueFactory to map table columns to object properties for TableView
 import javafx.scene.control.cell.PropertyValueFactory;
 
-//Import FlowPane layout for arranging UI components in a flow style
+//Import of FlowPane layout for arranging UI elements horizontally or vertically
 import javafx.scene.layout.FlowPane;
 
-//Import GridPane layout for arranging UI components in a grid style
+//Import of GridPane layout for arranging UI elements in a flexible grid of rows and columns
 import javafx.scene.layout.GridPane;
 
-//Import Stage class representing a window in JavaFX
+//Import of Stage class to represent a top-level JavaFX window
 import javafx.stage.Stage;
 
-//Import MealInfo model class representing meal data
+//Import of the MealInfo model representing a meal entity
 import model.MealInfo;
 
-//Import MealAPIService class to interact with external Meal API
+//Import of service class for interacting with the Meal API
 import service.MealAPIService;
 
-//Import MouseEvent class to handle mouse events in the UI
+//Import of MouseEvent class to handle mouse input events like clicks
 import javafx.scene.input.MouseEvent;
 
-//Import TableColumn class to define columns in a TableView
+//Import of TableColumn class to define columns in a TableView
 import javafx.scene.control.TableColumn;
 
-//Declare a public class named FavouriteSceneCreator that handles mouse events
+//Class «FavouriteSceneCreator» for meal scene implementation
 public class FavouriteSceneCreator implements EventHandler<MouseEvent>
 {
 	 //FlowPane to organize buttons in a flow layout
@@ -994,3 +994,4 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
