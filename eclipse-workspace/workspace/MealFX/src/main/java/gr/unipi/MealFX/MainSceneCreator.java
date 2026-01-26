@@ -46,7 +46,7 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
     	rootFlowPane.getChildren().add(cookedBtn);
 	}
 	
-	//Method for a JavaFX Scene for this UI creation and return
+	//Method to create and return a JavaFX Scene for this UI
     Scene createScene()
     {
 	    //Create a new Scene using the rootGridPane as the root layout
@@ -95,6 +95,7 @@ public class MainSceneCreator implements EventHandler<MouseEvent>
 	    }
 	}
 }
+
 
 
 
