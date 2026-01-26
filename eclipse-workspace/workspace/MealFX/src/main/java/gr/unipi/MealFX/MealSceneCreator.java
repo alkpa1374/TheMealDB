@@ -697,19 +697,19 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            items.add(Meal);
     	        }
     	    }
-    	    //Handle exceptions thrown by the MealAPIService
+    	    //Handling of exceptions thrown by the MealAPIService
     	    catch (MealAPIException e)
     	    {
-    	        //Show an error alert dialog with the exception message
+    	        //Presentation of an error alert dialog with the exception message
     	        Alert a = new Alert(AlertType.ERROR);
     	        a.setTitle("Error calling Meal API");
     	        a.setContentText(e.getMessage());
     	        a.show();                
     	    }
-    	    //Handle the case where the API returns no results (null pointer)
+    	    //Handling of the case where the API returns no results (null pointer)
     	    catch (NullPointerException e) 
     	    {
-    	        //Show a custom pop-up notifying the user no meal was found
+    	        //Presentation of a custom pop-up notifying the user no meal was found
     	        MealPopUp mealPopUp = new MealPopUp(
     	            "There is neither a meal with that name nor that specific ingredient. " +
     	            "Please, enter the name of a meal or the name of a specific ingredient in a meal again."
@@ -998,6 +998,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
 
 
