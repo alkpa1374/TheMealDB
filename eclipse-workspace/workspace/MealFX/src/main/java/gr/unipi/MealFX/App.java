@@ -1,21 +1,21 @@
-//Declare the package for this class
+//Class «App» belongs package «gr.unipi.MealFX»
 package gr.unipi.MealFX;
 
-//Import necessary JavaFX and utility classes
-import java.util.ArrayList;      //To create resizable array lists
-import java.util.List;           //To use the List interface
+//Import of necessary JavaFX and utility classes
+import java.util.ArrayList;      //Creation of resizable array lists
+import java.util.List;           //Usage of the List interface
 import javafx.application.Application; //Base class for JavaFX applications
-import javafx.scene.Scene;       //Represents a scene in a Stage
-import javafx.stage.Stage;       //Represents the top-level window
-import model.MealInfo;           //Import the MealInfo model class
+import javafx.scene.Scene;       //Representation of a scene in a Stage
+import javafx.stage.Stage;       //Representation of the top-level window
+import model.MealInfo;           //Import of the MealInfo model class
 
-//Main application class that extends JavaFX Application
+//Class «App» for application implementation
 public class App extends Application 
 {
     //The primary stage (main window) of the application
     static Stage primaryStage;
 
-    //Scenes for main window and meal window
+    //Main Scene and Meal Scene
     static Scene mainScene, mealScene;
 
     //Static lists to store favourite and cooked meals
@@ -26,31 +26,31 @@ public class App extends Application
     @Override
     public void start(Stage Stage) 
     {
-        //Assign the provided stage to the static primaryStage variable
+        //Creation of primary stage
         App.primaryStage = Stage;
 
-        //Create the main scene using the MainSceneCreator class
+        //Creation of Main Scene
         MainSceneCreator mainSceneCreator = new MainSceneCreator();
         mainScene = mainSceneCreator.createScene();
 
-        //Create the meal scene using the MealSceneCreator class
+        //Creation of Meal Scene
         MealSceneCreator mealSceneCreator = new MealSceneCreator();
         mealScene = mealSceneCreator.createScene();
 
-        //Set the window title for the primary stage
+        //Set the title for primary stage
         primaryStage.setTitle("MainFX Window");
 
-        //Set the initial scene to the main scene
+        //Initialization of main scene
         primaryStage.setScene(mainScene);
 
-        //Show the primary stage (make the window visible)
+        //Presentation of primary stage
         primaryStage.show();
     }
 
     //Main method to launch the JavaFX application
     public static void main(String[] args) 
     {
-        //Launch the JavaFX runtime and application
         launch();
     }
 }
+
