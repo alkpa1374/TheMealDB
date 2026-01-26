@@ -1,21 +1,21 @@
-//Declare the package where this class belongs
+//Class «MealPopUp» belongs package «gr.unipi.MealFX»
 package gr.unipi.MealFX;
 
-//Import JavaFX classes for creating UI components and windows
-import javafx.scene.Scene;        //Represents a scene (container for UI nodes) in a Stage
+//Import of JavaFX classes for creating UI components and windows
+import javafx.scene.Scene;        //Representation of a scene (container for UI nodes) in a Stage
 import javafx.scene.layout.VBox;  //Vertical box layout to arrange nodes vertically
 import javafx.scene.text.Text;    //Simple text node to display text
-import javafx.stage.Modality;     //Defines modality (blocking behavior) of windows
-import javafx.stage.Stage;        //Represents a top-level window (popup, main stage, etc.)
+import javafx.stage.Modality;     //Defination of modality (blocking behavior) of windows
+import javafx.stage.Stage;        //Representation of a top-level window (popup, main stage, etc.)
 
-//Declare the MealPopUp class
+//Class «MealPopUp» for creation for presenting a pop-up window
 public class MealPopUp 
 {
 
-    //Create a new Stage instance for this popup window
+    //Creation of a new Stage instance for this pop-up window
     final Stage dialog = new Stage();  
 
-    //Constructor that accepts a message to display in the pop-up
+    //Constructor that accepts a message to display in the pop-up window
     public MealPopUp(String message) 
     {
 
@@ -25,20 +25,20 @@ public class MealPopUp
         //Set the owner of this pop-up to the main application stage
         dialog.initOwner(App.primaryStage);
         
-        //Create a vertical layout container with 10px spacing between children
+        //Creation of a vertical layout container with 10px spacing between children
         VBox dialogVbox = new VBox(10);
         
-        //Add a Text node containing the message to the VBox
+        //Adding of a Text node containing the message to the VBox
         dialogVbox.getChildren().add(new Text(message));
         
-        //Create a new Scene containing the VBox, with width 1200px and height 100px
+        //Creation of a new Scene containing the VBox, with width 1200px and height 100px
         Scene dialogScene = new Scene(dialogVbox, 1200, 100);
         
         //Set the Scene on the dialog Stage
         dialog.setScene(dialogScene);
     }
 
-    //Method to show the pop-up window
+    //Pop-up window presentation method
     public void show() 
     {
          dialog.show();
