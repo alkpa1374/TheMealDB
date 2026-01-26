@@ -1,17 +1,17 @@
-//This class belongs to the service package
+//Class «MealAPIService» belongs to package «service»
 package service;
 
 //Imports for handling files and input/output exceptions
-import java.io.File;       //Allows working with files if needed
-import java.io.IOException; //Handles I/O errors when reading API responses
+import java.io.File;       
+import java.io.IOException;
 
 //Imports for handling URIs and URL building
-import java.net.URI;          //Represents a Uniform Resource Identifier
-import java.net.URISyntaxException; //Handles invalid URI syntax
+import java.net.URI;
+import java.net.URISyntaxException;
 
 //Imports for working with lists and dynamic collections
-import java.util.ArrayList;   //Implementation of a resizable list
-import java.util.List;        //Interface for ordered collections
+import java.util.ArrayList;
+import java.util.List;
 
 //Apache HTTP client for sending HTTP requests and handling responses
 import org.apache.http.HttpEntity;                  //Represents the body of an HTTP response
@@ -33,62 +33,61 @@ import com.fasterxml.jackson.databind.SerializationFeature; //Optional: configur
 import exception.MealAPIException;
 
 //Model classes for mapping API JSON responses
-import model.MealInfo;              //Represents a simplified meal data structure for the application
-import model.themealdb.ErrorResponse; //Maps API error responses
-import model.themealdb.Meal;         //Maps detailed meal data from the API
-import model.themealdb.MealResult;   //Maps the API response containing multiple meals
+import model.MealInfo;         
+import model.themealdb.ErrorResponse;
+import model.themealdb.Meal;         
+import model.themealdb.MealResult;  
 
-//Service class responsible for communicating with TheMealDB REST API
+//Class «MealAPIService» for data reception from the REST API
 public class MealAPIService 
 {
 
-    //Stores the base URL of TheMealDB API
+    //Storage of the base URL of the RESTAPI of TheMealDB API
     private final String API_URL;
 
-    //Constructor that initializes the API base URL
-    //This allows the service to be reused with different API endpoints if needed
+    //Constructor for creation of URL of the REST API of THEMEALDB 
     public MealAPIService(String API_URL) 
 	{
-        this.API_URL = API_URL; //Assign the provided URL to the class field
+        this.API_URL = API_URL;
 	}
 	
-	//Searches for meals by name or ingredient from TheMealDB API
+	//Search for a meal by name or main ingredient from the REST API of THEMEALDB
 	public List<MealInfo> getMealByNameOrIngredient(String name) throws MealAPIException 
 	{
 	
-	  //Create a list that will store the resulting MealInfo objects
+	  //Creation of a list for storing the resulting MealInfo objects
 	  List<MealInfo> mealInfoList = new ArrayList<>();
 	
 	  try 
 	  {
-	      //Build the API URL for the "search.php" endpoint
-	      //Add query parameter "s" with the search term (name or ingredient)
+	      //Building of the API URL for the "search.php" endpoint
+	      //Add query parameter "s" with the search term (name or main ingredient)
 	      URIBuilder uriBuilder = new URIBuilder(API_URL)
 	              .setPathSegments("api", "json", "v1", "1", "search.php")
 	              .addParameter("s", name);
 	
-	      //Convert the URL into a URI object
+	      //Convertion of the URL into a URI object
 	      URI uri = uriBuilder.build();
 	
-	      //Create an HTTP GET request using the URI
+	      //Creation of an HTTP GET request using the URI
 	      HttpGet getRequest = new HttpGet(uri);
 	
-	      //Create a Closeable HTTP client
+	      //Creation of a Closeable HTTP client
 	      CloseableHttpClient httpclient = HttpClients.createDefault();
 	
-	      //Execute the HTTP GET request and obtain the response
+	      //Execution of the HTTP GET request and obtaining of the response
 	      CloseableHttpResponse response = httpclient.execute(getRequest);
 	
-	      //Extract the response body (JSON)
+	      //Extraction of the response body (JSON)
 	      HttpEntity entity = response.getEntity();
 	
-	      //Create a Jackson ObjectMapper for converting JSON to Java objects
+	      //Creation of a Jackson ObjectMapper for converting JSON to Java objects
 	      ObjectMapper mapper = new ObjectMapper();
 	
 	      //Check if the HTTP status is not 200 OK
 	      if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) 
 		  {
-	          //Map the error response to ErrorResponse object
+	          //Mapping of the error response to ErrorResponse object
 	          ErrorResponse errorResponse = mapper.readValue(entity.getContent(), ErrorResponse.class);
 	          
 	          //If the API returned an error code, throw a custom exception
@@ -98,10 +97,10 @@ public class MealAPIService
 	          }
 	      }
 	
-	      //Parse the JSON response as a tree
+	      //Parsing of the JSON response as a tree
 	      JsonNode root = mapper.readTree(entity.getContent());
 	
-	      //Extract the "meals" array from the JSON
+	      //Extraction of the "meals" array from the JSON
 	      JsonNode mealsNode = root.get("meals");
 	
 	      //If no meals were found, return an empty list
@@ -110,43 +109,43 @@ public class MealAPIService
 	          return mealInfoList;
 	      }
 	
-	      //Convert the "meals" JSON array to a List<Meal>
+	      //Convertion of the "meals" JSON array to a List<Meal>
 	      List<Meal> mResults = mapper.convertValue
 		  (
 	              mealsNode,
 	              new TypeReference<List<Meal>>() {}
 	      );
 	
-	      //Convert each Meal object into a MealInfo object
+	      //Convertion of each Meal object into a MealInfo object
 	      for (Meal m : mResults) 
 		  {
 	
-	          //Create a MealInfo object using all relevant fields
+	          //Creation of a MealInfo object using all relevant fields
 	          MealInfo mi = new MealInfo
 			  (
 	                  m.getIdMeal(), m.getStrMeal(), m.getStrMealThumb()
 	          );
 	
-	          //Add the converted MealInfo object to the result list
+	          //Adding of the converted MealInfo object to the result list
 	          mealInfoList.add(mi);
 	      }
 	
-	  } 
+	  }
+	  //Thrown if the API URL is malformed
 	  catch (URISyntaxException e) 
 	  {
-	      //Thrown if the API URL is malformed
 	      throw new MealAPIException("Problem with URI", e);
 	
 	  } 
+	  //Thrown if there is an HTTP communication error
 	  catch (ClientProtocolException e) 
 	  {
-	      //Thrown if there is an HTTP communication error
 	      throw new MealAPIException("Problem with Client Protocol", e);
 	
-	  } 
+	  }
+	  //Thrown if there is an error reading the API response
 	  catch (IOException e) 
 	  {
-	      //Thrown if there is an error reading the API response
 	      throw new MealAPIException("Error requesting data from Meal API", e);
 	  }
 	
@@ -396,4 +395,5 @@ public class MealAPIService
 		 return mealInfoList;
 	}
 }
+
 
