@@ -1,4 +1,4 @@
-//Class «ErrorResponse» belongs package «model.themealdb»
+//Class «ErrorResponse» belongs to package «model.themealdb»
 package model.themealdb;
 
 //Import of LinkedHashMapan to implementation for maintaining insertion order
@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //Import of annotation to specify the order of JSON properties during serialization
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-//Including of only non-null fields during JSON serialization to avoid sending empty fields
+//Inclusion of only non-null fields during JSON serialization to avoid sending empty fields
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 //Specification of the order of properties during serialization to JSON
@@ -42,66 +42,66 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class ErrorResponse 
 {
 
-    //Map the JSON field "status_code" to this Java field
+    //Mapping of the JSON field "status_code" to this Java field
     @JsonProperty("status_code")
     private Integer statusCode;
     
-    //Map the JSON field "status_message" to this Java field
+    //Mapping of the JSON field "status_message" to this Java field
     @JsonProperty("status_message")
     private String statusMessage;
     
-    //Map the JSON field "success" to this Java field
+    //Mapping of the JSON field "success" to this Java field
     @JsonProperty("success")
     private Boolean success;
     
-    //Ignoration of this field in JSON serialization/deserialization
+    //Overlooking of this field in JSON serialization/deserialization
     //Storage of any extra JSON properties not explicitly defined above
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    //Annotation of the getter for "status_code" so Jackson uses this during serialization to JSON
+    //Annotation of the getter for «status_code» so that Jackson uses this during serialization to JSON
     @JsonProperty("status_code")
-    //Return the current value of statusCode
+    //Return of the current value of statusCode
     public Integer getStatusCode() 
     {
         return statusCode;
     }
     
-    //Annotation of the setter for "status_code" so Jackson uses this during deserialization from JSON
+    //Annotation of the setter for «status_code» so that Jackson uses this during deserialization from JSON
     @JsonProperty("status_code")
-     //Set the value of statusCode from JSON
+     //Setting of the value of statusCode from JSON
     public void setStatusCode(Integer statusCode) 
     {
         this.statusCode = statusCode;
     }
     
-    //Annotation of the getter for "status_message" so Jackson uses this during serialization to JSON
+    //Annotation of the getter for "status_message" so that Jackson uses this during serialization to JSON
     @JsonProperty("status_message")
-    //Return the current value of statusMessage
+    //Return of the current value of statusMessage
     public String getStatusMessage() 
     {
         return statusMessage;
     }
     
-    //Annotation of the setter for "status_message" so Jackson uses this during deserialization from JSON
+    //Annotation of the setter for «status_message» so that Jackson uses this during deserialization from JSON
     @JsonProperty("status_message")
-    //Set the value of statusMessage from JSON
+    //Setting of the value of statusMessage from JSON
     public void setStatusMessage(String statusMessage) 
     {
         this.statusMessage = statusMessage;
     }
     
-    //Annotation of the getter for "success" so Jackson uses this during serialization to JSON
+    //Annotation of the getter for «success» so that Jackson uses this during serialization to JSON
     @JsonProperty("success")
-    //Return the current value of success
+    //Return of the current value of success
     public Boolean getSuccess() 
     {
         return success;
     }
     
-    //Annotation of the setter for "success" so Jackson uses this during deserialization from JSON
+    //Annotation of the setter for «success» so that Jackson uses this during deserialization from JSON
     @JsonProperty("success")
-    //Set the value of success from JSON
+    //Setting of the value of success from JSON
     public void setSuccess(Boolean success) 
     {
         this.success = success;
@@ -109,7 +109,7 @@ public class ErrorResponse
     
     //Annotation of this method to allow Jackson to include any additional properties not explicitly defined
     @JsonAnyGetter
-    //Return the map of extra dynamic properties
+    //Return of the map of extra dynamic properties
     public Map<String, Object> getAdditionalProperties() 
     {
         return this.additionalProperties;
