@@ -103,12 +103,6 @@ public class MealAPIService
 	      //Extraction of "meals" array from JSON
 	      JsonNode mealsNode = root.get("meals");
 	
-	      //When meals returns is null, return an empty list
-	      if (mealsNode == null || mealsNode.isNull() || !mealsNode.isArray()) 
-		  {
-	          return mealInfoList;
-	      }
-	
 	      //Conversion of "meals" JSON array into a List<Meal>
 	      List<Meal> mResults = mapper.convertValue
 		  (
@@ -204,12 +198,6 @@ public class MealAPIService
 	
 	      //Extraction of the "meals" array from JSON
 	      JsonNode mealsNode = root.get("meals");
-	
-	      //When meals returns is null, return an empty list
-	      if (mealsNode == null || mealsNode.isNull() || !mealsNode.isArray()) 
-		  {
-	          return mealInfoList;
-	      }
 	
 	      //Conversion of "meals" JSON array into a List<Meal>
 	      List<Meal> mResults = mapper.convertValue
@@ -391,8 +379,5 @@ public class MealAPIService
 	  return mealInfoList;
 	}
 }
-
-
-
 
 
