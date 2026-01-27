@@ -925,55 +925,50 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        e1.printStackTrace();
     	    }
     	}
-    	//Check if the event source is the getDetailsBtn button
+    	//Check if the event source is the «getDetailsBtn» button
     	else if (event.getSource() == getDetailsBtn) 
     	{
-    	  //Get the selection model of the MealTableView to determine which items are selected
+    	  //TableView's selection model to access selected items
     	  TableViewSelectionModel selectionModel = MealTableView.getSelectionModel();
 
-    	  //Get the list of currently selected MealInfo objects
+    	  //Get the currently selected MealInfo items from the TableView
     	  ObservableList<MealInfo> selectedItems = selectionModel.getSelectedItems();
 
-    	  //Declare a local list variable (not used here, can be removed)
+    	  //Declaration of a local list variable
     	  List<MealInfo> MealList = null;
 
-    	  //Loop through all MealInfo items currently in the MealTableView
+    	  //Iterate over all items in the TableView
     	  for (MealInfo MI : MealTableView.getItems())
     	  {
-    	      //If the current item is selected
+    	      //Check if the current item is among the selected items
     	      if (selectedItems.contains(MI))
     	      {
-    	          //Create a new GetDetailsSceneCreator for the selected meal
+    	          //Creation of get details scene
     	          GetDetailsSceneCreator getDetailsSceneCreator = new GetDetailsSceneCreator(MI);
+				  Scene getDetailsScene = getDetailsSceneCreator.createScene();
 
-    	          //Create the scene containing the meal details
-    	          Scene getDetailsScene = getDetailsSceneCreator.createScene();
-
-    	          //Create a new Stage (window) for displaying the details
+    	          //Creation of get details scene window for displaying the details of a meal
     	          Stage getDetailsStage = new Stage();
-
-    	          //Set the title of the new Stage window
     	          getDetailsStage.setTitle("Get Details");
-
-    	          //Set the scene of the Stage to the details scene
     	          getDetailsStage.setScene(getDetailsScene);
 
-    	          //Show the Stage window to the user
+    	          //Presenting of get details scene window
     	          getDetailsStage.show();
     	      }
     	   }
     	}
 
-    	//Check if the event source is the backBtn button
+    	//Check if the event source is the "Back" button
     	else if (event.getSource() == backBtn) 
     	{
-    	  //Set the application's primary stage back to the main scene
-    	  App.primaryStage.setScene(App.mainScene);
+    	   //Switch the meal scene to main scene
+    	   App.primaryStage.setScene(App.mainScene);
     	}
 
     }
 
 }
+
 
 
 
