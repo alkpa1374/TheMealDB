@@ -1,7 +1,7 @@
-//Class «MealInfo» belongs to package «model»
+//Class "MealInfo" belongs to package "model"
 package model;
 
-//POJOs Class «MealInfo» for saving data from the REST API of THEMEALDB
+//POJOs Class "MealInfo" for saving data from the REST API of THEMEALDB
 public class MealInfo 
 {
     //Meal ID declaration
@@ -904,4 +904,5 @@ public class MealInfo
                 + "'\n}";
     }
 }
+
 
