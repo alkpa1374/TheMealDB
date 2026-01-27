@@ -875,7 +875,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	{
     	    try
     	    {
-    	        //Get the TableView's selection model to access selected items
+    	        //TableView's selection model to access selected items
     	        TableViewSelectionModel selectionModel = MealTableView.getSelectionModel();
     	        
     	        //Get the currently selected MealInfo items from the TableView
@@ -890,10 +890,10 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	                //If the selected meal is not already in the cooked list
     	                if (!CoMealList.contains(MI))
     	                {
-    	                    //Add the meal to the cooked list
+    	                    //Add the meal to the list of cooked meals
     	                    CoMealList.add(MI);
     	                    
-    	                    //Show a pop-up confirming that the meal was added
+    	                    //Presenting of a pop-up confirming that the meal was added
     	                    MealPopUp mealPopUp = new MealPopUp(
     	                        "This meal has been successfully added to the list of cooked meals."
     	                    );
@@ -901,7 +901,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	                }
     	                else
     	                {
-    	                    //Show a pop-up notifying that the meal is already in cooked meals
+    	                    //Presenting of a pop-up notifying that the meal is already in cooked meals
     	                    MealPopUp mealPopUp = new MealPopUp(
     	                        "This meal is already on the list of cooked meals."
     	                    );
@@ -910,10 +910,10 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	        
-    	        //Write the updated cooked meal list to "cooked.json"
+    	        //Writing of the updated list of cooked meal list to "cooked.json"
     	        mapper2.writeValue(new File("cooked.json"), CoMealList);
     	        
-    	        //Optional: print each cooked meal as a JSON string to console for verification
+    	        //Printing of each cooked meal as a JSON string to console for verification
     	        for (MealInfo mi : CoMealList) 
 				{
     	            try 
@@ -928,20 +928,17 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	    }
-    	    //Handle JSON generation exceptions
-    	    catch (JsonGenerationException e1) 
-			{
-    	        System.err.println("JSON generation failed while writing cooked.json from Meal list");
+    	    //Handling of JSON generation exceptions
+    	    catch (JsonGenerationException e1) {
+    	        System.err.println("JSON generation failed while writing favourite.json from Meal list");
     	        e1.printStackTrace();
     	    }
     	    //Handling of JSON mapping exceptions
-    	    catch (JsonMappingException e1) 
-			{
+    	    catch (JsonMappingException e1) {
     	        e1.printStackTrace();
     	    }
     	    //Handling of IOExceptions during file writing
-    	    catch (IOException e1) 
-			{
+    	    catch (IOException e1) {
     	        e1.printStackTrace();
     	    }
     	}
@@ -949,55 +946,50 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 		
     	
     	
-    	//Check if the event source is the getDetailsBtn button
+    	//Check if the event source is the «getDetailsBtn» button
     	else if (event.getSource() == getDetailsBtn) 
     	{
-    	  //Get the selection model of the MealTableView to determine which items are selected
+    	  //TableView's selection model to access selected items
     	  TableViewSelectionModel selectionModel = MealTableView.getSelectionModel();
 
-    	  //Get the list of currently selected MealInfo objects
+    	  //Get the currently selected MealInfo items from the TableView
     	  ObservableList<MealInfo> selectedItems = selectionModel.getSelectedItems();
 
-    	  //Declare a local list variable (not used here, can be removed)
+    	  //Declaration of a local list variable
     	  List<MealInfo> MealList = null;
 
-    	  //Loop through all MealInfo items currently in the MealTableView
+    	  //Iterate over all items in the TableView
     	  for (MealInfo MI : MealTableView.getItems())
     	  {
-    	      //If the current item is selected
+    	      //Check if the current item is among the selected items
     	      if (selectedItems.contains(MI))
     	      {
-    	          //Create a new GetDetailsSceneCreator for the selected meal
+    	          //Creation of get details scene
     	          GetDetailsSceneCreator getDetailsSceneCreator = new GetDetailsSceneCreator(MI);
-
-    	          //Create the scene containing the meal details
     	          Scene getDetailsScene = getDetailsSceneCreator.createScene();
 
-    	          //Create a new Stage (window) for displaying the details
+    	          //Creation of get details scene window for displaying the details of a meal
     	          Stage getDetailsStage = new Stage();
-
-    	          //Set the title of the new Stage window
     	          getDetailsStage.setTitle("Get Details");
-
-    	          //Set the scene of the Stage to the details scene
     	          getDetailsStage.setScene(getDetailsScene);
 
-    	          //Show the Stage window to the user
+    	          //Presenting of get details scene window
     	          getDetailsStage.show();
     	      }
     	   }
     	}
 
-    	//Check if the event source is the backBtn button
+    	//Check if the event source is the "Back" button
     	else if (event.getSource() == backBtn) 
     	{
-    	   //Set the application's primary stage back to the main scene
+    	   //Switch the meal scene to main scene
     	   App.primaryStage.setScene(App.mainScene);
     	}
 
     }
 
 }
+
 
 
 
