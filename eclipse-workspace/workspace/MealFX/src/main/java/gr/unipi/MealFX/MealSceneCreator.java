@@ -806,7 +806,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	{
     	    try
     	    {
-    	        //Get the TableView's selection model to access selected items
+    	        //TableView's selection model to access selected items
     	        TableViewSelectionModel selectionModel = MealTableView.getSelectionModel();
     	        
     	        //Get the currently selected MealInfo items from the TableView
@@ -821,10 +821,10 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	                //If the selected meal is not already in the favourite list
     	                if (!FavMealList.contains(MI))
     	                {
-    	                    //Add the meal to the favourite list
+    	                    //Add the meal to the list of favourite meals
     	                    FavMealList.add(MI);
     	                    
-    	                    //Show a pop-up confirming that the meal was added
+    	                    //Presenting of a pop-up confirming that the meal was added
     	                    MealPopUp mealPopUp = new MealPopUp(
     	                        "This meal has been successfully added to the list of favourite meals."
     	                    );
@@ -832,7 +832,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	                }
     	                else
     	                {
-    	                    //Show a pop-up notifying that the meal is already in favourites
+    	                    //Presenting of a pop-up notifying that the meal is already in favourites
     	                    MealPopUp mealPopUp = new MealPopUp(
     	                        "This meal is already on the list of favourite meals."
     	                    );
@@ -841,10 +841,10 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	        
-    	        //Write the updated favourite meal list to "favourite.json"
+    	        //Writing of the updated list of favourite meals list to "favourite.json"
     	        mapper1.writeValue(new File("favourite.json"), FavMealList);
     	        
-    	        //Optional: print each favourite meal as a JSON string to console for verification
+    	        //Printing of each favourite meal as a JSON string to console for verification
     	        for (MealInfo mi : FavMealList) {
     	            try {
     	                String favouriteJsonString = mapper1.writeValueAsString(mi);
@@ -855,16 +855,16 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	    }
-    	    //Handle JSON generation exceptions
+    	    //Handling of JSON generation exceptions
     	    catch (JsonGenerationException e1) {
     	        System.err.println("JSON generation failed while writing favourite.json from Meal list");
     	        e1.printStackTrace();
     	    }
-    	    //Handle JSON mapping exceptions
+    	    //Handling of JSON mapping exceptions
     	    catch (JsonMappingException e1) {
     	        e1.printStackTrace();
     	    }
-    	    //Handle IOExceptions during file writing
+    	    //Handling of IOExceptions during file writing
     	    catch (IOException e1) {
     	        e1.printStackTrace();
     	    }
@@ -934,12 +934,12 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	        System.err.println("JSON generation failed while writing cooked.json from Meal list");
     	        e1.printStackTrace();
     	    }
-    	    //Handle JSON mapping exceptions
+    	    //Handling of JSON mapping exceptions
     	    catch (JsonMappingException e1) 
 			{
     	        e1.printStackTrace();
     	    }
-    	    //Handle IOExceptions during file writing
+    	    //Handling of IOExceptions during file writing
     	    catch (IOException e1) 
 			{
     	        e1.printStackTrace();
@@ -998,6 +998,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
 
 
