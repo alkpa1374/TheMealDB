@@ -1,4 +1,4 @@
-//Class «ErrorResponse» belongs to package «model.themealdb»
+//Class "ErrorResponse" belongs to package "model.themealdb"
 package model.themealdb;
 
 //Import of LinkedHashMapan to implementation for maintaining insertion order
@@ -38,19 +38,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     }
 )
 
-//Class «ErrorResponse» for handling errors during data reception from the REST API
+//Class "ErrorResponse" for handling errors during data reception from the REST API
 public class ErrorResponse 
 {
 
-    //Mapping of the JSON field «status_code» to this Java field
+    //Mapping of the JSON field "status_code" to this Java field
     @JsonProperty("status_code")
     private Integer statusCode;
     
-    //Mapping of the JSON field «status_message» to this Java field
+    //Mapping of the JSON field "status_message" to this Java field
     @JsonProperty("status_message")
     private String statusMessage;
     
-    //Mapping of the JSON field «success» to this Java field
+    //Mapping of the JSON field "success" to this Java field
     @JsonProperty("success")
     private Boolean success;
     
@@ -59,7 +59,7 @@ public class ErrorResponse
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
-    //Annotation of the getter for «status_code» so that Jackson uses this during serialization to JSON
+    //Annotation of the getter for "status_code" so that Jackson uses this during serialization to JSON
     @JsonProperty("status_code")
     //Return of the current value of statusCode
     public Integer getStatusCode() 
@@ -67,7 +67,7 @@ public class ErrorResponse
         return statusCode;
     }
     
-    //Annotation of the setter for «status_code» so that Jackson uses this during deserialization from JSON
+    //Annotation of the setter for "status_code" so that Jackson uses this during deserialization from JSON
     @JsonProperty("status_code")
      //Setting of the value of statusCode from JSON
     public void setStatusCode(Integer statusCode) 
@@ -75,7 +75,7 @@ public class ErrorResponse
         this.statusCode = statusCode;
     }
     
-    //Annotation of the getter for «status_message» so that Jackson uses this during serialization to JSON
+    //Annotation of the getter for "status_message" so that Jackson uses this during serialization to JSON
     @JsonProperty("status_message")
     //Return of the current value of statusMessage
     public String getStatusMessage() 
@@ -83,7 +83,7 @@ public class ErrorResponse
         return statusMessage;
     }
     
-    //Annotation of the setter for «status_message» so that Jackson uses this during deserialization from JSON
+    //Annotation of the setter for "status_message" so that Jackson uses this during deserialization from JSON
     @JsonProperty("status_message")
     //Setting of the value of statusMessage from JSON
     public void setStatusMessage(String statusMessage) 
@@ -91,7 +91,7 @@ public class ErrorResponse
         this.statusMessage = statusMessage;
     }
     
-    //Annotation of the getter for «success» so that Jackson uses this during serialization to JSON
+    //Annotation of the getter for "success" so that Jackson uses this during serialization to JSON
     @JsonProperty("success")
     //Return of the current value of success
     public Boolean getSuccess() 
@@ -99,7 +99,7 @@ public class ErrorResponse
         return success;
     }
     
-    //Annotation of the setter for «success» so that Jackson uses this during deserialization from JSON
+    //Annotation of the setter for "success" so that Jackson uses this during deserialization from JSON
     @JsonProperty("success")
     //Setting of the value of success from JSON
     public void setSuccess(Boolean success) 
