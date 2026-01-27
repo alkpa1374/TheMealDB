@@ -10,13 +10,13 @@ import java.util.List;
 //Import of the generic Map interface for key-value pair mappings
 import java.util.Map;
 
-//Import of Jackson annotation to include additional JSON properties dynamically during serialization
+//Import of Jackson annotation to include additional JSON properties dynamically during serialisation
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 
-//Import of Jackson annotation to set additional JSON properties dynamically during deserialization
+//Import of Jackson annotation to set additional JSON properties dynamically during deserialisation
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 
-//Import of Jackson annotation to ignore fields during JSON serialization/deserialization
+//Import of Jackson annotation to ignore fields during JSON serialisation/deserialisation
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //Import of Jackson annotation to control whether null fields are included in JSON
@@ -25,13 +25,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 //Import of Jackson annotation to explicitly map JSON properties to Java fields
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//Import of Jackson annotation to specify the order of JSON properties during serialization
+//Import of Jackson annotation to specify the order of JSON properties during serialisation
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-//Confirmation that only fields that are not null are included during serialization of this object to JSON
+//Confirmation that only fields that are not null are included during serialisation of this object to JSON
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-//Specification of the order of properties during serialization to JSON
+//Specification of the order of properties during serialisation to JSON
 @JsonPropertyOrder
 (
   {
@@ -62,7 +62,7 @@ public class MealResult
     @JsonProperty("total_results")
     private Integer totalResults;
     
-    //Overlooking of this field during normal JSON serialization/deserialization for usage to store extra properties
+    //Overlooking of this field during normal JSON serialisation/deserialisation for usage to store extra properties
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
     
