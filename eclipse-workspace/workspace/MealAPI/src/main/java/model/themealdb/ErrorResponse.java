@@ -42,15 +42,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class ErrorResponse 
 {
 
-    //Mapping of the JSON field "status_code" to this Java field
+    //Mapping of the JSON field «status_code» to this Java field
     @JsonProperty("status_code")
     private Integer statusCode;
     
-    //Mapping of the JSON field "status_message" to this Java field
+    //Mapping of the JSON field «status_message» to this Java field
     @JsonProperty("status_message")
     private String statusMessage;
     
-    //Mapping of the JSON field "success" to this Java field
+    //Mapping of the JSON field «success» to this Java field
     @JsonProperty("success")
     private Boolean success;
     
@@ -75,7 +75,7 @@ public class ErrorResponse
         this.statusCode = statusCode;
     }
     
-    //Annotation of the getter for "status_message" so that Jackson uses this during serialization to JSON
+    //Annotation of the getter for «status_message» so that Jackson uses this during serialization to JSON
     @JsonProperty("status_message")
     //Return of the current value of statusMessage
     public String getStatusMessage() 
