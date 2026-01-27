@@ -795,16 +795,16 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		{
 		  try
 		  {
-		      //Get the selection model of the MealTableView to know which items are selected
+		      //TableView's selection model to access selected items
 		      TableViewSelectionModel selectionModel = MealTableView.getSelectionModel();
 		
-		      //Get the list of currently selected MealInfo objects
+		      //Get the currently selected MealInfo items from the TableView
 		      ObservableList<MealInfo> selectedItems = selectionModel.getSelectedItems();
 		
-		      //Loop through all MealInfo items currently in the MealTableView
+		      //Iterate over all items in the TableView
 		      for (MealInfo MI : MealTableView.getItems())
 		      {
-		          //If the meal is NOT already in the favourite meals list
+		           //If the selected meal is already in the favourite list
 		          if (!App.FavMealList.contains(MI))
 		          {
 		              //Remove the meal from the cooked meals list
@@ -813,96 +813,84 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		              //Add the meal to the favourite meals list
 		              App.FavMealList.add(MI);
 		
-		              //Show a pop-up message confirming the meal has been moved
+		              //Presenting of a pop-up confirming that the meal has been moved
 		              MealPopUp mealPopUp = new MealPopUp("This meal has been successfully moved from the list of cooked meals to the list of favourite meals.");
 		              mealPopUp.show();
 		          }
 		          else
 		          {
-		              //Show a pop-up message indicating the meal is already in favourites
+		              //Presenting of a pop-up confirming that the meal is already in favourites
 		              MealPopUp mealPopUp = new MealPopUp("This meal is already in the list of favourite meals.");
 		              mealPopUp.show();
 		          }
 		      }
 		
-		      //Serialize the updated favourite meals list to "favourite.json"
+		      //Writing of the updated list of favourite meal list to "favourite.json"
 		      mapper1.writeValue(new File("favourite.json"), App.FavMealList);
 		
-		      //Loop through each MealInfo in the updated favourite list to log JSON
+		      //Printing of each favourite meal as a JSON string to console for verification
 		      for (MealInfo mi : App.FavMealList) 
 			  {
 		          try 
 				  {
-		              //Convert each MealInfo object to a JSON string for logging purposes
 		              String favouriteJsonString = mapper1.writeValueAsString(mi);
-		
-		              //Print a message indicating the favourite meal has been serialized
-		              System.out.println("Favourite object serialized to JSON string:");
-		
-		              //Print the JSON string
+					  System.out.println("Favourite object serialized to JSON string:");
 		              System.out.println(favouriteJsonString);
 		
 		          } 
-				  catch (IOException e) 
-				  {
-		              //Print stack trace if an I/O error occurs during serialization
-		              e.printStackTrace();
-		          }
+				  //Handling of I/O Exceptions occurs during serialization
+					 catch (IOException e) 
+					 {
+		                  e.printStackTrace();
+		             }
 		      }
 		
 		      //Serialize the updated cooked meals list to "cooked.json"
 		      mapper2.writeValue(new File("cooked.json"), App.CoMealList);
 		
-		      //Loop through each MealInfo in the updated cooked list to log JSON
+		      //Printing of each favourite meal as a JSON string to console for verification
 		      for (MealInfo mi : App.CoMealList) 
 			  {
 		          try 
 				  {
-		              //Convert each MealInfo object to a JSON string for logging purposes
 		              String cookedJsonString = mapper2.writeValueAsString(mi);
-		
-		              //Print a message indicating the cooked meal has been serialized
 		              System.out.println("Cooked object serialized to JSON string:");
-		
-		              //Print the JSON string
 		              System.out.println(cookedJsonString);
 		
 		          } 
+				  //Handling of I/O Exceptions occurs during serialization
 				  catch (IOException e) 
 				  {
-		              //Print stack trace if an I/O error occurs during serialization
-		              e.printStackTrace();
-		          }
+					  e.printStackTrace();
+				  }
 		      }
 		
-		      //Get the items currently displayed in the TableView
+		      //Get the TableView's current items
 		      List<MealInfo> items = MealTableView.getItems();
 		
-		      //Clear all items from the TableView to refresh the display
+		      //Clearance of the TableView before adding new results
 		      items.clear();
 		
-		      //Loop through each MealInfo in the updated cooked meals list
+		      //Adding of all cooked meals to the TableView
 		      for (MealInfo Meal : App.CoMealList) 
 		      {
-		          //Add each meal back to the TableView for display
 		          items.add(Meal);
 		      }
-		  }
-		  //Catch block for JSON generation errors
-		  //Handling of JSON generation exceptions
-    	    catch (JsonGenerationException e1) {
-    	        System.err.println("JSON generation failed while writing favourite.json from Meal list");
-    	        e1.printStackTrace();
-    	    }
-    	    //Handling of JSON mapping exceptions
-    	    catch (JsonMappingException e1) {
-    	        e1.printStackTrace();
-    	    }
-    	    //Handling of IOExceptions during file writing
-    	    catch (IOException e1) {
-    	        e1.printStackTrace();
-    	    }
 		}
+		//Handling of JSON generation exceptions
+		catch (JsonGenerationException e1) {
+			System.err.println("JSON generation failed while writing favourite.json from Meal list");
+			e1.printStackTrace();
+		}
+		//Handling of JSON mapping exceptions
+		catch (JsonMappingException e1) {
+			e1.printStackTrace();
+		}
+		//Handling of IOExceptions during file writing
+		catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
 		
 		//Check if the event source is the «getDetailsBtn» button
 		else if (event.getSource() == getDetailsBtn) 
@@ -947,6 +935,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 	}
 
 }
+
 
 
 
