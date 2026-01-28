@@ -1,26 +1,27 @@
-//Declare a module named "gr.unipi.MealFX"
+//Declaration of module "gr.unipi.MealFX"
 module gr.unipi.MealFX 
 {
 
-    //Exportation of package «gr.unipi.MealFX» so that other modules can access its public classes
+    //Exportation of package "gr.unipi.MealFX" for public classes access by other modules
     exports gr.unipi.MealFX;
 
-    //Requirements of module «gr.unipi.MealAPI» to use its classes and services
+    //Requirement of module "gr.unipi.MealAPI" for its classes and services usage
     requires gr.unipi.MealAPI;
 
-    //Requirements of module «JavaFX base» for core JavaFX functionality
+    //Requirement of module "JavaFX base" for core JavaFX functionality
     requires javafx.base;
 
-    //Requirements of module «JavaFX controls» to use UI controls like Button, TableView, Label, etc.
+    //Requirement of module "JavaFX controls" to use UI controls like Button, TableView, Label, etc.
     requires javafx.controls;
 
-    //Requirements of module JavaFX graphics for rendering scenes and UI elements
+    //Requirement of module JavaFX graphics for scenes and UI elements rendering
     requires transitive javafx.graphics;
 
-    //Requirements of Jackson Databind library for JSON serialization/deserialization
+    //Requirement of Jackson Databind library for JSON serialization/deserialization
     requires com.fasterxml.jackson.databind;
     
     //requires junit;
 
 }
+
 
