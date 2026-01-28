@@ -3,97 +3,72 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/maven-v4_0_0.xsd">
-
-    <!-- Defines the version of the Maven POM specification -->
+    <!-- Definition of the version of the Maven POM specification -->
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- The organization or package name of the project -->
+    <!-- Organization of the project package name -->
     <groupId>gr.unipi</groupId>
-
-    <!-- The unique name of this application -->
+    <!-- This application's unique name -->
     <artifactId>MealFX</artifactId>
-
-    <!-- The version of the project (SNAPSHOT means it is under development) -->
+    <!-- The project version (SNAPSHOT means it is under development) -->
     <version>0.0.1-SNAPSHOT</version>
-
     <!-- Global project properties -->
     <properties>
-
-        <!-- Defines the character encoding used when building the project -->
+        <!-- Definition of the character encoding used when building the project -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <!-- Java source code version -->
         <maven.compiler.source>11</maven.compiler.source>
-
         <!-- Java bytecode target version -->
         <maven.compiler.target>11</maven.compiler.target>
-
     </properties>
-
     <!-- External libraries and modules required by this project -->
     <dependencies>
-
         <!-- JavaFX controls library for building graphical user interfaces -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>13</version>
         </dependency>
-
-        <!-- Dependency on the MealAPI project, which provides backend functionality -->
+        <!-- Dependency on the MealAPI project providing backend functionality -->
         <dependency>
             <groupId>gr.unipi</groupId>
             <artifactId>MealAPI</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
-
     <!-- Build configuration for this Maven project -->
     <build>
         <plugins>
-
-            <!-- Plugin that compiles Java source code -->
+            <!-- Plugin compiling Java source code -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
-
                 <!-- Compiler configuration -->
                 <configuration>
-
-                    <!-- Uses Java 11 as the compilation target -->
+                    <!-- Usage of Java 11 as the compilation target -->
                     <release>11</release>
-
                 </configuration>
             </plugin>
-
             <!-- JavaFX Maven plugin used to run JavaFX applications -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.6</version>
-
-                <!-- Defines plugin executions -->
+                <!-- Definition of plugin executions -->
                 <executions>
                     <execution>
-
                         <!-- Default configuration for running the JavaFX application -->
-                        <!-- The application is started using: mvn clean javafx:run -->
+                        <!-- Starting of the application using: mvn clean javafx:run -->
                         <id>default-cli</id>
-
                         <!-- Configuration of the JavaFX runtime -->
                         <configuration>
-
-                            <!-- The main Java class that launches the JavaFX application -->
+                            <!-- Main Java class launching the JavaFX application -->
                             <mainClass>gr.unipi.MealFX.App</mainClass>
-
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
+
