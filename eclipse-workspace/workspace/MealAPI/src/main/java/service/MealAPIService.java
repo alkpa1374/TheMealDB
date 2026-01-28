@@ -90,7 +90,7 @@ public class MealAPIService
 	          //Mapping of error response to ErrorResponse object
 	          ErrorResponse errorResponse = mapper.readValue(entity.getContent(), ErrorResponse.class);
 	          
-	          //Throwing a custom exception when an API error code returns
+	          //Throwing of a custom exception when an API error code returns
 	          if (errorResponse.getStatusCode() != null) 
 			  {
 	              throw new MealAPIException("Error occurred on API call: " + errorResponse.getStatusMessage());
@@ -125,19 +125,19 @@ public class MealAPIService
 	      }
 	
 	  }
-	  //Rejection when API URL is malformed
+	  //Throwing of an exception when API URL is malformed
 	  catch (URISyntaxException e) 
 	  {
 	      throw new MealAPIException("Problem with URI", e);
 	
 	  } 
-	  //Rejection when HTTP communication error appears
+	  //Throwing of an exception when HTTP communication error appears
 	  catch (ClientProtocolException e) 
 	  {
 	      throw new MealAPIException("Problem with Client Protocol", e);
 	
 	  }
-	  //Rejection when REST API response error appears
+	  //Throwing of an exception when REST API response error appears
 	  catch (IOException e) 
 	  {
 	      throw new MealAPIException("Error requesting data from Meal API", e);
@@ -186,7 +186,7 @@ public class MealAPIService
 	          //Mapping of error response to ErrorResponse object
 	          ErrorResponse errorResponse = mapper.readValue(entity.getContent(), ErrorResponse.class);
 	          
-	          //Throwing a custom exception when an API error code returns
+	          //Throwing of a custom exception when an API error code returns
 	          if (errorResponse.getStatusCode() != null) 
 			  {
 	              throw new MealAPIException("Error occurred on API call: " + errorResponse.getStatusMessage());
@@ -239,19 +239,19 @@ public class MealAPIService
 	      }
 	
 	  } 
-	   //Rejection when API URL is malformed
+	   //Throwing of an exception when API URL is malformed
 	  catch (URISyntaxException e) 
 	  {
 	      throw new MealAPIException("Problem with URI", e);
 	
 	  } 
-	  //Rejection when HTTP communication error appears
+	  //Throwing of an exception when HTTP communication error appears
 	  catch (ClientProtocolException e) 
 	  {
 	      throw new MealAPIException("Problem with Client Protocol", e);
 	
 	  }
-	  //Rejection when REST API response error appears
+	  //Throwing of an exception when REST API response error appears
 	  catch (IOException e) 
 	  {
 	      throw new MealAPIException("Error requesting data from Meal API", e);
@@ -299,7 +299,7 @@ public class MealAPIService
 		         //Mapping of error response to ErrorResponse object
 		         ErrorResponse errorResponse = mapper.readValue(entity.getContent(), ErrorResponse.class);
 		         
-		         //Throwing a custom exception when an API error code returns
+		         //Throwing of a custom exception when an API error code returns
 		         if (errorResponse.getStatusCode() != null) 
 				 {
 		             throw new MealAPIException("Error occurred on API call: " + errorResponse.getStatusMessage());
@@ -358,18 +358,18 @@ public class MealAPIService
 		     }
 		
 		 } 
-		 //Rejection when API URL is malformed
+		 //Throwing of an exception when API URL is malformed
 	     catch (URISyntaxException e) 
 	     {
 	          throw new MealAPIException("Problem with URI", e);
 	
 	     } 
-	     ///Rejection when HTTP communication error appears
+	     //Throwing of an exception when HTTP communication error appears
          catch (ClientProtocolException e) 
 	     { 
 	         throw new MealAPIException("Problem with Client Protocol", e);
 	     }
-	     //Rejection when REST API response error appears
+	     //Throwing of an exception when REST API response error appears
 	     catch (IOException e) 
 	     {
 	         throw new MealAPIException("Error requesting data from Meal API", e);
@@ -379,5 +379,6 @@ public class MealAPIService
 	  return mealInfoList;
 	}
 }
+
 
 
