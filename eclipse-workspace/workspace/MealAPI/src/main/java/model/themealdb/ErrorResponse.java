@@ -122,5 +122,4 @@ public class ErrorResponse
     {
         this.additionalProperties.put(name, value);
     }
-
 }
