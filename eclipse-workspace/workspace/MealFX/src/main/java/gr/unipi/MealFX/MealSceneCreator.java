@@ -58,7 +58,7 @@ import javafx.scene.control.Label;
 //Import of table view control for tabular data displaying
 import javafx.scene.control.TableView;
 
-//Import of TableViewSelectionModel for the handling of selection operations within a table view
+//Import of TableViewSelectionModel for handling of selection operations within a table view
 import javafx.scene.control.TableView.TableViewSelectionModel;
 
 //Import of TextField control for single-line text user input
@@ -76,7 +76,7 @@ import javafx.scene.layout.GridPane;
 //Import of Stage class for representation of a top-level JavaFX window
 import javafx.stage.Stage;
 
-//Import of the MealInfo model representation of a meal entity
+//Import of the MealInfo model representation of meal entity
 import model.MealInfo;
 
 //Import of service class for Meal API interaction
@@ -894,3 +894,4 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	}
     }
 }
+
