@@ -100,7 +100,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
 	 //Favourite scene buttons
      Button deleteFavouriteBtn, moveMealBtn, getDetailsBtn, backBtn;
 
-     //table view for displaying of MealInfo objects list in a tabular form
+     //Table view for displaying of MealInfo objects list in a tabular form
      TableView<MealInfo> MealTableView;
 
      //Jackson ObjectMapper instances for JSON serialization/deserialization
@@ -640,7 +640,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
 
-    	        //Writing of the updated list of favourite meals list to "favourite.json"
+    	        //Writing of updated list of favourite meals list to "favourite.json"
     	        mapper1.writeValue(new File("favourite.json"), App.FavMealList);
 
     	        //Printing of each favourite meal as a JSON string to console for verification
@@ -779,6 +779,8 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	        {
     	            items.add(Meal);
     	        }
+    	        
+			   }
     	    }
     	    //Handling of JSON generation exceptions
 			catch (JsonGenerationException e1) {
