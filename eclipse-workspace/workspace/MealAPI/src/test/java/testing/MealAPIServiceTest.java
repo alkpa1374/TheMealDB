@@ -23,11 +23,16 @@ import model.MealInfo;
 import service.MealAPIService;
 
 //Class "MealAPIServiceTest" for testing
+import org.junit.FixMethodOrder;
+import org.junit.runners.MethodSorters;
+
+//Enforcement of a specific execution order for test methods
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MealAPIServiceTest 
 {
     //Test method for searching a meal by name
     @Test
-    public void testSearchMealByName() throws MealAPIException 
+    public void Test_1_SearchMealByName() throws MealAPIException 
     {
         //Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
@@ -48,7 +53,7 @@ public class MealAPIServiceTest
 
     //Test method for searching meals by main ingredient
     @Test
-    public void testSearchMealByIngredient() throws MealAPIException 
+    public void Test_2_SearchMealByIngredient() throws MealAPIException 
     {
         //Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
@@ -68,21 +73,21 @@ public class MealAPIServiceTest
 
     //Test method for searching meals by an invalid name or main ingredient
     @Test
-    public void testSearchMealByInvalidNameOrIngredient() throws MealAPIException 
+    public void Test_3_SearchMealByInvalidNameOrIngredient() throws MealAPIException 
     {
-        //Creation of a new MealAPIService instance with the base API URL
+    	//Printing of user-friendly message
+        System.out.println("There is neither a meal with that name nor that specific ingredient. Please, enter the name of a meal or the name of a specific ingredient in a meal again.");
+    	//Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
         //Calling of the REST API of THEMEALDB to search meals by the name or the main ingredient "watermelon" without results storing
         final List<MealInfo> results = mealSearchService.getMealByNameOrIngredient("watermelon");
-        //Printing of user-friendly message
-        System.out.println("There is neither a meal with that name nor that specific ingredient. Please, enter the name of a meal or the name of a specific ingredient in a meal again.");
         //Assertion of empty results list
         Assert.assertTrue(results.isEmpty());
     }
 
     //Test method for searching meal by ID
     @Test
-    public void testSearchMealByID() throws MealAPIException 
+    public void Test_4_SearchMealByID() throws MealAPIException 
     {
         //Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
@@ -94,41 +99,42 @@ public class MealAPIServiceTest
         for (MealInfo meal : results) 
         {
             //Printing of meal details to the console
-            System.out.println("MealInfo{idMeal='" + meal.getIdMeal() + "', strMeal='" + meal.getStrMeal() + "', strMealAlternate='" + meal.getStrMealAlternate() + "', strCategory='" + meal.getStrCategory() + "', strArea='" + meal.getStrArea() + "', strInstructions='" + meal.getStrInstructions() + "', strMealThumb='" + meal.getStrMealThumb() + "', strTags='" + meal.getStrTags() + "', strYoutube='" + meal.getStrYoutube() + "', strIngredient1='" + meal.getStrIngredient1() + "', strIngredient2='" + meal.getStrIngredient2() + "', strIngredient3='" + meal.getStrIngredient3() + "', strIngredient4='" + meal.getStrIngredient4() + "', strIngredient5='" + meal.getStrIngredient5() + "', strIngredient6='" + meal.getStrIngredient6() + "', strIngredient7='" + meal.getStrIngredient7() + "', strIngredient8='" + meal.getStrIngredient8() + "', strIngredient9='" + meal.getStrIngredient9() + "', strIngredient10='" + meal.getStrIngredient10() + "', strIngredient11='" + meal.getStrIngredient11() + "', strIngredient12='" + meal.getStrIngredient12() + "', strIngredient13='" + meal.getStrIngredient13() + "', strIngredient14='" + meal.getStrIngredient14() + "', strIngredient15='" + meal.getStrIngredient15() + "', strIngredient16='" + meal.getStrIngredient16() + "', strIngredient17='" + meal.getStrIngredient17() + "', strIngredient18='" + meal.getStrIngredient18() + "', strIngredient19='" + meal.getStrIngredient19() + "', strIngredient20='" + meal.getStrIngredient20() + "', strMeasure1='" + meal.getStrMeasure1() + "', strMeasure2='" + meal.getStrMeasure2() + "', strMeasure3='" + meal.getStrMeasure3() + "', strMeasure4='" + meal.getStrMeasure4() + "', strMeasure5='" + meal.getStrMeasure5() + "', strMeasure6='" + meal.getStrMeasure6() + "', strMeasure7='" + meal.getStrMeasure7() + "', strMeasure8='" + meal.getStrMeasure8() + "', strMeasure9='" + meal.getStrMeasure9() + "', strMeasure10='" + meal.getStrMeasure10() + "', strMeasure11='" + meal.getStrMeasure11() + "', strMeasure12='" + meal.getStrMeasure12() + "', strMeasure13='" + meal.getStrMeasure13() + "', strMeasure14='" + meal.getStrMeasure14() + "', strMeasure15='" + meal.getStrMeasure15() + "', strMeasure16='" + meal.getStrMeasure16() + "', strMeasure17='" + meal.getStrMeasure17() + "', strMeasure18='" + meal.getStrMeasure18() + "', strMeasure19='" + meal.getStrMeasure19() + "', strMeasure20='" + meal.getStrMeasure20() + "', strSource='" + meal.getStrSource() + "', strImageSource='" + meal.getStrImageSource() + "', strCreativeCommonsConfirmed='" + meal.getStrCreativeCommonsConfirmed() + "', dateModified='" + meal.getDateModified() + "'}");
+            //System.out.println("MealInfo{idMeal='" + meal.getIdMeal() + "', strMeal='" + meal.getStrMeal() + "', strMealAlternate='" + meal.getStrMealAlternate() + "', strCategory='" + meal.getStrCategory() + "', strArea='" + meal.getStrArea() + "', strInstructions='" + meal.getStrInstructions() + "', strMealThumb='" + meal.getStrMealThumb() + "', strTags='" + meal.getStrTags() + "', strYoutube='" + meal.getStrYoutube() + "', strIngredient1='" + meal.getStrIngredient1() + "', strIngredient2='" + meal.getStrIngredient2() + "', strIngredient3='" + meal.getStrIngredient3() + "', strIngredient4='" + meal.getStrIngredient4() + "', strIngredient5='" + meal.getStrIngredient5() + "', strIngredient6='" + meal.getStrIngredient6() + "', strIngredient7='" + meal.getStrIngredient7() + "', strIngredient8='" + meal.getStrIngredient8() + "', strIngredient9='" + meal.getStrIngredient9() + "', strIngredient10='" + meal.getStrIngredient10() + "', strIngredient11='" + meal.getStrIngredient11() + "', strIngredient12='" + meal.getStrIngredient12() + "', strIngredient13='" + meal.getStrIngredient13() + "', strIngredient14='" + meal.getStrIngredient14() + "', strIngredient15='" + meal.getStrIngredient15() + "', strIngredient16='" + meal.getStrIngredient16() + "', strIngredient17='" + meal.getStrIngredient17() + "', strIngredient18='" + meal.getStrIngredient18() + "', strIngredient19='" + meal.getStrIngredient19() + "', strIngredient20='" + meal.getStrIngredient20() + "', strMeasure1='" + meal.getStrMeasure1() + "', strMeasure2='" + meal.getStrMeasure2() + "', strMeasure3='" + meal.getStrMeasure3() + "', strMeasure4='" + meal.getStrMeasure4() + "', strMeasure5='" + meal.getStrMeasure5() + "', strMeasure6='" + meal.getStrMeasure6() + "', strMeasure7='" + meal.getStrMeasure7() + "', strMeasure8='" + meal.getStrMeasure8() + "', strMeasure9='" + meal.getStrMeasure9() + "', strMeasure10='" + meal.getStrMeasure10() + "', strMeasure11='" + meal.getStrMeasure11() + "', strMeasure12='" + meal.getStrMeasure12() + "', strMeasure13='" + meal.getStrMeasure13() + "', strMeasure14='" + meal.getStrMeasure14() + "', strMeasure15='" + meal.getStrMeasure15() + "', strMeasure16='" + meal.getStrMeasure16() + "', strMeasure17='" + meal.getStrMeasure17() + "', strMeasure18='" + meal.getStrMeasure18() + "', strMeasure19='" + meal.getStrMeasure19() + "', strMeasure20='" + meal.getStrMeasure20() + "', strSource='" + meal.getStrSource() + "', strImageSource='" + meal.getStrImageSource() + "', strCreativeCommonsConfirmed='" + meal.getStrCreativeCommonsConfirmed() + "', dateModified='" + meal.getDateModified() + "'}");
+            results.forEach(System.out::println);
         }
     }
 
     //Test method for searching meal by an invalid numeric ID
     @Test
-    public void testSearchMealByInvalidNumericID() throws MealAPIException 
+    public void Test_5_SearchMealByInvalidNumericID() throws MealAPIException 
     {
-        //Creation of a new MealAPIService instance with the base API URL
+    	//Printing of user-friendly message
+        System.out.println("There is no a meal with that ID. Please, enter the ID of a meal again.");
+    	//Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
         //Calling of the REST API of THEMEALDB to search meal by ID "12345" without results storing
         final List<MealInfo> results = mealSearchService.getSpecificMeal("12345");
-        //Printing of user-friendly message
-        System.out.println("There is no a meal with that ID. Please, enter the ID of a meal again.");
         //Assertion of empty results list
         Assert.assertTrue(results.isEmpty());
     }
 
     //Test method for searching meals by a string ID
     @Test
-    public void testSearchMealByStringID() throws MealAPIException 
+    public void Test_6_SearchMealByStringID() throws MealAPIException 
     {
-        //Creation of a new MealAPIService instance with the base API URL
+    	//Printing of user-friendly message
+        System.out.println("Error calling Meal API");
+    	//Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
         //Calling of the REST API of THEMEALDB to search meal by ID "grape" without results storing 
         final List<MealInfo> results = mealSearchService.getSpecificMeal("grape");
-        //Printing of user-friendly message
-        System.out.println("Error calling Meal API");
         //Assertion of empty results list
         Assert.assertTrue(results.isEmpty());
     }
 
     //Test method for searching a random meal
     @Test
-    public void testSearchMealRandom() throws MealAPIException 
+    public void Test_7_SearchMealRandom() throws MealAPIException 
     {
         //Creation of a new MealAPIService instance with the base API URL
         final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
