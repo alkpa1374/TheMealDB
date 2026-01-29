@@ -716,7 +716,7 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     	                    //Presentation of custom pop-up window notifying the user the meal has been successfully moved from favourite meals list to cooked meals 
     	                    MealPopUp mealPopUp = new MealPopUp
 							(
-    	                        "This meals has been successfully moved from the list of favourite meals to the list of cooked meals."
+    	                        "This meal has been successfully moved from the list of favourite meals to the list of cooked meals."
     	                    );
     	                    mealPopUp.show();
     	                }
@@ -839,3 +839,4 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
