@@ -1,7 +1,7 @@
 //Class "FavouriteSceneCreator" belongs to package "gr.unipi.MealFX"
 package gr.unipi.MealFX;
 
-//Import of File class for representing files in the file system
+//Import of File class for representation of files in the file system
 import java.io.File;
 
 //Import of IOException for handling input/output exceptions when working with files
@@ -58,7 +58,7 @@ import javafx.scene.control.Label;
 //Import of table view control for tabular data displaying
 import javafx.scene.control.TableView;
 
-//Import of TableViewSelectionModel for the handling of selection operations within a table view
+//Import of TableViewSelectionModel for handling of selection operations within a table view
 import javafx.scene.control.TableView.TableViewSelectionModel;
 
 //Import of TextField control for single-line text user input
@@ -73,10 +73,10 @@ import javafx.scene.layout.FlowPane;
 //Import of GridPane layout for arranging UI elements in a flexible rows/column grid
 import javafx.scene.layout.GridPane;
 
-//Import of Stage class for representation a top-level JavaFX window
+//Import of Stage class for representation of a top-level JavaFX window
 import javafx.stage.Stage;
 
-//Import of the MealInfo model representing a meal entity
+//Import of the MealInfo model representation of meal entity
 import model.MealInfo;
 
 //Import of service class for Meal API interaction
@@ -850,4 +850,5 @@ public class FavouriteSceneCreator implements EventHandler<MouseEvent>
     }
 
 }
+
 
