@@ -364,4 +364,3 @@ public class GetDetailsSceneCreator implements EventHandler<MouseEvent>
 
 
 
-
