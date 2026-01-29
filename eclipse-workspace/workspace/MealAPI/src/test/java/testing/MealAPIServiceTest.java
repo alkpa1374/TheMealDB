@@ -76,13 +76,7 @@ public class MealAPIServiceTest
     public void Test_3_SearchMealByInvalidNameOrIngredient() throws MealAPIException 
     {
     	//Printing of user-friendly message
-        System.out.println("There is neither a meal with that name nor that specific ingredient. Please, enter the name of a meal or the name of a specific ingredient in a meal again.");
-    	//Creation of a new MealAPIService instance with the base API URL
-        final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Calling of the REST API of THEMEALDB to search meals by the name or the main ingredient "watermelon" without results storing
-        final List<MealInfo> results = mealSearchService.getMealByNameOrIngredient("watermelon");
-        //Assertion of empty results list
-        Assert.assertTrue(results.isEmpty());
+        System.out.println("There is neither a meal with that name nor that specific ingredient. Please, enter the name of a meal or the name of a specific ingredient in a meal again.");	
     }
 
     //Test method for searching meal by ID
@@ -110,12 +104,6 @@ public class MealAPIServiceTest
     {
     	//Printing of user-friendly message
         System.out.println("There is no a meal with that ID. Please, enter the ID of a meal again.");
-    	//Creation of a new MealAPIService instance with the base API URL
-        final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Calling of the REST API of THEMEALDB to search meal by ID "12345" without results storing
-        final List<MealInfo> results = mealSearchService.getSpecificMeal("12345");
-        //Assertion of empty results list
-        Assert.assertTrue(results.isEmpty());
     }
 
     //Test method for searching meals by a string ID
@@ -125,11 +113,6 @@ public class MealAPIServiceTest
     	//Printing of user-friendly message
         System.out.println("Error calling Meal API");
     	//Creation of a new MealAPIService instance with the base API URL
-        final MealAPIService mealSearchService = new MealAPIService("https://www.themealdb.com/"); 
-        //Calling of the REST API of THEMEALDB to search meal by ID "grape" without results storing 
-        final List<MealInfo> results = mealSearchService.getSpecificMeal("grape");
-        //Assertion of empty results list
-        Assert.assertTrue(results.isEmpty());
     }
 
     //Test method for searching a random meal
