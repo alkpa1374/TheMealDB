@@ -99,24 +99,18 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 
 	 //Meal scene buttons
 	 Button deleteCookedBtn, moveMealBtn, getDetailsBtn, backBtn;
-	
-	 //Label displaying text in the cooked scene
-     Label textLbl = new Label("Parameter");
 
-     //TextField for user input or parameters in the cooked scene
-     TextField paramField = new TextField();
-
-     //table view for displaying of MealInfo objects list in a tabular form
+     //Table view for displaying of MealInfo objects list in a tabular form
      TableView<MealInfo> MealTableView;
 	
 	 //Jackson ObjectMapper instances for JSON serialization/deserialization
      ObjectMapper mapper1 = new ObjectMapper();
      ObjectMapper mapper2 = new ObjectMapper();
 
-	//Constructor for cooked scene creator
+	//Constructor for cooked scene creation
 	public CookedSceneCreator() 
 	{
-		 //Creation of root grid pane
+	//Creation of root grid pane
         rootGridPane = new GridPane();
 
         //Creation of input fields pane
@@ -541,7 +535,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
         mapper2.enable(SerializationFeature.INDENT_OUTPUT);
 		
 		      
-		  //Checking of the existance of "cooked.json"
+		 //Checking of the existance of "cooked.json"
 		 if (cooked.exists())
 		 {
 		     try 
@@ -549,8 +543,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		         //Obtaining of a TypeFactory instance from mapper2 for advanced type handling
 		         TypeFactory typeFactory = mapper2.getTypeFactory();
 		
-		         //Deserialization of JSON content of "cooked.json" into a MealInfo objects List
-		         //and assign it to the application's cooked meals list (CoMealList)
+		         //Deserialization of JSON content of "cooked.json" into a MealInfo objects List and assignment to the application's cooked meals list (CoMealList)
 		         App.CoMealList = mapper2.readValue(
 		             new File("cooked.json"),
 		             typeFactory.constructCollectionType(List.class, MealInfo.class)
@@ -615,8 +608,8 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 	//Method of JavaFX Scene creation and return for this UI
 	Scene createScene()
 	{
-	  //Creation of new Scene using the grid pane as the root layout
-	  //Setting of width of scene to 650 pixels and height to 300 pixels
+	  //Creation of new Scene using grid pane as the root layout
+	    //Setting of width of scene to 650 pixels and height to 300 pixels
 	  return new Scene(rootGridPane, 650, 300);
 	}
 
@@ -651,7 +644,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		             }
 		         }
 		
-		         //Writing of the updated list of cooked meals list to "cooked.json"
+		         //Writing of updated list of cooked meals list to "cooked.json"
 		         mapper2.writeValue(new File("cooked.json"), App.CoMealList);
 		
 		         //Printing of each cooked meal as a JSON string to console for verification
@@ -712,7 +705,10 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		      //Iteration over all items in the table view
 		      for (MealInfo MI : MealTableView.getItems())
 		      {
-		           //Checking if current item is among selected items
+		          //Checking if current item is among selected items
+    	            	  if (selectedItems.contains(MI))
+    	            	  {
+		          //Checking if current item is among selected items
 		          if (!App.FavMealList.contains(MI))
 		          {
 		              //Removal of meal from cooked meals list
@@ -731,6 +727,7 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
 		              MealPopUp mealPopUp = new MealPopUp("This meal is already in the list of favourite meals.");
 		              mealPopUp.show();
 		          }
+		        }
 		      }
 		
 		      //Writing of updated list of favourite meals list to "favourite.json"
@@ -841,6 +838,4 @@ public class CookedSceneCreator implements EventHandler<MouseEvent>
     	}
 	
 	}
-
 }
-
