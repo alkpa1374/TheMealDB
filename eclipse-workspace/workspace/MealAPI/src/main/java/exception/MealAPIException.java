@@ -19,9 +19,3 @@ public class MealAPIException extends Exception
        super(message, cause);
     }
 }
-
-
-
-
-
-
