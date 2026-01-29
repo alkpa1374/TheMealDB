@@ -19,9 +19,4 @@ module gr.unipi.MealFX
 
     //Requirement of Jackson Databind library for JSON serialization/deserialization
     requires com.fasterxml.jackson.databind;
-    
-    //requires junit;
-
 }
-
-
