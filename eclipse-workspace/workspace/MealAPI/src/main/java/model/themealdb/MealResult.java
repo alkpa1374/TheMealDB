@@ -1,4 +1,4 @@
-//Class "MealResult" belongs to package "model.themealdb"
+//Class"MealResult" belongs to package "model.themealdb"
 package model.themealdb;
 
 //Import of the LinkedHashMap class for storing key-value pairs in insertion order
