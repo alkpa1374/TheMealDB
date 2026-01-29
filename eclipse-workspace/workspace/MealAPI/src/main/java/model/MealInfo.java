@@ -904,5 +904,3 @@ public class MealInfo
                 + "'\n}";
     }
 }
-
-
