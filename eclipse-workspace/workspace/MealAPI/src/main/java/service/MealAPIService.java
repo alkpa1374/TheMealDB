@@ -198,7 +198,7 @@ public class MealAPIService
 	
 	      //Extraction of the "meals" array from JSON
 	      JsonNode mealsNode = root.get("meals");
-	
+	      
 	      //Conversion of "meals" JSON array into a List<Meal>
 	      List<Meal> mResults = mapper.convertValue
 		  (
@@ -237,7 +237,6 @@ public class MealAPIService
 	          //Addition of converted MealInfo object to result list
 	          mealInfoList.add(mi);
 	      }
-	
 	  } 
 	   //Throwing of an exception when API URL is malformed
 	  catch (URISyntaxException e) 
@@ -255,6 +254,10 @@ public class MealAPIService
 	  catch (IOException e) 
 	  {
 	      throw new MealAPIException("Error requesting data from Meal API", e);
+	  }
+	  //Throwing of an exception when ID is string
+	  catch (IllegalArgumentException e) {
+		  throw new MealAPIException("Error requesting data from Meal API");
 	  }
 	
 	  //Return of search term meals matching final list
@@ -379,6 +382,3 @@ public class MealAPIService
 	  return mealInfoList;
 	}
 }
-
-
-
