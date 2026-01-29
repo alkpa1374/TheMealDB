@@ -101,12 +101,12 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 	 Button getMealByNameBtn, getSpecificMealBtn, getRandomMealBtn, addFavouriteBtn, addCookedBtn, getDetailsBtn, backBtn;
 
 	 //Label displaying text in the meal scene
-     Label textLbl = new Label("Parameter");
+	 Label textLbl = new Label("Parameter");
 
-     //TextField for user input or parameters in the meal scene
-     TextField paramField = new TextField();
+	 //TextField for user input or parameters in the meal scene
+	 TextField paramField = new TextField();
 
-     //table view for displaying of MealInfo objects list in a tabular form
+     //Table view for displaying of MealInfo objects list in a tabular form
      TableView<MealInfo> MealTableView;
 
      //Creation of a new list storing the favourite meals
@@ -122,16 +122,16 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
      //Constructor for meal scene creation
 	 public MealSceneCreator() 
 	 {
-		//Creation of the root grid pane
-        rootGridPane = new GridPane();
+		//Creation of root grid pane
+        	rootGridPane = new GridPane();
 
-        //Creation of the input fields pane
-        inputFieldsPane = new GridPane();
+        	//Creation of the input fields pane
+        	inputFieldsPane = new GridPane();
 
-        //Creation of the button flow pane
-        buttonFlowPane = new FlowPane();
+        	//Creation of the button flow pane
+        	buttonFlowPane = new FlowPane();
 
-        //Creation of buttons
+        	//Creation of buttons
 		getMealByNameBtn=new Button("Search a Meal By Name or Main Ingredient");
 		getSpecificMealBtn=new Button("Search a Meal By ID");
 		getRandomMealBtn=new Button("Get a Random Meal");
@@ -573,8 +573,8 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
 	//Method of a JavaFX Scene creation and return for this UI
     Scene createScene()
     {
-        //Creation of a new Scene using the grid pane as the root layout
-	    //Setting of the width of the scene to 650 pixels and the height to 300 pixels
+        //Creation of new Scene using grid pane as the root layout
+	    //Setting of width of scene to 650 pixels and height to 300 pixels
         return new Scene(rootGridPane, 650, 300);
     }
 
@@ -752,7 +752,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	        
-    	        //Writing of the updated list of favourite meals list to "favourite.json"
+    	        //Writing of updated list of favourite meals list to "favourite.json"
     	        mapper1.writeValue(new File("favourite.json"), FavMealList);
     	        
     	        //Printing of each favourite meal as a JSON string to console for verification
@@ -821,7 +821,7 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	            }
     	        }
     	        
-    	        //Writing of the updated list of cooked meals list to "cooked.json"
+    	        //Writing of updated list of cooked meals list to "cooked.json"
     	        mapper2.writeValue(new File("cooked.json"), CoMealList);
     	        
     	        //Printing of each cooked meal as a JSON string to console for verification
@@ -894,5 +894,3 @@ public class MealSceneCreator implements EventHandler<MouseEvent>
     	}
     }
 }
-
-
